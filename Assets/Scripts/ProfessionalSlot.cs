@@ -3,43 +3,14 @@ using System.Collections;
 
 public class ProfessionalSlot : MonoBehaviour
 {
-    public Professionals CurrentProfessional
-    {
-        get
-        {
-            return currentProfessional;
-        }
-
-        set
-        {
-            switch(value)
-            {
-                case Professionals.None:
-                    //Change portrait
-                    break;
-                case Professionals.Doctor:
-                    //Change portrait
-                    break;
-                case Professionals.Nurse:
-                    //Change portrait
-                    break;
-                case Professionals.Advocate:
-                    //Change portrait
-                    break;
-                case Professionals.CommOrg:
-                    //Change portrait
-                    break;
-            }
-
-            currentProfessional = value;
-        }
-    }
-    protected Professionals currentProfessional = Professionals.None;
     private GameManager _gameManager;
     private BoxCollider2D _myBoxCollider;
     private SpriteRenderer _mySpriteRenderer;
+    private bool _mousedOverWithAProfessional,
+                 _hasAProfessional;
 
-    public SpriteRenderer BorderSprite;
+    public SpriteRenderer BorderRenderer,
+                          PortraitRenderer;
 
     void Start()
     {
@@ -53,16 +24,35 @@ public class ProfessionalSlot : MonoBehaviour
         {
             if (_myBoxCollider.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)))
             {
-                BorderSprite.color = new Color(0, 150, 255);
+                BorderRenderer.color = new Color(0, 150, 255);
+
+                _mousedOverWithAProfessional = true;
             }
             else
             {
-                BorderSprite.color = new Color(0, 0, 0);
+                BorderRenderer.color = new Color(0, 0, 0);
+                _mousedOverWithAProfessional = false;
             }
         }
         else
         {
-            BorderSprite.color = new Color(0, 0, 0);
+            BorderRenderer.color = new Color(0, 0, 0);
+        }
+
+        if (_mousedOverWithAProfessional && Input.GetKeyUp(KeyCode.Mouse0))
+        {
+            _hasAProfessional = true;
+            _mousedOverWithAProfessional = false;
+            PortraitRenderer.sprite = _gameManager.SelectedProfessional.SlotPortrait;
+        }
+    }
+
+    void OnMouseDown()
+    {
+        if (_hasAProfessional)
+        {
+            _hasAProfessional = false;
+            PortraitRenderer.sprite = null;
         }
     }
 }

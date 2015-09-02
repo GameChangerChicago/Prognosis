@@ -3,9 +3,10 @@ using System.Collections;
 
 public class Professional : MonoBehaviour
 {
-    public Sprite TargetSlotImage;
+    public Sprite SlotPortrait;
     public GameObject DragObject;
 
+    private Professionals _myProfessionalType;
     private GameObject _dragObject;
     private GameManager _gameManager;
     private Vector2 mousePos;
@@ -51,7 +52,6 @@ public class Professional : MonoBehaviour
 
     void OnMouseDown()
     {
-        Debug.Log("Sup");
         _dragObject = Instantiate<GameObject>(DragObject);
         dragObjectInstantiated = true;
     }
