@@ -7,7 +7,7 @@ public class AnimationManager : MonoBehaviour {
 					  CreditCityMedium_2, MotionBlur, MainMenuScreen, PrognosisTitle,
 					  CreditText, CreditScreen, NewGameButton, CreditButton, HowToPlayButton, 
 					  CreditsBackButton;
-
+	private GameObject selectPlayerOption;
 
 
 
@@ -37,6 +37,23 @@ public class AnimationManager : MonoBehaviour {
 		StartCoroutine (name);
 	}
 
+	public void CoroutineWrapper(GameObject obj, string coroutineName){
+		selectPlayerOption = obj;
+		StartCoroutine (coroutineName);
+
+	}
+
+	public IEnumerator SelectPlayer(){
+
+		selectPlayerOption.GetComponent<Animator> ().Play("SelectBoxExpand");
+		yield return new WaitForSeconds (1);
+	}
+
+	public IEnumerator DeselectPlayer(){
+		selectPlayerOption.GetComponent<Animator> ().Play ("SelectBoxShrink");
+		yield return new WaitForSeconds (1);
+	}
+
 
 	public void MenuScreenActive(bool b){
 
@@ -53,6 +70,8 @@ public class AnimationManager : MonoBehaviour {
 		CreditText.SetActive (b);
 
 	}
+
+
 
 
 
