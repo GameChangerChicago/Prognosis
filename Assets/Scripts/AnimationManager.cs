@@ -3,10 +3,9 @@ using System.Collections;
 
 public class AnimationManager : MonoBehaviour {
 
-	public GameObject CreditsSky, CreditCityExtraLarge, CreditTreeMedium_1, 
-					  CreditCityMedium_2, MotionBlur, MainMenuScreen, PrognosisTitle,
-					  CreditText, CreditScreen, NewGameButton, CreditButton, HowToPlayButton, 
-					  CreditsBackButton;
+	public GameObject motionBlur, mainMenuScreen,
+					  creditText, creditScreen, newGameButton, creditButton, howToPlayButton, 
+					  creditsBackButton, selectScreen;
 	private GameObject selectPlayerOption;
 
 
@@ -17,20 +16,37 @@ public class AnimationManager : MonoBehaviour {
 
 	private IEnumerator rollCredits (){
 
-		MotionBlur.GetComponent<Animator>().Play ("FadeIn");
-		yield return new WaitForSeconds(1);
+		motionBlur.GetComponent<Animator> ().Play ("FadeIn");
+		yield return new WaitForSeconds (1);
 		MenuScreenActive (false);
 		CreditScreenActive (true);
-		MotionBlur.GetComponent<Animator> ().Play ("FadeOut");
-		CreditText.GetComponent<Animator> ().Play ("RollCredits", -1, 0.0f);
+		motionBlur.GetComponent<Animator> ().Play ("FadeOut");
+		creditText.GetComponent<Animator> ().Play ("RollCredits", -1, 0.0f);
 		yield return new WaitForSeconds(32);
-		MotionBlur.GetComponent<Animator> ().Play ("FadeIn");
-		yield return new WaitForSeconds (1);
 		MenuScreenActive (true);
 		CreditScreenActive (false);
-		MotionBlur.GetComponent<Animator> ().Play ("FadeOut");
+		motionBlur.GetComponent<Animator> ().Play ("FadeIn");
+		yield return new WaitForSeconds (1);
+		motionBlur.GetComponent<Animator> ().Play ("FadeOut");
 
 	}
+
+	public IEnumerator playerSelectionScreen(){
+		
+		motionBlur.GetComponent<Animator> ().Play ("FadeIn");
+		yield return new WaitForSeconds (1);
+		MenuScreenActive (false);
+		creditsBackButton.SetActive (false);
+		creditScreen.SetActive (true);
+		selectScreen.SetActive (true);
+		motionBlur.GetComponent<Animator> ().Play ("FadeOut");
+		yield return new WaitForSeconds (1);
+		motionBlur.GetComponent<Animator> ().Play ("FadeOut");
+
+		
+		
+	}
+	
 
 	
 	public void CoroutineWrapper(string name){
@@ -55,21 +71,26 @@ public class AnimationManager : MonoBehaviour {
 	}
 
 
+
+
+
 	public void MenuScreenActive(bool b){
 
-		MainMenuScreen.SetActive (b);
-		CreditButton.SetActive (b);
-		CreditsBackButton.SetActive (!b);
-		HowToPlayButton.SetActive (b);
-		NewGameButton.SetActive (b);
+		mainMenuScreen.SetActive (b);
+		creditButton.SetActive (b);
+		creditsBackButton.SetActive (!b);
+		howToPlayButton.SetActive (b);
+		newGameButton.SetActive (b);
 
 	}
 
 	public void CreditScreenActive(bool b){
-		CreditScreen.SetActive (b);
-		CreditText.SetActive (b);
+		creditScreen.SetActive (b);
+		creditText.SetActive (b);
 
 	}
+
+
 
 
 
