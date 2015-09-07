@@ -23,10 +23,10 @@ public class AnimationManager : MonoBehaviour {
 		motionBlur.GetComponent<Animator> ().Play ("FadeOut");
 		creditText.GetComponent<Animator> ().Play ("RollCredits", -1, 0.0f);
 		yield return new WaitForSeconds(32);
-		MenuScreenActive (true);
-		CreditScreenActive (false);
 		motionBlur.GetComponent<Animator> ().Play ("FadeIn");
 		yield return new WaitForSeconds (1);
+		MenuScreenActive (true);
+		CreditScreenActive (false);
 		motionBlur.GetComponent<Animator> ().Play ("FadeOut");
 
 	}

@@ -9,19 +9,9 @@ public class PlayerManager : MonoBehaviour {
 	private string selectedPlayer;
 	private GameObject ConfirmSelectionMenuText;
 
-	// Use this for initialization
-	void Start () {
-	
+	public void Awake(){
 
-
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-		Debug.Log (selectedPlayer);
-	
-
+		DontDestroyOnLoad(this.gameObject);
 	}
 
 	public void SetPlayer(string name){
