@@ -26,28 +26,21 @@ public class SelectPlayer : MonoBehaviour {
 
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
 
 	void OnMouseOver(){
 
-		Debug.Log ("Hovering");
 		animationManager.CoroutineWrapper(this.gameObject, "SelectPlayer");
 
 	}
 
 	void OnMouseExit(){
-		Debug.Log ("No longer hovering!");
 		animationManager.CoroutineWrapper (this.gameObject, "DeselectPlayer");
 	}
 
 	void OnMouseDown(){
 
-		Debug.Log ("Are you sure you want to play as " + this.name + "?");
 		playerManager.SetPlayer (this.name);
-
 		ConfirmSelectionMenuText.GetComponent<Text>().text =  "Are you sure you want to play as " 
 			+ this.name + "?";
 		
