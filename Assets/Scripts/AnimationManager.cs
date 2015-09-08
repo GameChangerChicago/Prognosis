@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AnimationManager : MonoBehaviour {
+public class AnimationManager : MonoBehaviour
+{
 
 	public GameObject motionBlur, mainMenuScreen,
-					  creditText, creditScreen, newGameButton, creditButton, howToPlayButton, 
-					  creditsBackButton, selectScreen;
+		creditText, creditScreen, newGameButton, creditButton, howToPlayButton, 
+		creditsBackButton, selectScreen;
 	private GameObject selectPlayerOption;
 
 
@@ -14,7 +15,8 @@ public class AnimationManager : MonoBehaviour {
 
 
 
-	private IEnumerator rollCredits (){
+	private IEnumerator rollCredits ()
+	{
 
 		motionBlur.GetComponent<Animator> ().Play ("FadeIn");
 		yield return new WaitForSeconds (1);
@@ -22,7 +24,7 @@ public class AnimationManager : MonoBehaviour {
 		CreditScreenActive (true);
 		motionBlur.GetComponent<Animator> ().Play ("FadeOut");
 		creditText.GetComponent<Animator> ().Play ("RollCredits", -1, 0.0f);
-		yield return new WaitForSeconds(32);
+		yield return new WaitForSeconds (32);
 		motionBlur.GetComponent<Animator> ().Play ("FadeIn");
 		yield return new WaitForSeconds (1);
 		MenuScreenActive (true);
@@ -31,7 +33,8 @@ public class AnimationManager : MonoBehaviour {
 
 	}
 
-	public IEnumerator playerSelectionScreen(){
+	public IEnumerator playerSelectionScreen ()
+	{
 		
 		motionBlur.GetComponent<Animator> ().Play ("FadeIn");
 		yield return new WaitForSeconds (1);
@@ -47,34 +50,33 @@ public class AnimationManager : MonoBehaviour {
 		
 	}
 	
-
-	
-	public void CoroutineWrapper(string name){
+	public void CoroutineWrapper (string name)
+	{
 		StartCoroutine (name);
 	}
 
-	public void CoroutineWrapper(GameObject obj, string coroutineName){
+	public void CoroutineWrapper (GameObject obj, string coroutineName)
+	{
 		selectPlayerOption = obj;
 		StartCoroutine (coroutineName);
 
 	}
 
-	public IEnumerator SelectPlayer(){
+	public IEnumerator SelectPlayer ()
+	{
 
-		selectPlayerOption.GetComponent<Animator> ().Play("SelectBoxExpand");
+		selectPlayerOption.GetComponent<Animator> ().Play ("SelectBoxExpand");
 		yield return new WaitForSeconds (1);
 	}
 
-	public IEnumerator DeselectPlayer(){
+	public IEnumerator DeselectPlayer ()
+	{
 		selectPlayerOption.GetComponent<Animator> ().Play ("SelectBoxShrink");
 		yield return new WaitForSeconds (1);
 	}
 
-
-
-
-
-	public void MenuScreenActive(bool b){
+	public void MenuScreenActive (bool b)
+	{
 
 		mainMenuScreen.SetActive (b);
 		creditButton.SetActive (b);
@@ -84,7 +86,8 @@ public class AnimationManager : MonoBehaviour {
 
 	}
 
-	public void CreditScreenActive(bool b){
+	public void CreditScreenActive (bool b)
+	{
 		creditScreen.SetActive (b);
 		creditText.SetActive (b);
 

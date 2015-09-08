@@ -35,6 +35,7 @@ public class SelectPlayer : MonoBehaviour {
 	}
 
 	void OnMouseExit(){
+
 		animationManager.CoroutineWrapper (this.gameObject, "DeselectPlayer");
 	}
 
