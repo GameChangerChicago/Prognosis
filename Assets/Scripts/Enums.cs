@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public enum Professionals
+public enum ProfessionalType
 {
     None,
     Doctor,

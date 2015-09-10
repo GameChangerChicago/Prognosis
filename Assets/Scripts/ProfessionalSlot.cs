@@ -6,6 +6,8 @@ public class ProfessionalSlot : MonoBehaviour
     private GameManager _gameManager;
     private BoxCollider2D _myBoxCollider;
     private SpriteRenderer _mySpriteRenderer;
+    private Professional _currentProfesional;
+    private TargetLocation _myTargetLocation;
     private bool _mousedOverWithAProfessional,
                  _hasAProfessional;
 
@@ -15,6 +17,7 @@ public class ProfessionalSlot : MonoBehaviour
     void Start()
     {
         _gameManager = FindObjectOfType<GameManager>();
+        _myTargetLocation = this.transform.parent.GetComponentInParent<TargetLocation>();
         _myBoxCollider = this.GetComponent<BoxCollider2D>();
     }
 
@@ -25,7 +28,6 @@ public class ProfessionalSlot : MonoBehaviour
             if (_myBoxCollider.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)))
             {
                 BorderRenderer.color = new Color(0, 150, 255);
-
                 _mousedOverWithAProfessional = true;
             }
             else
@@ -43,14 +45,17 @@ public class ProfessionalSlot : MonoBehaviour
         {
             _hasAProfessional = true;
             _mousedOverWithAProfessional = false;
+            _gameManager.SelectedProfessional.ProfessionalCount--;
+            _currentProfesional = _gameManager.SelectedProfessional;
             PortraitRenderer.sprite = _gameManager.SelectedProfessional.SlotPortrait;
         }
     }
 
     void OnMouseDown()
     {
-        if (_hasAProfessional)
+        if (_hasAProfessional && !_myTargetLocation.Locked)
         {
+            _currentProfesional.ProfessionalCount--;
             _hasAProfessional = false;
             PortraitRenderer.sprite = null;
         }

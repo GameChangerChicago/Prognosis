@@ -5,8 +5,9 @@ public class Professional : MonoBehaviour
 {
     public Sprite SlotPortrait;
     public GameObject DragObject;
+    public ProfessionalType MyProfessionalType;
+    public int ProfessionalCount;
 
-    private Professionals _myProfessionalType;
     private GameObject _dragObject;
     private GameManager _gameManager;
     private Vector2 mousePos;
@@ -47,12 +48,14 @@ public class Professional : MonoBehaviour
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             _dragObject.transform.position = mousePos;
         }
-
     }
 
     void OnMouseDown()
     {
-        _dragObject = Instantiate<GameObject>(DragObject);
-        dragObjectInstantiated = true;
+        if (ProfessionalCount > 0)
+        {
+            _dragObject = Instantiate<GameObject>(DragObject);
+            dragObjectInstantiated = true;
+        }
     }
 }
