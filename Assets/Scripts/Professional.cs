@@ -21,8 +21,12 @@ public class Professional : MonoBehaviour
 
         set
         {
+            if (value)
+            {
+                _gameManager.SelectedProfessional = this;
+            }
+
             _gameManager.DragObjectInstantiated = value;
-            _gameManager.SelectedProfessional = this;
             _dragObjectInstantiated = value;
         }
     }

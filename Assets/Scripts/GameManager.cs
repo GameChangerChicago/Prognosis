@@ -8,7 +8,6 @@ public class GameManager : MonoBehaviour
                  Education;
     public bool DragObjectInstantiated;
 
-
     public int CurrentTurn
     {
         get
@@ -20,7 +19,10 @@ public class GameManager : MonoBehaviour
         {
             if (_currentTurn != value)
             {
-                //Call ever update values
+                foreach (TargetLocation tl in FindObjectsOfType<TargetLocation>())
+                {
+                    tl.UpdateValues();
+                }
             }
             _currentTurn = value;
         }
