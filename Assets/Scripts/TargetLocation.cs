@@ -57,6 +57,7 @@ public class TargetLocation : MonoBehaviour
 
     void Update()
     {
+        //This is the useless send/recal button stuff
         if (LockRecallButton.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)) && Input.GetKeyDown(KeyCode.Mouse0))
         {
             //Possibly show butten being pressed
@@ -126,7 +127,6 @@ public class TargetLocation : MonoBehaviour
         {
             if (ProSlots[i].CurrentProfesional != null)
             {
-                Debug.Log(ProSlots[i].CurrentProfesional.MyProfessionalType);
                 switch (ProSlots[i].CurrentProfesional.MyProfessionalType)
                 {
                     case ProfessionalType.Doctor:
