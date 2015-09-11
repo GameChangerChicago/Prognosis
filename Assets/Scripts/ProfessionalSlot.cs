@@ -6,11 +6,11 @@ public class ProfessionalSlot : MonoBehaviour
     private GameManager _gameManager;
     private BoxCollider2D _myBoxCollider;
     private SpriteRenderer _mySpriteRenderer;
-    private Professional _currentProfesional;
     private TargetLocation _myTargetLocation;
     private bool _mousedOverWithAProfessional,
                  _hasAProfessional;
 
+    public Professional CurrentProfesional;
     public SpriteRenderer BorderRenderer,
                           PortraitRenderer;
 
@@ -46,7 +46,7 @@ public class ProfessionalSlot : MonoBehaviour
             _hasAProfessional = true;
             _mousedOverWithAProfessional = false;
             _gameManager.SelectedProfessional.ProfessionalCount--;
-            _currentProfesional = _gameManager.SelectedProfessional;
+            CurrentProfesional = _gameManager.SelectedProfessional;
             PortraitRenderer.sprite = _gameManager.SelectedProfessional.SlotPortrait;
         }
     }
@@ -55,7 +55,7 @@ public class ProfessionalSlot : MonoBehaviour
     {
         if (_hasAProfessional && !_myTargetLocation.Locked)
         {
-            _currentProfesional.ProfessionalCount--;
+            CurrentProfesional.ProfessionalCount--;
             _hasAProfessional = false;
             PortraitRenderer.sprite = null;
         }
