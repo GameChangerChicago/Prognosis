@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Professional : MonoBehaviour
@@ -11,6 +12,7 @@ public class Professional : MonoBehaviour
     private GameObject _dragObject;
     private GameManager _gameManager;
     private Vector2 mousePos;
+	private ScrollRect scrollRect;
 
     protected bool dragObjectInstantiated
     {
@@ -35,6 +37,8 @@ public class Professional : MonoBehaviour
     void Start()
     {
         _gameManager = FindObjectOfType<GameManager>();
+		scrollRect = FindObjectOfType<Canvas> ().GetComponent<ScrollRect> ();
+
     }
 
     void Update()
@@ -45,12 +49,17 @@ public class Professional : MonoBehaviour
                 Destroy(_dragObject);
 
             dragObjectInstantiated = false;
+			scrollRect.enabled = true;
+
         }
 
         if (dragObjectInstantiated)
         {
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             _dragObject.transform.position = mousePos;
+			scrollRect.StopMovement();
+			scrollRect.enabled = false;
+			Debug.Log (scrollRect.enabled);
         }
     }
 

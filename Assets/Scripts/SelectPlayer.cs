@@ -8,6 +8,7 @@ public class SelectPlayer : MonoBehaviour {
 	private AnimationManager animationManager;
 	private GameObject ConfirmSelectionMenu, ConfirmSelectionMenuText;
 	private PlayerManager playerManager;
+	private AudioSource audioSource;
 
 	// Use this for initialization
 	void Awake(){
@@ -16,6 +17,7 @@ public class SelectPlayer : MonoBehaviour {
 		ConfirmSelectionMenu = GameObject.Find ("ConfirmSelectionMenu");
 		playerManager.AddPlayers(this.gameObject);
 		ConfirmSelectionMenuText = GameObject.Find ("ConfirmSelectionMenuText");
+		audioSource = this.GetComponent<AudioSource> ();
 	}
 
 
@@ -40,6 +42,7 @@ public class SelectPlayer : MonoBehaviour {
 
 	void OnMouseDown(){
 
+		audioSource.Play ();
 		playerManager.SetPlayer (this.name);
 		ConfirmSelectionMenuText.GetComponent<Text>().text =  "Are you sure you want to play as " 
 			+ this.name + "?";
