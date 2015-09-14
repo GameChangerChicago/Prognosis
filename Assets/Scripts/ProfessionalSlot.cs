@@ -55,7 +55,7 @@ public class ProfessionalSlot : MonoBehaviour
     {
         if (_hasAProfessional && !_myTargetLocation.Locked)
         {
-            CurrentProfesional.ProfessionalCount--;
+            CurrentProfesional.ProfessionalCount++;
             _hasAProfessional = false;
             PortraitRenderer.sprite = null;
         }
