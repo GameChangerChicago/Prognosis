@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class TargetLocation : MonoBehaviour
 {
     public GameObject TargetMenu;
-    public BoxCollider2D LockRecallButton;
+   	public BoxCollider2D LockRecallButton;
 	public GameObject spriteHighlight;
 
 	public SpriteRenderer spriteRenderer;
@@ -34,12 +34,12 @@ public class TargetLocation : MonoBehaviour
                 {
                     TargetMenu.SetActive(value);
 					spriteHighlight.SetActive (value);
-					spriteRenderer.enabled = !value;
                     PM.Active = true;
                 }
                 else
                 {
                     TargetMenu.SetActive(value);
+					spriteHighlight.SetActive (value);
 
                 }
 
