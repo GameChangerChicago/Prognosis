@@ -7,6 +7,8 @@ public class TargetLocation : MonoBehaviour
     public GameObject TargetMenu;
     public BoxCollider2D LockRecallButton;
 	public GameObject spriteHighlight;
+
+	public SpriteRenderer spriteRenderer;
     public ProfessionalSlot[] ProSlots;
     public float STIRate,
                  TeenPregRate,
@@ -32,12 +34,13 @@ public class TargetLocation : MonoBehaviour
                 {
                     TargetMenu.SetActive(value);
 					spriteHighlight.SetActive (value);
+					spriteRenderer.enabled = !value;
                     PM.Active = true;
                 }
                 else
                 {
                     TargetMenu.SetActive(value);
-					spriteHighlight.SetActive (value);
+
                 }
 
                 _active = value;
@@ -51,12 +54,17 @@ public class TargetLocation : MonoBehaviour
     private GameManager _gameManager;
     private int _currentTurn;
 
+
+	private Color defaultColor;
+	public Color color;
+
     void Start()
     {
         _gameManager = FindObjectOfType<GameManager>();
         PM = FindObjectOfType<ProfessionalsMenu>();
         _otherTargetLocs.AddRange(FindObjectsOfType<TargetLocation>());
         _otherTargetLocs.Remove(this);
+		defaultColor = spriteRenderer.color;
     }
 
     void Update()
@@ -73,6 +81,14 @@ public class TargetLocation : MonoBehaviour
             Locked = !Locked;
         }
     }
+
+	void OnMouseOver(){
+		spriteRenderer.color = color;
+	}
+
+	void OnMouseExit(){
+		spriteRenderer.color = defaultColor;
+	}
 
     void OnMouseDown()
     {
