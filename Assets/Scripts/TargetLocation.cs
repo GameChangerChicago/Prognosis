@@ -6,6 +6,7 @@ public class TargetLocation : MonoBehaviour
 {
     public GameObject TargetMenu;
     public BoxCollider2D LockRecallButton;
+	public GameObject spriteHighlight;
     public ProfessionalSlot[] ProSlots;
     public float STIRate,
                  TeenPregRate,
@@ -14,6 +15,7 @@ public class TargetLocation : MonoBehaviour
                  TeenPregEffectPerTurn,
                  CommHealthEffectPerTurn;
     public bool Locked;
+
 
     public bool Active
     {
@@ -29,11 +31,13 @@ public class TargetLocation : MonoBehaviour
                 if (value)
                 {
                     TargetMenu.SetActive(value);
+					spriteHighlight.SetActive (value);
                     PM.Active = true;
                 }
                 else
                 {
                     TargetMenu.SetActive(value);
+					spriteHighlight.SetActive (value);
                 }
 
                 _active = value;
@@ -73,9 +77,11 @@ public class TargetLocation : MonoBehaviour
     void OnMouseDown()
     {
         Active = true;
+		//spriteHighlight.SetActive (true);
         foreach (TargetLocation tl in _otherTargetLocs)
         {
             tl.Active = false;
+			//tl.spriteHighlight.SetActive (false);
         }
     }
 
