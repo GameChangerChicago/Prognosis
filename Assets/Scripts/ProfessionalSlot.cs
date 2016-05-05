@@ -25,20 +25,18 @@ public class ProfessionalSlot : MonoBehaviour
 
     void Update()
     {
-        if (_gameManager.DragObjectInstantiated)
-        {
-            if (_myBoxCollider.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)))
-            {
-                BorderRenderer.color = new Color(0, 150, 255);
-                _mousedOverWithAProfessional = true;
-				Debug.Log("Collision detected");
-            }
-            else
-            {
-                //BorderRenderer.color = new Color(0, 0, 0);
-                _mousedOverWithAProfessional = false;
-            }
-        }
+        if (_gameManager.DragObjectInstantiated) {
+			if (!_myTargetLocation.Locked) {
+				if (_myBoxCollider.OverlapPoint (Camera.main.ScreenToWorldPoint (Input.mousePosition))) {
+					BorderRenderer.color = new Color (0, 150, 255);
+					_mousedOverWithAProfessional = true;
+					Debug.Log ("Collision detected");
+				} else {
+					//BorderRenderer.color = new Color(0, 0, 0);
+					_mousedOverWithAProfessional = false;
+				}
+			}
+		}
 //        else
 //        {
 //            BorderRenderer.color = new Color(0, 0, 0);
@@ -50,6 +48,7 @@ public class ProfessionalSlot : MonoBehaviour
             _mousedOverWithAProfessional = false;
             _gameManager.SelectedProfessional.ProfessionalCount--;
             CurrentProfesional = _gameManager.SelectedProfessional;
+			//_myTargetLocation.ProSlots.Add(this);
             PortraitRenderer.sprite = _gameManager.SelectedProfessional.SlotPortrait;
         }
     }
@@ -59,6 +58,7 @@ public class ProfessionalSlot : MonoBehaviour
         if (_hasAProfessional && !_myTargetLocation.Locked)
         {
             CurrentProfesional.ProfessionalCount++;
+		//	_myTargetLocation.ProSlots.Remove(this);
             _hasAProfessional = false;
             PortraitRenderer.sprite = null;
         }

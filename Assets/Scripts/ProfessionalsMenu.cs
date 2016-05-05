@@ -15,9 +15,9 @@ public class ProfessionalsMenu : MonoBehaviour
             if (active != value)
             {
                 if (value)
-                    _targetLoc = this.transform.position.y + 2;
+                    _targetLoc = this.transform.position.y + 1.8f;
                 else
-                    _targetLoc = this.transform.position.y - 2;
+                    _targetLoc = this.transform.position.y - 1.8f;
 
                 _finishedMoving = false;
                 active = value;

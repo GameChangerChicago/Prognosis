@@ -15,7 +15,7 @@ public class AnimationManager : MonoBehaviour {
 
 
 	private IEnumerator rollCredits (){
-
+		motionBlur.SetActive (true);
 		motionBlur.GetComponent<Animator> ().Play ("FadeIn");
 		yield return new WaitForSeconds (1);
 		MenuScreenActive (false);
@@ -32,7 +32,7 @@ public class AnimationManager : MonoBehaviour {
 	}
 
 	public IEnumerator playerSelectionScreen(){
-		
+		motionBlur.SetActive (true);
 		motionBlur.GetComponent<Animator> ().Play ("FadeIn");
 		yield return new WaitForSeconds (1);
 		MenuScreenActive (false);
@@ -48,7 +48,17 @@ public class AnimationManager : MonoBehaviour {
 	}
 	
 
-	
+	public IEnumerator loadLevel(){
+		motionBlur.GetComponent<Animator> ().Play ("FadeIn");
+		yield return new WaitForSeconds (2);
+		DontDestroyOnLoad (this);
+		DontDestroyOnLoad (motionBlur);
+		Application.LoadLevel (1);
+		motionBlur.GetComponent<Animator> ().Play ("FadeOut");
+		yield return new WaitForSeconds (1);
+
+
+	}
 	public void CoroutineWrapper(string name){
 		StartCoroutine (name);
 	}

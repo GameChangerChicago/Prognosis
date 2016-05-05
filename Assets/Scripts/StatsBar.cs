@@ -10,6 +10,7 @@ public class StatsBar : MonoBehaviour {
 	private TimerController timer;
 
 
+
 	// Use this for initialization
 	void Start () {
 	

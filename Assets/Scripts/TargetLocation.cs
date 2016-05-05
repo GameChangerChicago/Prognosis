@@ -7,9 +7,12 @@ public class TargetLocation : MonoBehaviour
     public GameObject TargetMenu;
    	public BoxCollider2D LockRecallButton;
 	public GameObject spriteHighlight;
+	public AudioClip mhuRecall, mhuLock, clickDisabled;
+	private AudioSource audioSource;
 
 	public SpriteRenderer spriteRenderer;
-    public ProfessionalSlot[] ProSlots;
+	public GameObject lockButtonRenderer, recallButtonRenderer;
+	public ProfessionalSlot[] ProSlots;
     public float STIRate,
                  TeenPregRate,
                  CommunityHealth,
@@ -52,7 +55,7 @@ public class TargetLocation : MonoBehaviour
     private List<TargetLocation> _otherTargetLocs = new List<TargetLocation>();
     private ProfessionalsMenu PM;
     private GameManager _gameManager;
-    private int _currentTurn;
+    public int _currentTurn;
 
 
 	private Color defaultColor;
@@ -65,21 +68,76 @@ public class TargetLocation : MonoBehaviour
         _otherTargetLocs.AddRange(FindObjectsOfType<TargetLocation>());
         _otherTargetLocs.Remove(this);
 		defaultColor = spriteRenderer.color;
+		audioSource = gameObject.AddComponent<AudioSource>();
+		audioSource.clip = Resources.Load(name) as AudioClip;
+		audioSource.Play();
+
     }
 
     void Update()
+	
     {
+		if (_currentTurn != _gameManager.CurrentTurn) {
+			//_currentTurn = _gameManager.CurrentTurn;
+
+			if(Locked)
+				recallButtonRenderer.GetComponent<SpriteRenderer>().color = Color.white;
+		}
+
+		Debug.Log (_currentTurn + " of Target Location");
         if (LockRecallButton.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)) && Input.GetKeyDown(KeyCode.Mouse0))
         {
-            //Possibly show butten being pressed
-        }
-        if (LockRecallButton.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)) && Input.GetKeyUp(KeyCode.Mouse0) && _currentTurn != _gameManager.CurrentTurn)
-        {
-            if (!Locked)
-                _currentTurn = _gameManager.CurrentTurn;
+			//recallButtonRenderer.GetComponent<SpriteRenderer>().color = lockButtonRenderer.GetComponent<SpriteRenderer>().color = Color.grey;
 
-            Locked = !Locked;
+
+
+			if(!Locked && _currentTurn != _gameManager.CurrentTurn){
+				_currentTurn = _gameManager.CurrentTurn;
+				Locked =!Locked;
+				audioSource.clip = mhuLock;
+				audioSource.Play();
+				lockButtonRenderer.SetActive(false);
+				recallButtonRenderer.SetActive(true);
+				recallButtonRenderer.GetComponent<SpriteRenderer>().color = Color.white;
+
+			}else if(Locked && _currentTurn == _gameManager.CurrentTurn){
+
+
+				audioSource.clip = clickDisabled;
+				audioSource.Play ();
+
+			}else if (Locked && _currentTurn != _gameManager.CurrentTurn){
+				_currentTurn = _gameManager.CurrentTurn;
+				Locked =!Locked;
+				lockButtonRenderer.SetActive(true);
+				recallButtonRenderer.SetActive(false);
+				audioSource.clip = mhuRecall;
+				audioSource.Play();
+
+			}else{ //if location is not locked and the current turn is  equal to the game manager's current turn
+				_currentTurn = _gameManager.CurrentTurn;
+				Locked =!Locked;
+				audioSource.clip = mhuLock;
+				audioSource.Play();
+				lockButtonRenderer.SetActive(false);
+				recallButtonRenderer.SetActive(true);
+				recallButtonRenderer.GetComponent<SpriteRenderer>().color = new Color (.6f, .6f, .6f);
+			}
+
+			if(_currentTurn!= _gameManager.CurrentTurn)
+				recallButtonRenderer.GetComponent<SpriteRenderer>().color = Color.white;
+
+
+
         }
+//        if (LockRecallButton.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)) && Input.GetKeyUp(KeyCode.Mouse0) && _currentTurn != _gameManager.CurrentTurn)
+//        {
+//            if (!Locked)
+//                _currentTurn = _gameManager.CurrentTurn;
+//
+//            Locked = !Locked;
+//
+//        }
     }
 
 	void OnMouseOver(){
@@ -158,7 +216,7 @@ public class TargetLocation : MonoBehaviour
                         break;
                     case ProfessionalType.Nurse:
                         TeenPregChange -= 10 + FinancialModifier;
-                        STIChange -= 5 + FinancialModifier;
+                        STIChange -= 10 + FinancialModifier;
                         STIChangeCount++;
                         TeenPregChangeCount++;
                         break;

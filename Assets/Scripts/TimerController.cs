@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class TimerController : MonoBehaviour
@@ -8,14 +9,21 @@ public class TimerController : MonoBehaviour
     public float Timer,
                  TimeLimit;
     public bool TimerActive;
+	public Image clockRenderer;
+	public Text  timerText;
 
     private GameManager _gameManager;
-    private SpriteRenderer _pauseRenderer;
+    public SpriteRenderer _pauseRenderer, playRenderer;
+	private int countDownTimer;
+
 
     void Start()
     {
         _gameManager = FindObjectOfType<GameManager>();
-        _pauseRenderer = PausePlay.GetComponentInChildren<SpriteRenderer>();
+		//playRenderer.enabled = false;
+       // _pauseRenderer = PausePlay.GetComponentInChildren<SpriteRenderer>();
+		//playRenderer = PausePlay.GetComponentInChildren<SpriteRenderer> ();
+
     }
 
     void Update()
@@ -23,6 +31,11 @@ public class TimerController : MonoBehaviour
         if (TimerActive)
         {
             Timer += Time.deltaTime;
+			clockRenderer.fillAmount = 1 - Timer / 100f;
+			//countDownTimer = Mathf.CeilToInt(TimeLimit - Timer);
+			//timerText.text = countDownTimer.ToString();
+
+			timerText.text = (_gameManager.CurrentTurn + 1).ToString();
         }
 
         if (Timer > TimeLimit)
@@ -41,11 +54,15 @@ public class TimerController : MonoBehaviour
         {
             if (TimerActive)
             {
+				playRenderer.enabled = true;
                 _pauseRenderer.enabled = false;
+
             }
             else
             {
+				playRenderer.enabled = false;
                 _pauseRenderer.enabled = true;
+
             }
 
             TimerActive = !TimerActive;

@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour
     public float Finance,
                  Education;
     public bool DragObjectInstantiated;
+	public bool winning;
+	private AudioSource audioSource;
+
 
     #region World Health Rates
     public float WorldSTIRate
@@ -94,23 +97,30 @@ public class GameManager : MonoBehaviour
         {
             if (_currentTurn != value)
             {
-                foreach (TargetLocation tl in FindObjectsOfType<TargetLocation>())
+               
+				foreach (TargetLocation tl in FindObjectsOfType<TargetLocation>())
                 {
                     tl.UpdateValues();
+					tl._currentTurn = _currentTurn;
+
                 }
 
-                if (WorldTeenPregRate < 21)
+                if (WorldTeenPregRate < 20)
                 {
                     _goalTurnCount++;
 
-                    if (_goalTurnCount > 15)
+
+                    if (_goalTurnCount > 2)
                     {
+						winning = true;
                         Debug.Log("YOU WIN!!!!!");
+
                     }
                 }
                 else
                 {
                     _goalTurnCount = 0;
+
                 }
             }
             _currentTurn = value;
@@ -122,6 +132,12 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        
+		Debug.Log (_currentTurn);
+		Debug.Log ("Goal Turn Count: "+ _goalTurnCount);
+		Debug.Log ("World Teen Preg: " + WorldTeenPregRate);
     }
+
+
+
+
 }

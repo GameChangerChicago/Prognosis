@@ -12,7 +12,7 @@ public class Professional : MonoBehaviour
     private GameObject _dragObject;
     private GameManager _gameManager;
     private Vector2 mousePos;
-	private ScrollRect scrollRect;
+	public ScrollRect scrollRect;
 
     protected bool dragObjectInstantiated
     {
@@ -37,7 +37,7 @@ public class Professional : MonoBehaviour
     void Start()
     {
         _gameManager = FindObjectOfType<GameManager>();
-		scrollRect = FindObjectOfType<Canvas> ().GetComponent<ScrollRect> ();
+		//scrollRect = FindObjectOfType<Canvas> ().GetComponent<ScrollRect> ();
 
     }
 
