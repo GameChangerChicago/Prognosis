@@ -250,6 +250,7 @@ public class TargetLocation : MonoBehaviour
         Mathf.Clamp(EducationChange, 0, 100);
 
         //I dont feel like explaining what this does and why. Suffice to say it's important.
+        //EDIT: It must be possible, somehow, to get either of these values over 2 so this keeps it at 2 since that should be the max
         Mathf.Clamp(FinanceChangeCount, 0, 2);
         Mathf.Clamp(EducationChangeCount, 0, 2);
 
