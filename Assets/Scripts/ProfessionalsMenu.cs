@@ -38,35 +38,35 @@ public class ProfessionalsMenu : MonoBehaviour
     
     void Start()
     {
-        DocLoc1 = GameObject.Find("Doctor Locations/Location1").GetComponent<Text>();
-        DocLoc2 = GameObject.Find("Doctor Locations/Location2").GetComponent<Text>();
-        DocLoc3 = GameObject.Find("Doctor Locations/Location3").GetComponent<Text>();
-        DocLoc4 = GameObject.Find("Doctor Locations/Location4").GetComponent<Text>();
-        DocLoc5 = GameObject.Find("Doctor Locations/Location5").GetComponent<Text>();
+        DocLoc1 = GameObject.Find("Doctor Locations/Location 1").GetComponent<Text>();
+        DocLoc2 = GameObject.Find("Doctor Locations/Location 2").GetComponent<Text>();
+        DocLoc3 = GameObject.Find("Doctor Locations/Location 3").GetComponent<Text>();
+        DocLoc4 = GameObject.Find("Doctor Locations/Location 4").GetComponent<Text>();
+        DocLoc5 = GameObject.Find("Doctor Locations/Location 5").GetComponent<Text>();
 
-        NurseLoc1 = GameObject.Find("Nurse Locations/Location1").GetComponent<Text>();
-        NurseLoc2 = GameObject.Find("Nurse Locations/Location2").GetComponent<Text>();
-        NurseLoc3 = GameObject.Find("Nurse Locations/Location3").GetComponent<Text>();
-        NurseLoc4 = GameObject.Find("Nurse Locations/Location4").GetComponent<Text>();
-        NurseLoc5 = GameObject.Find("Nurse Locations/Location5").GetComponent<Text>();
+        NurseLoc1 = GameObject.Find("Nurse Locations/Location 1").GetComponent<Text>();
+        NurseLoc2 = GameObject.Find("Nurse Locations/Location 2").GetComponent<Text>();
+        NurseLoc3 = GameObject.Find("Nurse Locations/Location 3").GetComponent<Text>();
+        NurseLoc4 = GameObject.Find("Nurse Locations/Location 4").GetComponent<Text>();
+        NurseLoc5 = GameObject.Find("Nurse Locations/Location 5").GetComponent<Text>();
 
-        COLoc1 = GameObject.Find("CO Locations/Location1").GetComponent<Text>();
-        COLoc2 = GameObject.Find("CO Locations/Location2").GetComponent<Text>();
-        COLoc3 = GameObject.Find("CO Locations/Location3").GetComponent<Text>();
-        COLoc4 = GameObject.Find("CO Locations/Location4").GetComponent<Text>();
-        COLoc5 = GameObject.Find("CO Locations/Location5").GetComponent<Text>();
+        COLoc1 = GameObject.Find("CO Locations/Location 1").GetComponent<Text>();
+        COLoc2 = GameObject.Find("CO Locations/Location 2").GetComponent<Text>();
+        COLoc3 = GameObject.Find("CO Locations/Location 3").GetComponent<Text>();
+        COLoc4 = GameObject.Find("CO Locations/Location 4").GetComponent<Text>();
+        COLoc5 = GameObject.Find("CO Locations/Location 5").GetComponent<Text>();
 
-        PolLoc1 = GameObject.Find("Politician Locations/Location1").GetComponent<Text>();
-        PolLoc2 = GameObject.Find("Politician Locations/Location2").GetComponent<Text>();
-        PolLoc3 = GameObject.Find("Politician Locations/Location3").GetComponent<Text>();
-        PolLoc4 = GameObject.Find("Politician Locations/Location4").GetComponent<Text>();
-        PolLoc5 = GameObject.Find("Politician Locations/Location5").GetComponent<Text>();
+        PolLoc1 = GameObject.Find("Politician Locations/Location 1").GetComponent<Text>();
+        PolLoc2 = GameObject.Find("Politician Locations/Location 2").GetComponent<Text>();
+        PolLoc3 = GameObject.Find("Politician Locations/Location 3").GetComponent<Text>();
+        PolLoc4 = GameObject.Find("Politician Locations/Location 4").GetComponent<Text>();
+        PolLoc5 = GameObject.Find("Politician Locations/Location 5").GetComponent<Text>();
 
-        AdvLoc1 = GameObject.Find("Advocate Locations/Location1").GetComponent<Text>();
-        AdvLoc2 = GameObject.Find("Advocate Locations/Location2").GetComponent<Text>();
-        AdvLoc3 = GameObject.Find("Advocate Locations/Location3").GetComponent<Text>();
-        AdvLoc4 = GameObject.Find("Advocate Locations/Location4").GetComponent<Text>();
-        AdvLoc5 = GameObject.Find("Advocate Locations/Location5").GetComponent<Text>();
+        AdvLoc1 = GameObject.Find("Advocate Locations/Location 1").GetComponent<Text>();
+        AdvLoc2 = GameObject.Find("Advocate Locations/Location 2").GetComponent<Text>();
+        AdvLoc3 = GameObject.Find("Advocate Locations/Location 3").GetComponent<Text>();
+        AdvLoc4 = GameObject.Find("Advocate Locations/Location 4").GetComponent<Text>();
+        AdvLoc5 = GameObject.Find("Advocate Locations/Location 5").GetComponent<Text>();
     }
 
     void Update()
@@ -101,7 +101,7 @@ public class ProfessionalsMenu : MonoBehaviour
 
     public void MoveUp()
     {
-
+        Debug.Log("UP!");
     }
 
     public void MoveDown()
