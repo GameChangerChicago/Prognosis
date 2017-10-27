@@ -12,6 +12,7 @@ public class TargetLocation : MonoBehaviour
 
 	public SpriteRenderer spriteRenderer;
 	public GameObject lockButtonRenderer, recallButtonRenderer;
+    public ProfessionalsMenu TheProfMenu;
 	public ProfessionalSlot[] ProSlots;
     public float STIRate,
                  TeenPregRate,
@@ -64,6 +65,7 @@ public class TargetLocation : MonoBehaviour
     void Start()
     {
         _gameManager = FindObjectOfType<GameManager>();
+        TheProfMenu = FindObjectOfType<ProfessionalsMenu>();
         PM = FindObjectOfType<ProfessionalsMenu>();
         _otherTargetLocs.AddRange(FindObjectsOfType<TargetLocation>());
         _otherTargetLocs.Remove(this);

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
-    public Professional SelectedProfessional;
+    public ProfessionalStack SelectedProfessional;
     public float Finance,
                  Education;
     public bool DragObjectInstantiated;

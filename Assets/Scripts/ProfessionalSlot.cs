@@ -10,7 +10,7 @@ public class ProfessionalSlot : MonoBehaviour
     private bool _mousedOverWithAProfessional,
                  _hasAProfessional;
 
-    public Professional CurrentProfesional;
+    public ProfessionalStack CurrentProfesional;
     public SpriteRenderer BorderRenderer,
                           PortraitRenderer;
 
@@ -47,6 +47,7 @@ public class ProfessionalSlot : MonoBehaviour
             _hasAProfessional = true;
             _mousedOverWithAProfessional = false;
             _gameManager.SelectedProfessional.ProfessionalCount--;
+            _myTargetLocation.TheProfMenu.PlaceAProfessional(_myTargetLocation.name, _gameManager.SelectedProfessional.MyProfessionalType);
             CurrentProfesional = _gameManager.SelectedProfessional;
 			//_myTargetLocation.ProSlots.Add(this);
             PortraitRenderer.sprite = _gameManager.SelectedProfessional.SlotPortrait;
@@ -58,6 +59,7 @@ public class ProfessionalSlot : MonoBehaviour
         if (_hasAProfessional && !_myTargetLocation.Locked)
         {
             CurrentProfesional.ProfessionalCount++;
+            _myTargetLocation.TheProfMenu.RetrieveProfessional(_myTargetLocation.name, CurrentProfesional.MyProfessionalType);
 		//	_myTargetLocation.ProSlots.Remove(this);
             _hasAProfessional = false;
             PortraitRenderer.sprite = null;

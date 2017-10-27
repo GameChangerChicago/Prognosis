@@ -2,13 +2,14 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class Professional : MonoBehaviour
+public class ProfessionalStack : MonoBehaviour
 {
     public Sprite SlotPortrait;
     public GameObject DragObject;
     public ProfessionalType MyProfessionalType;
     public int ProfessionalCount;
 
+    private ProfessionalsMenu _professionalMenu;
     private GameObject _dragObject;
     private GameManager _gameManager;
     private Vector2 mousePos;
@@ -37,8 +38,8 @@ public class Professional : MonoBehaviour
     void Start()
     {
         _gameManager = FindObjectOfType<GameManager>();
+        _professionalMenu = GetComponentInParent<ProfessionalsMenu>();
 		//scrollRect = FindObjectOfType<Canvas> ().GetComponent<ScrollRect> ();
-
     }
 
     void Update()
