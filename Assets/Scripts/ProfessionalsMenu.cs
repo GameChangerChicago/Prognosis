@@ -15,13 +15,10 @@ public class ProfessionalsMenu : MonoBehaviour
         {
             if (active != value)
             {
-                if (_targetLoc != _partialViewLoc || _targetLoc != _fullViewLoc)
-                {
-                    if (value)
-                        _targetLoc = _partialViewLoc;
-                    else
-                        _targetLoc = _partialViewLoc;
-                }
+                if (value)
+                    _targetLoc = this.transform.position.y + 1.8f;
+                else
+                    _targetLoc = this.transform.position.y - 1.8f;
 
                 _finishedMoving = false;
                 active = value;
@@ -36,10 +33,7 @@ public class ProfessionalsMenu : MonoBehaviour
                  PolLoc1, PolLoc2, PolLoc3, PolLoc4, PolLoc5,
                  AdvLoc1, AdvLoc2, AdvLoc3, AdvLoc4, AdvLoc5;
 
-    private float _targetLoc,
-                  _initialLoc,
-                  _partialViewLoc,
-                  _fullViewLoc;
+    private float _targetLoc;
     private bool _finishedMoving;
     
     void Start()
@@ -73,6 +67,7 @@ public class ProfessionalsMenu : MonoBehaviour
         AdvLoc3 = GameObject.Find("Advocate Locations/Location 3").GetComponent<Text>();
         AdvLoc4 = GameObject.Find("Advocate Locations/Location 4").GetComponent<Text>();
         AdvLoc5 = GameObject.Find("Advocate Locations/Location 5").GetComponent<Text>();
+<<<<<<< HEAD
 
         _initialLoc = this.transform.position.y;
         _targetLoc = _initialLoc;
@@ -218,6 +213,8 @@ public class ProfessionalsMenu : MonoBehaviour
             }
         }
         #endregion
+=======
+>>>>>>> parent of 18b0a19... New menu controls
     }
 
     void Update()
@@ -228,7 +225,7 @@ public class ProfessionalsMenu : MonoBehaviour
 
     private void PMMovement()
     {
-        if (this.transform.position.y < _targetLoc)
+        if (Active && this.transform.position.y < _targetLoc)
         {
             this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + Time.deltaTime * 5, this.transform.position.z);
 
@@ -238,7 +235,7 @@ public class ProfessionalsMenu : MonoBehaviour
                 _finishedMoving = true;
             }
         }
-        else if (this.transform.position.y > _targetLoc)
+        else if (!Active && this.transform.position.y > _targetLoc)
         {
             this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - Time.deltaTime * 5, this.transform.position.z);
 
@@ -252,38 +249,12 @@ public class ProfessionalsMenu : MonoBehaviour
 
     public void MoveUp()
     {
-        if (_targetLoc == _initialLoc)
-        {
-            _targetLoc = _partialViewLoc;
-            _finishedMoving = false;
-        }
-        else if (_targetLoc == _partialViewLoc)
-        {
-            _targetLoc = _fullViewLoc;
-            _finishedMoving = false;
-        }
-        else
-        {
-            Debug.Log("No go");
-        }
+        Debug.Log("UP!");
     }
 
     public void MoveDown()
     {
-        if (_targetLoc == _fullViewLoc)
-        {
-            _targetLoc = _partialViewLoc;
-            _finishedMoving = false;
-        }
-        else if (_targetLoc == _partialViewLoc)
-        {
-            _targetLoc = _initialLoc;
-            _finishedMoving = false;
-        }
-        else
-        {
-            Debug.Log("No go");
-        }
+
     }
 
     public void PlaceAProfessional(string targetLoc, ProfessionalType profType)
