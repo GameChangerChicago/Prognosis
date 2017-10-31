@@ -18,30 +18,25 @@ public class StatsBar : MonoBehaviour {
 		timer = FindObjectOfType<TimerController> ();
 		stiRateBar.fillAmount = location.STIRate / 100f;
 		teenPregRateBar.fillAmount = location.TeenPregRate / 100f;
-		commhealthBar.fillAmount = location.CommunityHealth/ 100f;
+		commhealthBar.fillAmount = location.CrimeRate/ 100f;
 	}
-	
-	// Update is called once per frame
-	void Update () {
 
-		if (stiRateBar.fillAmount < (location.STIRate/100f))
-				stiRateBar.fillAmount += changeOverTime/ timer.TimeLimit* Time.deltaTime ;
-		if (stiRateBar.fillAmount > (location.STIRate / 100f))
-			stiRateBar.fillAmount -= changeOverTime / timer.TimeLimit * Time.deltaTime;
+    // Update is called once per frame
+    void Update()
+    {
+        if (stiRateBar.fillAmount < (location.STIRate / 100f))
+            stiRateBar.fillAmount += changeOverTime / timer.TimeLimit * Time.deltaTime;
+        if (stiRateBar.fillAmount > (location.STIRate / 100f))
+            stiRateBar.fillAmount -= changeOverTime / timer.TimeLimit * Time.deltaTime;
+        
+        if (teenPregRateBar.fillAmount < (location.TeenPregRate / 100f))
+            teenPregRateBar.fillAmount += changeOverTime / timer.TimeLimit * Time.deltaTime;
+        if (teenPregRateBar.fillAmount > (location.TeenPregRate / 100f))
+            teenPregRateBar.fillAmount -= changeOverTime / timer.TimeLimit * Time.deltaTime;
 
-
-		if (teenPregRateBar.fillAmount < (location.TeenPregRate/ 100f))
-			teenPregRateBar.fillAmount += changeOverTime / timer.TimeLimit * Time.deltaTime;
-		if (teenPregRateBar.fillAmount > (location.TeenPregRate / 100f))
-			teenPregRateBar.fillAmount -= changeOverTime / timer.TimeLimit * Time.deltaTime;
-
-
-
-		if (commhealthBar.fillAmount < (location.CommunityHealth / 100f))
-			commhealthBar.fillAmount += changeOverTime / timer.TimeLimit * Time.deltaTime;
-		if (commhealthBar.fillAmount > (location.CommunityHealth / 100f))
-			commhealthBar.fillAmount -= changeOverTime / timer.TimeLimit * Time.deltaTime;
-
-		   
-	}
+        if (commhealthBar.fillAmount < (location.CrimeRate / 100f))
+            commhealthBar.fillAmount += changeOverTime / timer.TimeLimit * Time.deltaTime;
+        if (commhealthBar.fillAmount > (location.CrimeRate / 100f))
+            commhealthBar.fillAmount -= changeOverTime / timer.TimeLimit * Time.deltaTime;
+    }
 }

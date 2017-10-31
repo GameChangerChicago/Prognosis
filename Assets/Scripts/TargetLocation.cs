@@ -16,10 +16,10 @@ public class TargetLocation : MonoBehaviour
 	public ProfessionalSlot[] ProSlots;
     public float STIRate,
                  TeenPregRate,
-                 CommunityHealth,
+                 CrimeRate,
                  STIEffectPerTurn,
                  TeenPregEffectPerTurn,
-                 CommHealthEffectPerTurn;
+                 CrimeRateEffectPerTurn;
     public bool Locked;
 
 
@@ -73,11 +73,9 @@ public class TargetLocation : MonoBehaviour
 		audioSource = gameObject.AddComponent<AudioSource>();
 		audioSource.clip = Resources.Load(name) as AudioClip;
 		audioSource.Play();
-
     }
 
     void Update()
-	
     {
 		if (_currentTurn != _gameManager.CurrentTurn) {
 			//_currentTurn = _gameManager.CurrentTurn;
@@ -85,49 +83,55 @@ public class TargetLocation : MonoBehaviour
 			if(Locked)
 				recallButtonRenderer.GetComponent<SpriteRenderer>().color = Color.white;
 		}
-
-		Debug.Log (_currentTurn + " of Target Location");
+        
         if (LockRecallButton.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)) && Input.GetKeyDown(KeyCode.Mouse0))
         {
-			//recallButtonRenderer.GetComponent<SpriteRenderer>().color = lockButtonRenderer.GetComponent<SpriteRenderer>().color = Color.grey;
+            //recallButtonRenderer.GetComponent<SpriteRenderer>().color = lockButtonRenderer.GetComponent<SpriteRenderer>().color = Color.grey;
 
 
 
-			if(!Locked && _currentTurn != _gameManager.CurrentTurn){
-				_currentTurn = _gameManager.CurrentTurn;
-				Locked =!Locked;
-				audioSource.clip = mhuLock;
-				audioSource.Play();
-				lockButtonRenderer.SetActive(false);
-				recallButtonRenderer.SetActive(true);
-				recallButtonRenderer.GetComponent<SpriteRenderer>().color = Color.white;
+            if (!Locked && _currentTurn != _gameManager.CurrentTurn)
+            {
+                _currentTurn = _gameManager.CurrentTurn;
+                Locked = !Locked;
+                audioSource.clip = mhuLock;
+                audioSource.Play();
+                lockButtonRenderer.SetActive(false);
+                recallButtonRenderer.SetActive(true);
+                recallButtonRenderer.GetComponent<SpriteRenderer>().color = Color.white;
 
-			}else if(Locked && _currentTurn == _gameManager.CurrentTurn){
+            }
+            else if (Locked && _currentTurn == _gameManager.CurrentTurn)
+            {
 
 
-				audioSource.clip = clickDisabled;
-				audioSource.Play ();
+                audioSource.clip = clickDisabled;
+                audioSource.Play();
 
-			}else if (Locked && _currentTurn != _gameManager.CurrentTurn){
-				_currentTurn = _gameManager.CurrentTurn;
-				Locked =!Locked;
-				lockButtonRenderer.SetActive(true);
-				recallButtonRenderer.SetActive(false);
-				audioSource.clip = mhuRecall;
-				audioSource.Play();
+            }
+            else if (Locked && _currentTurn != _gameManager.CurrentTurn)
+            {
+                _currentTurn = _gameManager.CurrentTurn;
+                Locked = !Locked;
+                lockButtonRenderer.SetActive(true);
+                recallButtonRenderer.SetActive(false);
+                audioSource.clip = mhuRecall;
+                audioSource.Play();
 
-			}else{ //if location is not locked and the current turn is  equal to the game manager's current turn
-				_currentTurn = _gameManager.CurrentTurn;
-				Locked =!Locked;
-				audioSource.clip = mhuLock;
-				audioSource.Play();
-				lockButtonRenderer.SetActive(false);
-				recallButtonRenderer.SetActive(true);
-				recallButtonRenderer.GetComponent<SpriteRenderer>().color = new Color (.6f, .6f, .6f);
-			}
+            }
+            else
+            { //if location is not locked and the current turn is  equal to the game manager's current turn
+                _currentTurn = _gameManager.CurrentTurn;
+                Locked = !Locked;
+                audioSource.clip = mhuLock;
+                audioSource.Play();
+                lockButtonRenderer.SetActive(false);
+                recallButtonRenderer.SetActive(true);
+                recallButtonRenderer.GetComponent<SpriteRenderer>().color = new Color(.6f, .6f, .6f);
+            }
 
-			if(_currentTurn!= _gameManager.CurrentTurn)
-				recallButtonRenderer.GetComponent<SpriteRenderer>().color = Color.white;
+            if (_currentTurn != _gameManager.CurrentTurn)
+                recallButtonRenderer.GetComponent<SpriteRenderer>().color = Color.white;
 
 
 
@@ -150,15 +154,19 @@ public class TargetLocation : MonoBehaviour
 		spriteRenderer.color = defaultColor;
 	}
 
-    void OnMouseDown()
+    public void Activate()
     {
         Active = true;
-		//spriteHighlight.SetActive (true);
+        //spriteHighlight.SetActive (true);
         foreach (TargetLocation tl in _otherTargetLocs)
         {
             tl.Active = false;
-			//tl.spriteHighlight.SetActive (false);
+            //tl.spriteHighlight.SetActive (false);
         }
+    }
+
+    void OnMouseDown()
+    {
     }
 
     public void UpdateValues()
@@ -168,14 +176,14 @@ public class TargetLocation : MonoBehaviour
               HealthBoost = 0,
               STIChange = 0,
               TeenPregChange = 0,
-              CommHealthChange = 0,
+              CrimeRateChange = 0,
               FinanceChange = 0,
               EducationChange = 0,
               FinancialModifier = 0,
               EducationModifier = 0;
         int STIChangeCount = 0,
             TeenPregChangeCount = 0,
-            CommHealthChangeCount = 0,
+            CrimeRateChangeCount = 0,
             FinanceChangeCount = 0,
             EducationChangeCount = 0;
 
@@ -223,10 +231,10 @@ public class TargetLocation : MonoBehaviour
                         TeenPregChangeCount++;
                         break;
                     case ProfessionalType.CommOrg:
-                        CommHealthChange += 10 + FinancialModifier;
+                        CrimeRateChange -= 10 + FinancialModifier;
                         FinanceChange -= 5;
                         EducationChange += 5 + FinancialModifier;
-                        CommHealthChangeCount++;
+                        CrimeRateChangeCount++;
                         EducationChangeCount++;
                         break;
                     case ProfessionalType.Politician:
@@ -245,11 +253,11 @@ public class TargetLocation : MonoBehaviour
 
         //Assures that the professionals never make things worse due to financial modifier
         //At worst they will do nothing
-        Mathf.Clamp(STIChange, -100, 0);
-        Mathf.Clamp(TeenPregChange, -100, 0);
-        Mathf.Clamp(CommHealthChange, 0, 100);
-        Mathf.Clamp(FinanceChange, 0, 100);
-        Mathf.Clamp(EducationChange, 0, 100);
+        STIChange = Mathf.Clamp(STIChange, -100, 0);
+        TeenPregChange = Mathf.Clamp(TeenPregChange, -100, 0);
+        CrimeRateChange = Mathf.Clamp(CrimeRateChange, -100, 0);
+        FinanceChange = Mathf.Clamp(FinanceChange, 0, 100);
+        EducationChange = Mathf.Clamp(EducationChange, 0, 100);
 
         //I dont feel like explaining what this does and why. Suffice to say it's important.
         //EDIT: It must be possible, somehow, to get either of these values over 2 so this keeps it at 2 since that should be the max
@@ -262,7 +270,7 @@ public class TargetLocation : MonoBehaviour
         //Apply professional effects
         STIRate += STIChange - (HealthBoost * STIChangeCount);
         TeenPregRate += TeenPregChange - (HealthBoost * TeenPregChangeCount);
-        CommunityHealth += CommHealthChange + (HealthBoost * CommHealthChangeCount);
+        CrimeRate += CrimeRateChange - (HealthBoost * CrimeRateChangeCount);
         _gameManager.Education += EducationChange + (AmbientBoost * EducationChangeCount);
         if (FinanceChangeCount != 1)
             _gameManager.Finance += FinanceChange + (AmbientBoost * FinanceChangeCount);
@@ -272,12 +280,12 @@ public class TargetLocation : MonoBehaviour
         //Apply per turn effects
         STIRate += Mathf.Clamp(STIEffectPerTurn + EducationModifier, 0, 100);
         TeenPregRate += Mathf.Clamp(TeenPregEffectPerTurn + EducationModifier, 0, 100);
-        CommunityHealth -= Mathf.Clamp(CommHealthEffectPerTurn + EducationModifier, 0, 100);
+        CrimeRate += Mathf.Clamp(CrimeRateEffectPerTurn + EducationModifier, 0, 100);
 
         //Clamping final values
         STIRate = Mathf.Clamp(STIRate, 0, 100);
         TeenPregRate = Mathf.Clamp(TeenPregRate, 0, 100);
-        CommunityHealth = Mathf.Clamp(CommunityHealth, 0, 100);
+        CrimeRate = Mathf.Clamp(CrimeRate, 0, 100);
         _gameManager.Finance = Mathf.Clamp(_gameManager.Finance, 0, 100);
         _gameManager.Education = Mathf.Clamp(_gameManager.Education, 0, 100);
     }

@@ -60,22 +60,22 @@ public class GameManager : MonoBehaviour
         }
     }
     private float _worldTeenPregRate;
-    public float WorldCommHealthRate
+    public float WorldCrimeRate
     {
         get
         {
-            float totalCommHealthRate = 0;
+            float totalCrimeRate = 0;
             int targetLocationCount = 0;
 
             foreach (TargetLocation tl in FindObjectsOfType<TargetLocation>())
             {
-                totalCommHealthRate += tl.CommunityHealth;
+                totalCrimeRate += tl.CrimeRate;
                 targetLocationCount++;
             }
 
-            _worldCommHealthRate = totalCommHealthRate / targetLocationCount;
+            _worldCrimeRate = totalCrimeRate / targetLocationCount;
 
-            return _worldCommHealthRate;
+            return _worldCrimeRate;
         }
 
         set
@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("This property shouldn't be being set");
         }
     }
-    private float _worldCommHealthRate;
+    private float _worldCrimeRate;
     #endregion
 
     public int CurrentTurn
@@ -132,9 +132,9 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-		Debug.Log (_currentTurn);
-		Debug.Log ("Goal Turn Count: "+ _goalTurnCount);
-		Debug.Log ("World Teen Preg: " + WorldTeenPregRate);
+		//Debug.Log (_currentTurn);
+		//Debug.Log ("Goal Turn Count: "+ _goalTurnCount);
+		//Debug.Log ("World Teen Preg: " + WorldTeenPregRate);
     }
 
 

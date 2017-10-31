@@ -17,7 +17,7 @@ public class GlobalStatsBar : MonoBehaviour {
 		timer = FindObjectOfType <TimerController>();
 		worldSTIRate.fillAmount = gameManager.WorldSTIRate / 100f;
 		worldTeenPregRate.fillAmount = gameManager.WorldTeenPregRate / 100f;
-		worldCommHealthRate.fillAmount = gameManager.WorldCommHealthRate / 100f;
+		worldCommHealthRate.fillAmount = gameManager.WorldCrimeRate / 100f;
 		financeBar.fillAmount = gameManager.Finance / 100f;
 		educationBar.fillAmount = gameManager.Education / 100f;
 
@@ -33,9 +33,9 @@ public class GlobalStatsBar : MonoBehaviour {
 			worldSTIRate.fillAmount -= changeOverTime / timer.TimeLimit * Time.deltaTime;
 		
 		
-		if (worldCommHealthRate.fillAmount < (gameManager.WorldCommHealthRate/100f))
+		if (worldCommHealthRate.fillAmount < (gameManager.WorldCrimeRate/100f))
 			worldCommHealthRate.fillAmount += changeOverTime / timer.TimeLimit * Time.deltaTime;
-		if (worldCommHealthRate.fillAmount > (gameManager.WorldCommHealthRate / 100f))
+		if (worldCommHealthRate.fillAmount > (gameManager.WorldCrimeRate / 100f))
 			worldCommHealthRate.fillAmount -= changeOverTime / timer.TimeLimit * Time.deltaTime;
 
 		
