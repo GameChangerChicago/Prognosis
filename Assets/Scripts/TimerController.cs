@@ -43,29 +43,27 @@ public class TimerController : MonoBehaviour
             _gameManager.CurrentTurn++;
             Timer = 0;
         }
+    }
 
-        if (FastForward.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)) && Input.GetKeyUp(KeyCode.Mouse0))
+    public void ToggglePauseTimer()
+    {
+        if (TimerActive)
         {
-            _gameManager.CurrentTurn++;
-            Timer = 0;
+            playRenderer.enabled = true;
+            _pauseRenderer.enabled = false;
+        }
+        else
+        {
+            playRenderer.enabled = false;
+            _pauseRenderer.enabled = true;
         }
 
-        if (PausePlay.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)) && Input.GetKeyUp(KeyCode.Mouse0))
-        {
-            if (TimerActive)
-            {
-				playRenderer.enabled = true;
-                _pauseRenderer.enabled = false;
+        TimerActive = !TimerActive;
+    }
 
-            }
-            else
-            {
-				playRenderer.enabled = false;
-                _pauseRenderer.enabled = true;
-
-            }
-
-            TimerActive = !TimerActive;
-        }
+    public void SkipToNextDay()
+    {
+        _gameManager.CurrentTurn++;
+        Timer = 0;
     }
 }
