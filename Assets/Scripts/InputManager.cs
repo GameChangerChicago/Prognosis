@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    private List<GameObject> _currenMousedOverClickables;
+    //Dictionary for these two
+    //DUh!
+    private List<GameObject> _currentMousedOverClickables;
+    private List<string> _currentClickableNames;
 
     private void Update()
     {
@@ -20,58 +23,77 @@ public class InputManager : MonoBehaviour
 
     public void ClickableMousedOver(GameObject clickableObj)
     {
-        if(!_currenMousedOverClickables.Contains(clickableObj))
+        if(!_currentMousedOverClickables.Contains(clickableObj))
         {
-            _currenMousedOverClickables.Add(clickableObj);
+            _currentMousedOverClickables.Add(clickableObj);
+            _currentClickableNames.Add(clickableObj.name);
         }
     }
 
     public void ClickableMousedOff(GameObject clickableObj)
     {
-        if (_currenMousedOverClickables.Contains(clickableObj))
+        if (_currentMousedOverClickables.Contains(clickableObj))
         {
-            _currenMousedOverClickables.Remove(clickableObj);
-        }
-    }
-
-    private void MouseUpHandler()
-    {
-        for (int i = 0; i < _currenMousedOverClickables.Count; i++)
-        {
-            if (_currenMousedOverClickables[i].name == "Pause" || _currenMousedOverClickables[i].name == "Skip")
-            {
-                if(_currenMousedOverClickables[i].name == "PausePlay")
-                {
-                    _currenMousedOverClickables[i].transform.parent.GetComponent<TimerController>().ToggglePauseTimer();
-                }
-
-                if(_currenMousedOverClickables[i].name == "Skip")
-                {
-                    _currenMousedOverClickables[i].transform.parent.GetComponent<TimerController>().SkipToNextDay();
-                }
-                break;
-            }
-            else if (_currenMousedOverClickables[i].name == "Professional" || _currenMousedOverClickables[i].name == "upArrow" || _currenMousedOverClickables[i].name == "downArrow")
-            {
-                if(_currenMousedOverClickables[i].name == "Professional")
-
-                break;
-            }
-            else if (_currenMousedOverClickables[i].name == "ProfSlot" || _currenMousedOverClickables[i].name == "SendMHU" || _currenMousedOverClickables[i].name == "RecallMHU")
-            {
-
-                break;
-            }
-            else if (_currenMousedOverClickables[i].name == "LocationNames")
-            {
-
-                break;
-            }
+            _currentMousedOverClickables.Remove(clickableObj);
+            _currentClickableNames.Add(clickableObj.name);
         }
     }
 
     private void MouseDownHandler()
     {
+        if (_currentClickableNames.Contains("Pause") || _currentClickableNames.Contains("Skip"))
+        {
 
+        }
+        else if (_currentClickableNames.Contains("Professional") || _currentClickableNames.Contains("upArrow") || _currentClickableNames.Contains("downArrow"))
+        {
+            if (_currentClickableNames.Contains("Professional"))
+            {
+                //get prof
+            }
+        }
+        else if (_currentClickableNames.Contains("ProfSlot") || _currentClickableNames.Contains("SendMHU") || _currentClickableNames.Contains("RecallMHU"))
+        {
+
+        }
+        else if (_currentClickableNames.Contains("LocationNames"))
+        {
+
+        }
+    }
+
+    private void MouseUpHandler()
+    {
+        if (_currentClickableNames.Contains("Pause") || _currentClickableNames.Contains("Skip"))
+        {
+            if (_currentClickableNames.Contains("PausePlay"))
+            {
+                _currentMousedOverClickables//[i].transform.parent.GetComponent<TimerController>().ToggglePauseTimer();
+            }
+
+            if (_currentMousedOverClickables[i].name == "Skip")
+            {
+                _currentMousedOverClickables[i].transform.parent.GetComponent<TimerController>().SkipToNextDay();
+            }
+        }
+        else if (_currentMousedOverClickables[i].name == "Professional" || _currentMousedOverClickables[i].name == "upArrow" || _currentMousedOverClickables[i].name == "downArrow")
+        {
+            if (_currentMousedOverClickables[i].name == "upArrow")
+            {
+
+            }
+            else if (_currentMousedOverClickables[i].name == "upArrow")
+            {
+
+            }
+        }
+        else if (_currentMousedOverClickables[i].name == "ProfSlot" || _currentMousedOverClickables[i].name == "SendMHU" || _currentMousedOverClickables[i].name == "RecallMHU")
+        {
+
+        }
+        else if (_currentMousedOverClickables[i].name == "LocationNames")
+        {
+
+        }
     }
 }
