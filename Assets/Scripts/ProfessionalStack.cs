@@ -64,7 +64,7 @@ public class ProfessionalStack : MonoBehaviour
         }
     }
 
-    void OnMouseDown()
+    public void TakeProfessional()
     {
         if (ProfessionalCount > 0)
         {

@@ -54,13 +54,13 @@ public class ProfessionalSlot : MonoBehaviour
         }
     }
 
-    void OnMouseDown()
+    public void RemoveProfessional()
     {
         if (_hasAProfessional && !_myTargetLocation.Locked)
         {
             CurrentProfesional.ProfessionalCount++;
             _myTargetLocation.TheProfMenu.RetrieveProfessional(_myTargetLocation.name, CurrentProfesional.MyProfessionalType);
-		//	_myTargetLocation.ProSlots.Remove(this);
+            //	_myTargetLocation.ProSlots.Remove(this);
             _hasAProfessional = false;
             PortraitRenderer.sprite = null;
         }

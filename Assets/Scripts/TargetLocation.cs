@@ -90,48 +90,7 @@ public class TargetLocation : MonoBehaviour
 
 
 
-            if (!Locked && _currentTurn != _gameManager.CurrentTurn)
-            {
-                _currentTurn = _gameManager.CurrentTurn;
-                Locked = !Locked;
-                audioSource.clip = mhuLock;
-                audioSource.Play();
-                lockButtonRenderer.SetActive(false);
-                recallButtonRenderer.SetActive(true);
-                recallButtonRenderer.GetComponent<SpriteRenderer>().color = Color.white;
-
-            }
-            else if (Locked && _currentTurn == _gameManager.CurrentTurn)
-            {
-
-
-                audioSource.clip = clickDisabled;
-                audioSource.Play();
-
-            }
-            else if (Locked && _currentTurn != _gameManager.CurrentTurn)
-            {
-                _currentTurn = _gameManager.CurrentTurn;
-                Locked = !Locked;
-                lockButtonRenderer.SetActive(true);
-                recallButtonRenderer.SetActive(false);
-                audioSource.clip = mhuRecall;
-                audioSource.Play();
-
-            }
-            else
-            { //if location is not locked and the current turn is  equal to the game manager's current turn
-                _currentTurn = _gameManager.CurrentTurn;
-                Locked = !Locked;
-                audioSource.clip = mhuLock;
-                audioSource.Play();
-                lockButtonRenderer.SetActive(false);
-                recallButtonRenderer.SetActive(true);
-                recallButtonRenderer.GetComponent<SpriteRenderer>().color = new Color(.6f, .6f, .6f);
-            }
-
-            if (_currentTurn != _gameManager.CurrentTurn)
-                recallButtonRenderer.GetComponent<SpriteRenderer>().color = Color.white;
+            
 
 
 
@@ -144,6 +103,47 @@ public class TargetLocation : MonoBehaviour
 //            Locked = !Locked;
 //
 //        }
+    }
+
+    public void SendMHU()
+    {
+        if (!Locked && _currentTurn != _gameManager.CurrentTurn)
+        {
+            _currentTurn = _gameManager.CurrentTurn;
+            Locked = !Locked;
+            audioSource.clip = mhuLock;
+            audioSource.Play();
+            lockButtonRenderer.SetActive(false);
+            recallButtonRenderer.SetActive(true);
+            recallButtonRenderer.GetComponent<SpriteRenderer>().color = Color.white;
+        }
+        else if (Locked && _currentTurn == _gameManager.CurrentTurn)
+        {
+            audioSource.clip = clickDisabled;
+            audioSource.Play();
+        }
+        else if (Locked && _currentTurn != _gameManager.CurrentTurn)
+        {
+            _currentTurn = _gameManager.CurrentTurn;
+            Locked = !Locked;
+            lockButtonRenderer.SetActive(true);
+            recallButtonRenderer.SetActive(false);
+            audioSource.clip = mhuRecall;
+            audioSource.Play();
+        }
+        else
+        { //if location is not locked and the current turn is  equal to the game manager's current turn
+            _currentTurn = _gameManager.CurrentTurn;
+            Locked = !Locked;
+            audioSource.clip = mhuLock;
+            audioSource.Play();
+            lockButtonRenderer.SetActive(false);
+            recallButtonRenderer.SetActive(true);
+            recallButtonRenderer.GetComponent<SpriteRenderer>().color = new Color(.6f, .6f, .6f);
+        }
+
+        if (_currentTurn != _gameManager.CurrentTurn)
+            recallButtonRenderer.GetComponent<SpriteRenderer>().color = Color.white;
     }
 
 	void OnMouseOver(){
@@ -163,10 +163,6 @@ public class TargetLocation : MonoBehaviour
             tl.Active = false;
             //tl.spriteHighlight.SetActive (false);
         }
-    }
-
-    void OnMouseDown()
-    {
     }
 
     public void UpdateValues()

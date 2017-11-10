@@ -6,8 +6,7 @@ public class InputManager : MonoBehaviour
 {
     //Dictionary for these two
     //DUh!
-    private List<GameObject> _currentMousedOverClickables;
-    private List<string> _currentClickableNames;
+    private Dictionary<string, GameObject> _currentMousedOverClickables = new Dictionary<string, GameObject>();
 
     private void Update()
     {
@@ -21,42 +20,40 @@ public class InputManager : MonoBehaviour
         }
     }
 
-    public void ClickableMousedOver(GameObject clickableObj)
+    public void ClickableMousedEnter(GameObject clickableObj)
     {
-        if(!_currentMousedOverClickables.Contains(clickableObj))
+        if(!_currentMousedOverClickables.ContainsValue(clickableObj))
         {
-            _currentMousedOverClickables.Add(clickableObj);
-            _currentClickableNames.Add(clickableObj.name);
+            _currentMousedOverClickables.Add(clickableObj.name, clickableObj);
         }
     }
 
-    public void ClickableMousedOff(GameObject clickableObj)
+    public void ClickableMousedExit(GameObject clickableObj)
     {
-        if (_currentMousedOverClickables.Contains(clickableObj))
+        if (_currentMousedOverClickables.ContainsValue(clickableObj))
         {
-            _currentMousedOverClickables.Remove(clickableObj);
-            _currentClickableNames.Add(clickableObj.name);
+            _currentMousedOverClickables.Remove(clickableObj.name);
         }
     }
 
     private void MouseDownHandler()
     {
-        if (_currentClickableNames.Contains("Pause") || _currentClickableNames.Contains("Skip"))
+        if (_currentMousedOverClickables.ContainsKey("Pause") || _currentMousedOverClickables.ContainsKey("Skip"))
         {
 
         }
-        else if (_currentClickableNames.Contains("Professional") || _currentClickableNames.Contains("upArrow") || _currentClickableNames.Contains("downArrow"))
+        else if (_currentMousedOverClickables.ContainsKey("Professional") || _currentMousedOverClickables.ContainsKey("upArrow") || _currentMousedOverClickables.ContainsKey("downArrow"))
         {
-            if (_currentClickableNames.Contains("Professional"))
+            if (_currentMousedOverClickables.ContainsKey("Professional"))
             {
-                //get prof
+                _currentMousedOverClickables["Prefessional"].GetComponent<ProfessionalStack>().TakeProfessional();
             }
         }
-        else if (_currentClickableNames.Contains("ProfSlot") || _currentClickableNames.Contains("SendMHU") || _currentClickableNames.Contains("RecallMHU"))
+        else if (_currentMousedOverClickables.ContainsKey("ProfSlot") || _currentMousedOverClickables.ContainsKey("SendMHU") || _currentMousedOverClickables.ContainsKey("RecallMHU"))
         {
 
         }
-        else if (_currentClickableNames.Contains("LocationNames"))
+        else if (_currentMousedOverClickables.ContainsKey("LocationNames"))
         {
 
         }
@@ -64,34 +61,41 @@ public class InputManager : MonoBehaviour
 
     private void MouseUpHandler()
     {
-        if (_currentClickableNames.Contains("Pause") || _currentClickableNames.Contains("Skip"))
+        if (_currentMousedOverClickables.ContainsKey("Pause") || _currentMousedOverClickables.ContainsKey("Skip"))
         {
-            if (_currentClickableNames.Contains("PausePlay"))
+            if (_currentMousedOverClickables.ContainsKey("PausePlay"))
             {
-                _currentMousedOverClickables//[i].transform.parent.GetComponent<TimerController>().ToggglePauseTimer();
+                _currentMousedOverClickables["PausePlay"].transform.parent.GetComponent<TimerController>();
             }
 
-            if (_currentMousedOverClickables[i].name == "Skip")
+            if (_currentMousedOverClickables.ContainsKey("Skip"))
             {
-                _currentMousedOverClickables[i].transform.parent.GetComponent<TimerController>().SkipToNextDay();
+                _currentMousedOverClickables["PausePlay"].transform.parent.GetComponent<TimerController>().SkipToNextDay();
             }
         }
-        else if (_currentMousedOverClickables[i].name == "Professional" || _currentMousedOverClickables[i].name == "upArrow" || _currentMousedOverClickables[i].name == "downArrow")
+        else if (_currentMousedOverClickables.ContainsKey("Professional") || _currentMousedOverClickables.ContainsKey("upArrow") || _currentMousedOverClickables.ContainsKey("downArrow"))
         {
-            if (_currentMousedOverClickables[i].name == "upArrow")
+            if (_currentMousedOverClickables.ContainsKey("upArrow"))
             {
-
+                _currentMousedOverClickables["upArrow"].transform.parent.GetComponent<ProfessionalsMenu>().MoveUp();
             }
-            else if (_currentMousedOverClickables[i].name == "upArrow")
+            else if (_currentMousedOverClickables.ContainsKey("downArrow"))
             {
-
+                _currentMousedOverClickables["downArrow"].transform.parent.GetComponent<ProfessionalsMenu>().MoveDown();
             }
         }
-        else if (_currentMousedOverClickables[i].name == "ProfSlot" || _currentMousedOverClickables[i].name == "SendMHU" || _currentMousedOverClickables[i].name == "RecallMHU")
+        else if (_currentMousedOverClickables.ContainsKey("ProfessionalSlot") || _currentMousedOverClickables.ContainsKey("LockRecalButton"))
         {
-
+            if(_currentMousedOverClickables.ContainsKey("ProfessionalSlot"))
+            {
+                _currentMousedOverClickables["ProfessionalSlot"].GetComponent<ProfessionalSlot>().RemoveProfessional();
+            }
+            else if(_currentMousedOverClickables.ContainsKey("LockRecalButton"))
+            {
+                _currentMousedOverClickables["LockRacalButton"].transform.parent.parent.GetComponent<TargetLocation>().SendMHU();
+            }
         }
-        else if (_currentMousedOverClickables[i].name == "LocationNames")
+        else if (_currentMousedOverClickables.ContainsKey("Ash Park") || _currentMousedOverClickables.ContainsKey("Freemason") || _currentMousedOverClickables.ContainsKey("Philmont") || _currentMousedOverClickables.ContainsKey("Quinn Square") || _currentMousedOverClickables.ContainsKey("Unity District"))
         {
 
         }
