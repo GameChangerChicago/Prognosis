@@ -38,24 +38,12 @@ public class InputManager : MonoBehaviour
 
     private void MouseDownHandler()
     {
-        if (_currentMousedOverClickables.ContainsKey("Pause") || _currentMousedOverClickables.ContainsKey("Skip"))
-        {
-
-        }
-        else if (_currentMousedOverClickables.ContainsKey("Professional") || _currentMousedOverClickables.ContainsKey("upArrow") || _currentMousedOverClickables.ContainsKey("downArrow"))
+        if (_currentMousedOverClickables.ContainsKey("Professional") || _currentMousedOverClickables.ContainsKey("upArrow") || _currentMousedOverClickables.ContainsKey("downArrow"))
         {
             if (_currentMousedOverClickables.ContainsKey("Professional"))
             {
-                _currentMousedOverClickables["Prefessional"].GetComponent<ProfessionalStack>().TakeProfessional();
+                _currentMousedOverClickables["Professional"].GetComponent<ProfessionalStack>().TakeProfessional();
             }
-        }
-        else if (_currentMousedOverClickables.ContainsKey("ProfSlot") || _currentMousedOverClickables.ContainsKey("SendMHU") || _currentMousedOverClickables.ContainsKey("RecallMHU"))
-        {
-
-        }
-        else if (_currentMousedOverClickables.ContainsKey("LocationNames"))
-        {
-
         }
     }
 
@@ -95,9 +83,32 @@ public class InputManager : MonoBehaviour
                 _currentMousedOverClickables["LockRacalButton"].transform.parent.parent.GetComponent<TargetLocation>().SendMHU();
             }
         }
-        else if (_currentMousedOverClickables.ContainsKey("Ash Park") || _currentMousedOverClickables.ContainsKey("Freemason") || _currentMousedOverClickables.ContainsKey("Philmont") || _currentMousedOverClickables.ContainsKey("Quinn Square") || _currentMousedOverClickables.ContainsKey("Unity District"))
+        else if (_currentMousedOverClickables.ContainsKey("Ash Park") ||
+            _currentMousedOverClickables.ContainsKey("Freemason") ||
+            _currentMousedOverClickables.ContainsKey("Philmont") ||
+            _currentMousedOverClickables.ContainsKey("Quinn Square") ||
+            _currentMousedOverClickables.ContainsKey("Unity District"))
         {
-
+            if(_currentMousedOverClickables.ContainsKey("Ash Park"))
+            {
+                _currentMousedOverClickables["Ash Park"].GetComponent<TargetLocation>().Activate();
+            }
+            else if (_currentMousedOverClickables.ContainsKey("Freemason"))
+            {
+                _currentMousedOverClickables["Freemason"].GetComponent<TargetLocation>().Activate();
+            }
+            else if (_currentMousedOverClickables.ContainsKey("Philmont"))
+            {
+                _currentMousedOverClickables["Philmont"].GetComponent<TargetLocation>().Activate();
+            }
+            else if (_currentMousedOverClickables.ContainsKey("Quinn Square"))
+            {
+                _currentMousedOverClickables["Quinn Square"].GetComponent<TargetLocation>().Activate();
+            }
+            else if (_currentMousedOverClickables.ContainsKey("Unity District"))
+            {
+                _currentMousedOverClickables["Unity District"].GetComponent<TargetLocation>().Activate();
+            }
         }
     }
 }
