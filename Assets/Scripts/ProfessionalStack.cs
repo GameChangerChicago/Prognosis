@@ -5,7 +5,8 @@ using System.Collections;
 public class ProfessionalStack : MonoBehaviour
 {
     public Sprite SlotPortrait;
-    public GameObject DragObject;
+    public GameObject DragObject,
+                      ButtonMask;
     public ProfessionalType MyProfessionalType;
     public int ProfessionalCount;
 
@@ -60,7 +61,6 @@ public class ProfessionalStack : MonoBehaviour
             _dragObject.transform.position = mousePos;
 			scrollRect.StopMovement();
 			scrollRect.enabled = false;
-			Debug.Log (scrollRect.enabled);
         }
     }
 

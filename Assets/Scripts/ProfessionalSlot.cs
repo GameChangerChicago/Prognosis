@@ -30,7 +30,6 @@ public class ProfessionalSlot : MonoBehaviour
 				if (_myBoxCollider.OverlapPoint (Camera.main.ScreenToWorldPoint (Input.mousePosition))) {
 					BorderRenderer.color = new Color (0, 150, 255);
 					_mousedOverWithAProfessional = true;
-					Debug.Log ("Collision detected");
 				} else {
 					//BorderRenderer.color = new Color(0, 0, 0);
 					_mousedOverWithAProfessional = false;
@@ -47,6 +46,9 @@ public class ProfessionalSlot : MonoBehaviour
             _hasAProfessional = true;
             _mousedOverWithAProfessional = false;
             _gameManager.SelectedProfessional.ProfessionalCount--;
+            if (_gameManager.SelectedProfessional.ProfessionalCount == 0)
+                _gameManager.SelectedProfessional.ButtonMask.SetActive(true);
+
             _myTargetLocation.TheProfMenu.PlaceAProfessional(_myTargetLocation.name, _gameManager.SelectedProfessional.MyProfessionalType);
             CurrentProfesional = _gameManager.SelectedProfessional;
 			//_myTargetLocation.ProSlots.Add(this);
@@ -58,6 +60,9 @@ public class ProfessionalSlot : MonoBehaviour
     {
         if (_hasAProfessional && !_myTargetLocation.Locked)
         {
+            if (CurrentProfesional.ProfessionalCount == 0)
+                CurrentProfesional.ButtonMask.SetActive(false);
+
             CurrentProfesional.ProfessionalCount++;
             _myTargetLocation.TheProfMenu.RetrieveProfessional(_myTargetLocation.name, CurrentProfesional.MyProfessionalType);
             //	_myTargetLocation.ProSlots.Remove(this);
