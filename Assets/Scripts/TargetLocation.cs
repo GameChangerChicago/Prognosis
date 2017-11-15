@@ -10,7 +10,7 @@ public class TargetLocation : MonoBehaviour
 	public AudioClip mhuRecall, mhuLock, clickDisabled;
 	private AudioSource audioSource;
 
-	public SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRenderer;
 	public GameObject lockButtonRenderer, recallButtonRenderer;
     public ProfessionalsMenu TheProfMenu;
 	public ProfessionalSlot[] ProSlots;
@@ -60,7 +60,7 @@ public class TargetLocation : MonoBehaviour
 
 
 	private Color defaultColor;
-	public Color color;
+	public Color CurrentColor;
 
     void Start()
     {
@@ -73,36 +73,34 @@ public class TargetLocation : MonoBehaviour
 		audioSource = gameObject.AddComponent<AudioSource>();
 		audioSource.clip = Resources.Load(name) as AudioClip;
 		audioSource.Play();
+        UpdateColor(1 - ((STIRate + TeenPregRate + CrimeRate) / 300));
     }
 
     void Update()
     {
-		if (_currentTurn != _gameManager.CurrentTurn) {
-			//_currentTurn = _gameManager.CurrentTurn;
-
-			if(Locked)
-				recallButtonRenderer.GetComponent<SpriteRenderer>().color = Color.white;
-		}
-        
-        if (LockRecallButton.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)) && Input.GetKeyDown(KeyCode.Mouse0))
+        if (_currentTurn != _gameManager.CurrentTurn)
         {
-            //recallButtonRenderer.GetComponent<SpriteRenderer>().color = lockButtonRenderer.GetComponent<SpriteRenderer>().color = Color.grey;
-
-
-
-            
-
-
-
+            if (Locked)
+                recallButtonRenderer.GetComponent<SpriteRenderer>().color = Color.white;
         }
-//        if (LockRecallButton.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)) && Input.GetKeyUp(KeyCode.Mouse0) && _currentTurn != _gameManager.CurrentTurn)
-//        {
-//            if (!Locked)
-//                _currentTurn = _gameManager.CurrentTurn;
-//
-//            Locked = !Locked;
-//
-//        }
+    }
+
+    private void UpdateColor(float healthAverage)
+    {
+        if(healthAverage < 0.5f)
+        {
+            CurrentColor = new Color(1, healthAverage * 2, 0);
+        }
+        else if(healthAverage == 0.5f)
+        {
+            CurrentColor = new Color(1, 1, 0);
+        }
+        else if(healthAverage > 0.5f)
+        {
+            CurrentColor = new Color(1 - ((1 - healthAverage) * 2), 1, 0);
+        }
+
+        spriteRenderer.color = CurrentColor;
     }
 
     public void SendMHU()
@@ -146,13 +144,15 @@ public class TargetLocation : MonoBehaviour
             recallButtonRenderer.GetComponent<SpriteRenderer>().color = Color.white;
     }
 
-	void OnMouseOver(){
-		spriteRenderer.color = color;
-	}
+    void OnMouseOver()
+    {
+        spriteHighlight.SetActive(true);
+    }
 
-	void OnMouseExit(){
-		spriteRenderer.color = defaultColor;
-	}
+    void OnMouseExit()
+    {
+        spriteHighlight.SetActive(false);
+    }
 
     public void Activate()
     {
@@ -278,11 +278,15 @@ public class TargetLocation : MonoBehaviour
         TeenPregRate += Mathf.Clamp(TeenPregEffectPerTurn + EducationModifier, 0, 100);
         CrimeRate += Mathf.Clamp(CrimeRateEffectPerTurn + EducationModifier, 0, 100);
 
+        float overallHealthRate = 1 - ((STIRate + TeenPregRate + CrimeRate) / 300);
+
         //Clamping final values
         STIRate = Mathf.Clamp(STIRate, 0, 100);
         TeenPregRate = Mathf.Clamp(TeenPregRate, 0, 100);
         CrimeRate = Mathf.Clamp(CrimeRate, 0, 100);
         _gameManager.Finance = Mathf.Clamp(_gameManager.Finance, 0, 100);
         _gameManager.Education = Mathf.Clamp(_gameManager.Education, 0, 100);
+
+        UpdateColor(overallHealthRate);
     }
 }

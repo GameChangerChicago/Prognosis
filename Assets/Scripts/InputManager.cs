@@ -49,16 +49,16 @@ public class InputManager : MonoBehaviour
 
     private void MouseUpHandler()
     {
-        if (_currentMousedOverClickables.ContainsKey("Pause") || _currentMousedOverClickables.ContainsKey("Skip"))
+        if (_currentMousedOverClickables.ContainsKey("Pause") || _currentMousedOverClickables.ContainsKey("FastForward"))
         {
             if (_currentMousedOverClickables.ContainsKey("PausePlay"))
             {
-                _currentMousedOverClickables["PausePlay"].transform.parent.GetComponent<TimerController>();
+                _currentMousedOverClickables["PausePlay"].transform.parent.GetComponent<TimerController>().ToggglePauseTimer();
             }
 
-            if (_currentMousedOverClickables.ContainsKey("Skip"))
+            if (_currentMousedOverClickables.ContainsKey("FastForward"))
             {
-                _currentMousedOverClickables["PausePlay"].transform.parent.GetComponent<TimerController>().SkipToNextDay();
+                _currentMousedOverClickables["FastForward"].transform.parent.GetComponent<TimerController>().SkipToNextDay();
             }
         }
         else if (_currentMousedOverClickables.ContainsKey("Professional") || _currentMousedOverClickables.ContainsKey("upArrow") || _currentMousedOverClickables.ContainsKey("downArrow"))
