@@ -9,11 +9,13 @@ public class ProfessionalStack : MonoBehaviour
                       ButtonMask;
     public ProfessionalType MyProfessionalType;
     public int ProfessionalCount;
+    public Text CountText;
 
     private ProfessionalsMenu _professionalMenu;
     private GameObject _dragObject;
     private GameManager _gameManager;
     private Vector2 mousePos;
+    private int _professionalCount;
 	public ScrollRect scrollRect;
 
     protected bool dragObjectInstantiated
@@ -40,6 +42,7 @@ public class ProfessionalStack : MonoBehaviour
     {
         _gameManager = FindObjectOfType<GameManager>();
         _professionalMenu = GetComponentInParent<ProfessionalsMenu>();
+        _professionalCount = ProfessionalCount;
 		//scrollRect = FindObjectOfType<Canvas> ().GetComponent<ScrollRect> ();
     }
 
@@ -61,6 +64,13 @@ public class ProfessionalStack : MonoBehaviour
             _dragObject.transform.position = mousePos;
 			scrollRect.StopMovement();
 			scrollRect.enabled = false;
+        }
+
+        if(ProfessionalCount != _professionalCount)
+        {
+            CountText.text = ProfessionalCount.ToString();
+
+            _professionalCount = ProfessionalCount;
         }
     }
 
