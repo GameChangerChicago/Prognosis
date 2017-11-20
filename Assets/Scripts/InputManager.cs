@@ -87,7 +87,7 @@ public class InputManager : MonoBehaviour
             _currentMousedOverClickables.ContainsKey("Freemason") ||
             _currentMousedOverClickables.ContainsKey("Philmont") ||
             _currentMousedOverClickables.ContainsKey("Quinn Square") ||
-            _currentMousedOverClickables.ContainsKey("Unity District"))
+            _currentMousedOverClickables.ContainsKey("East Bea Heights"))
         {
             if(_currentMousedOverClickables.ContainsKey("Ash Park"))
             {
@@ -105,9 +105,9 @@ public class InputManager : MonoBehaviour
             {
                 _currentMousedOverClickables["Quinn Square"].GetComponent<TargetLocation>().Activate();
             }
-            else if (_currentMousedOverClickables.ContainsKey("Unity District"))
+            else if (_currentMousedOverClickables.ContainsKey("East Bea Heights"))
             {
-                _currentMousedOverClickables["Unity District"].GetComponent<TargetLocation>().Activate();
+                _currentMousedOverClickables["East Bea Heights"].GetComponent<TargetLocation>().Activate();
             }
         }
     }
