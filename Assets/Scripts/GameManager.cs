@@ -136,8 +136,4 @@ public class GameManager : MonoBehaviour
 		//Debug.Log ("Goal Turn Count: "+ _goalTurnCount);
 		//Debug.Log ("World Teen Preg: " + WorldTeenPregRate);
     }
-
-
-
-
 }

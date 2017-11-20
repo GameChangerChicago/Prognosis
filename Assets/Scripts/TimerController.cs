@@ -31,7 +31,7 @@ public class TimerController : MonoBehaviour
         if (TimerActive)
         {
             Timer += Time.deltaTime;
-			clockRenderer.fillAmount = 1 - Timer / 100f;
+			clockRenderer.fillAmount = 1 - Timer / TimeLimit;
 			//countDownTimer = Mathf.CeilToInt(TimeLimit - Timer);
 			//timerText.text = countDownTimer.ToString();
 
