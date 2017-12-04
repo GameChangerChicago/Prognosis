@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class VictoryCondition : ScriptableObject
 {
-    public VictoryType myVictoryType;
-
+    public VictoryType MyVictoryType;
+    public List<Stats> StatsToTrack;
+    public List<int> GoalAmounts;
 }
 
 public enum VictoryType
