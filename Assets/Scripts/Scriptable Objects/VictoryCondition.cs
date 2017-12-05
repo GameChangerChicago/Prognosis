@@ -7,6 +7,7 @@ public class VictoryCondition : ScriptableObject
     public VictoryType MyVictoryType;
     public List<Stats> StatsToTrack;
     public List<int> GoalAmounts;
+    public bool Achieved;
 }
 
 public enum VictoryType
