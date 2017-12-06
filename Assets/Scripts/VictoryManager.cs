@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class VictoryManager : MonoBehaviour
 {
-    public List<VictoryCondition> VictoryConditions = new List<VictoryCondition>();
+    public List<VCSet> VictoryConditions = new List<VCSet>();
 
     public void CheckVictoryConditions()
     {
