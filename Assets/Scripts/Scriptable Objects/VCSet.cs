@@ -16,7 +16,12 @@ public class MakeVCSet
     [MenuItem("Assets/Create/VCSet")]
     public static void CreateVCSet()
     {
+        VCSet theVCSet = ScriptableObject.CreateInstance<VCSet>();
 
+        AssetDatabase.CreateAsset(theVCSet, "Assets/Resources/VCSets/NewVCSet.asset");
+        AssetDatabase.SaveAssets();
+
+        Selection.activeObject = theVCSet;
     }
 }
 #endif

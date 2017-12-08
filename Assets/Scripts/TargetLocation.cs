@@ -87,15 +87,15 @@ public class TargetLocation : MonoBehaviour
 
     private void UpdateColor(float healthAverage)
     {
-        if(healthAverage < 0.5f)
+        if (healthAverage < 0.5f)
         {
             CurrentColor = new Color(1, healthAverage * 2, 0);
         }
-        else if(healthAverage == 0.5f)
+        else if (healthAverage == 0.5f)
         {
             CurrentColor = new Color(1, 1, 0);
         }
-        else if(healthAverage > 0.5f)
+        else if (healthAverage > 0.5f)
         {
             CurrentColor = new Color(1 - ((1 - healthAverage) * 2), 1, 0);
         }
