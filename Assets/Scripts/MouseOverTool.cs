@@ -50,20 +50,24 @@ public class MouseOverTool : MonoBehaviour
         if (DataSource is GameManager)
         {
             if (BarType == "STI")
-                MouseOverObject.transform.GetChild(0).GetComponent<Text>().text = (DataSource as GameManager).WorldSTIRate.ToString() + "%";
+                MouseOverObject.transform.GetChild(0).GetComponent<Text>().text = (DataSource as GameManager).WorldSTIRate.ToString() + " incidences \n / 1000";
             else if (BarType == "Preg")
-                MouseOverObject.transform.GetChild(0).GetComponent<Text>().text = (DataSource as GameManager).WorldTeenPregRate.ToString() + "%";
+                MouseOverObject.transform.GetChild(0).GetComponent<Text>().text = (DataSource as GameManager).WorldTeenPregRate.ToString() + " incidences \n / 1000";
             else if (BarType == "Crime")
-                MouseOverObject.transform.GetChild(0).GetComponent<Text>().text = (DataSource as GameManager).WorldCrimeRate.ToString() + "%";
+                MouseOverObject.transform.GetChild(0).GetComponent<Text>().text = (DataSource as GameManager).WorldCrimeRate.ToString() + " incidences \n / 1000";
+            else if (BarType == "Finance")
+                MouseOverObject.transform.GetChild(0).GetComponent<Text>().text = ((DataSource as GameManager).WorldCrimeRate * 624.31).ToString();
+            else if (BarType == "Education")
+                Debug.Log("skdfja");
         }
         else if (DataSource is TargetLocation)
         {
             if (BarType == "STI")
-                MouseOverObject.transform.GetChild(0).GetComponent<Text>().text = (DataSource as TargetLocation).STIRate.ToString() + "%";
+                MouseOverObject.transform.GetChild(0).GetComponent<Text>().text = (DataSource as TargetLocation).STIRate.ToString() + " incidences \n / 1000";
             else if (BarType == "Preg")
-                MouseOverObject.transform.GetChild(0).GetComponent<Text>().text = (DataSource as TargetLocation).TeenPregRate.ToString() + "%";
+                MouseOverObject.transform.GetChild(0).GetComponent<Text>().text = (DataSource as TargetLocation).TeenPregRate.ToString() + " incidences \n / 1000";
             else if (BarType == "Crime")
-                MouseOverObject.transform.GetChild(0).GetComponent<Text>().text = (DataSource as TargetLocation).CrimeRate.ToString() + "%";
+                MouseOverObject.transform.GetChild(0).GetComponent<Text>().text = (DataSource as TargetLocation).CrimeRate.ToString() + " incidences \n / 1000";
         }
 
         MouseOverObject.SetActive(true);
