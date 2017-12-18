@@ -66,9 +66,9 @@ public class MouseOverTool : MonoBehaviour
             if (BarType == "STI")
                 MouseOverObject.transform.GetChild(0).GetComponent<Text>().text = (DataSource as TargetLocation).STIRate.ToString() + " per\n1000";
             else if (BarType == "Preg")
-                MouseOverObject.transform.GetChild(0).GetComponent<Text>().text = (DataSource as TargetLocation).TeenPregRate.ToString() + " per\n100,000";
+                MouseOverObject.transform.GetChild(0).GetComponent<Text>().text = ((DataSource as TargetLocation).TeenPregRate * 8).ToString() + " per\n100,000";
             else if (BarType == "Crime")
-                MouseOverObject.transform.GetChild(0).GetComponent<Text>().text = (DataSource as TargetLocation).CrimeRate.ToString() + " per\n100,000";
+                MouseOverObject.transform.GetChild(0).GetComponent<Text>().text = ((DataSource as TargetLocation).CrimeRate * 5).ToString() + " per\n100,000";
         }
 
         MouseOverObject.SetActive(true);
