@@ -238,7 +238,7 @@ public class TargetLocation : MonoBehaviour
                         FinanceChange += 5 + FinancialModifier;
                         FinanceChangeCount++;
                         break;
-                    case ProfessionalType.Advocate:
+                    case ProfessionalType.SocialWorker:
                         HealthBoost += 5;
                         EducationChange += 5 + FinancialModifier;
                         EducationChangeCount++;

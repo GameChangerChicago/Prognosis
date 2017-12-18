@@ -6,7 +6,7 @@ public enum ProfessionalType
     None,
     Doctor,
     Nurse,
-    Advocate,
+    SocialWorker,
     Politician,
     CommOrg
 };

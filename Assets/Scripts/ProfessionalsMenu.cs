@@ -68,11 +68,11 @@ public class ProfessionalsMenu : MonoBehaviour
         PolLoc4 = GameObject.Find("Politician Locations/Location 4").GetComponent<Text>();
         PolLoc5 = GameObject.Find("Politician Locations/Location 5").GetComponent<Text>();
 
-        AdvLoc1 = GameObject.Find("Advocate Locations/Location 1").GetComponent<Text>();
-        AdvLoc2 = GameObject.Find("Advocate Locations/Location 2").GetComponent<Text>();
-        AdvLoc3 = GameObject.Find("Advocate Locations/Location 3").GetComponent<Text>();
-        AdvLoc4 = GameObject.Find("Advocate Locations/Location 4").GetComponent<Text>();
-        AdvLoc5 = GameObject.Find("Advocate Locations/Location 5").GetComponent<Text>();
+        AdvLoc1 = GameObject.Find("SW Locations/Location 1").GetComponent<Text>();
+        AdvLoc2 = GameObject.Find("SW Locations/Location 2").GetComponent<Text>();
+        AdvLoc3 = GameObject.Find("SW Locations/Location 3").GetComponent<Text>();
+        AdvLoc4 = GameObject.Find("SW Locations/Location 4").GetComponent<Text>();
+        AdvLoc5 = GameObject.Find("SW Locations/Location 5").GetComponent<Text>();
 
         _initialLoc = this.transform.position.y;
         _targetLoc = _initialLoc;
@@ -188,7 +188,7 @@ public class ProfessionalsMenu : MonoBehaviour
                         }
                     }
                     break;
-                case ProfessionalType.Advocate:
+                case ProfessionalType.SocialWorker:
                     for (int i = 0; i < locationLeblesToHide; i++)
                     {
                         if (i == 0)
@@ -398,7 +398,7 @@ public class ProfessionalsMenu : MonoBehaviour
                     PolLoc5.color = Color.white;
                 }
                 break;
-            case ProfessionalType.Advocate:
+            case ProfessionalType.SocialWorker:
                 if (AdvLoc1.text == "Unassigned")
                 {
                     AdvLoc1.text = targetLoc;
@@ -543,7 +543,7 @@ public class ProfessionalsMenu : MonoBehaviour
                     PolLoc1.color = Color.gray;
                 }
                 break;
-            case ProfessionalType.Advocate:
+            case ProfessionalType.SocialWorker:
                 if (AdvLoc5.text == targetLoc)
                 {
                     AdvLoc5.text = "Unassigned";
