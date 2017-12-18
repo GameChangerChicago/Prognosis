@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -56,9 +57,9 @@ public class MouseOverTool : MonoBehaviour
             else if (BarType == "Crime")
                 MouseOverObject.transform.GetChild(0).GetComponent<Text>().text = (DataSource as GameManager).WorldCrimeRate.ToString() + " incidences \n / 1000";
             else if (BarType == "Finance")
-                MouseOverObject.transform.GetChild(0).GetComponent<Text>().text = ((DataSource as GameManager).WorldCrimeRate * 624.31).ToString();
+                MouseOverObject.transform.GetChild(0).GetComponent<Text>().text = "$" + Math.Round((DataSource as GameManager).WorldCrimeRate * 2624.31, 2).ToString();
             else if (BarType == "Education")
-                Debug.Log("skdfja");
+                MouseOverObject.transform.GetChild(0).GetComponent<Text>().text = (DataSource as GameManager).Education.ToString() + "% Grad Rate";
         }
         else if (DataSource is TargetLocation)
         {
