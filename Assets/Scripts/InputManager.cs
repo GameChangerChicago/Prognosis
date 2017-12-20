@@ -49,7 +49,7 @@ public class InputManager : MonoBehaviour
 
     private void MouseUpHandler()
     {
-        if (_currentMousedOverClickables.ContainsKey("Pause") || _currentMousedOverClickables.ContainsKey("FastForward"))
+        if (_currentMousedOverClickables.ContainsKey("PausePlay") || _currentMousedOverClickables.ContainsKey("FastForward"))
         {
             if (_currentMousedOverClickables.ContainsKey("PausePlay"))
             {
