@@ -10,3 +10,28 @@ public enum ProfessionalType
     Politician,
     CommOrg
 };
+
+public enum Locations
+{
+    ASHPARK,
+    FREEMASON,
+    PHILMONT,
+    QUINNSQUARE,
+    EASTBEAHEIGHTS,
+    GLOBAL
+};
+
+public enum VictoryType
+{
+    MAINTAIN,
+    ACHIEVE
+};
+
+public enum Stats
+{
+    STIRATE,
+    TEENPREGRATE,
+    CRIMERATE,
+    FINANCE,
+    EDUCATION
+};

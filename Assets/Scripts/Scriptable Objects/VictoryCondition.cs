@@ -28,16 +28,3 @@ public class MakeVicotryCondition
     }
 }
 #endif
-
-public enum VictoryType
-{
-    MAINTAIN,
-    ACHIEVE
-}
-
-public enum Stats
-{
-    STIRATE,
-    TEENPREGRATE,
-    CRIMERATE
-}
