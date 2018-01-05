@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class MessageManager : MonoBehaviour
 {
-    
+    public void ShowMessage()
+    {
+
+    }
 }
