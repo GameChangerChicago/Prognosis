@@ -6,5 +6,5 @@ public class EventInfo : ScriptableObject
 {
     public string EventTitle,
                   EventText;
-
+    public EventEffect TheEventEffect;
 }

@@ -1,0 +1,343 @@
+fileFormatVersion: 2
+guid: e9258e6dea57ab64e8fceb58c9f7440c
+timeCreated: 1515173502
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Body_Base
+    100002: Clothes
+    100004: Clothes_Base
+    100006: Example1
+    100008: Eye_white
+    100010: Eye_white 1
+    100012: EYEBROWS
+    100014: Hair
+    100016: HEAD
+    100018: Head
+    100020: Head 1
+    100022: ik_Ponytail
+    100024: Inside_Mouth
+    100026: Inside_mouth
+    100028: L_COLLAR
+    100030: L_Collar
+    100032: L_EYE
+    100034: L_Eye
+    100036: L_Eye 1
+    100038: L_Eyebrow
+    100040: L_Eyebrow1
+    100042: L_Eyebrow2
+    100044: L_Eyebrow3
+    100046: L_INNER_EYEBROW
+    100048: L_INNER_LOWER_EYELID
+    100050: L_INNER_UPPER_EYELID
+    100052: L_Lower_eyelid
+    100054: L_Lower_Eyelid1
+    100056: L_Lower_Eyelid2
+    100058: L_Lower_Eyelid3
+    100060: L_Lower_Lip
+    100062: L_Lower_Lip_Corner
+    100064: L_LOWER_LIP_CORNER1
+    100066: L_MIDDLE_EYEBROW
+    100068: L_MIDDLE_LOWER_EYELID
+    100070: L_MIDDLE_UPPER_EYELID
+    100072: L_OUTER_EYEBROW
+    100074: L_OUTER_LOWER_EYELID
+    100076: L_OUTER_UPPER_EYELID
+    100078: L_SHOULDER
+    100080: L_Shoulder
+    100082: L_Upper_eyelid
+    100084: L_Upper_Eyelid1
+    100086: L_Upper_Eyelid2
+    100088: L_Upper_Eyelid3
+    100090: L_UPPER_LIP
+    100092: L_Upper_Lip
+    100094: L_UPPER_LIP_CORNER
+    100096: L_Upper_Lip_Corner
+    100098: LOWER_LIP
+    100100: Lower_lip
+    100102: Lower_Lip_Middle
+    100104: NECK
+    100106: Neck
+    100108: Neck 1
+    100110: Neck_Base
+    100112: NOSE
+    100114: Nose
+    100116: Nose 1
+    100118: Ponytail
+    100120: Ponytail2
+    100122: Ponytail2 1
+    100124: Ponytail3
+    100126: Ponytail4
+    100128: PONYTAIL_BASE
+    100130: PONYTAIL_TIP
+    100132: pPlane1
+    100134: R__UpperLip_Corner
+    100136: R_COLLAR
+    100138: R_Collar
+    100140: R_EYE
+    100142: R_Eye
+    100144: R_Eye 1
+    100146: R_Eyebrow
+    100148: R_Eyebrow1
+    100150: R_Eyebrow2
+    100152: R_Eyebrow3
+    100154: R_INNER_EYEBROW
+    100156: R_INNER_LOWER_EYELID
+    100158: R_INNER_LOWER_EYELID1
+    100160: R_Lower_eyelid
+    100162: R_Lower_Eyelid1
+    100164: R_Lower_Eyelid2
+    100166: R_Lower_Eyelid3
+    100168: R_Lower_Lip
+    100170: R_Lower_Lip_Corner
+    100172: R_LOWER_LIP_CORNER1
+    100174: R_MIDDLE_EYEBROW
+    100176: R_MIDDLE_LOWER_EYELID
+    100178: R_MIDDLE_UPPER_EYELID
+    100180: R_OUTER_EYEBROW
+    100182: R_OUTER_LOWER_EYELID
+    100184: R_OUTER_UPPER_EYELID
+    100186: R_SHOULDER
+    100188: R_Shoulder
+    100190: R_Upper_eyelid
+    100192: R_Upper_Eyelid1
+    100194: R_Upper_Eyelid2
+    100196: R_Upper_Eyelid3
+    100198: R_UPPER_LIP
+    100200: R_Upper_Lip
+    100202: R_UPPER_LIP_CORNER
+    100204: //RootNode
+    100206: UPPER_LIP
+    100208: Upper_lip
+    100210: Upper_Lip_Middle
+    400000: Body_Base
+    400002: Clothes
+    400004: Clothes_Base
+    400006: Example1
+    400008: Eye_white
+    400010: Eye_white 1
+    400012: EYEBROWS
+    400014: Hair
+    400016: HEAD
+    400018: Head
+    400020: Head 1
+    400022: ik_Ponytail
+    400024: Inside_Mouth
+    400026: Inside_mouth
+    400028: L_COLLAR
+    400030: L_Collar
+    400032: L_EYE
+    400034: L_Eye
+    400036: L_Eye 1
+    400038: L_Eyebrow
+    400040: L_Eyebrow1
+    400042: L_Eyebrow2
+    400044: L_Eyebrow3
+    400046: L_INNER_EYEBROW
+    400048: L_INNER_LOWER_EYELID
+    400050: L_INNER_UPPER_EYELID
+    400052: L_Lower_eyelid
+    400054: L_Lower_Eyelid1
+    400056: L_Lower_Eyelid2
+    400058: L_Lower_Eyelid3
+    400060: L_Lower_Lip
+    400062: L_Lower_Lip_Corner
+    400064: L_LOWER_LIP_CORNER1
+    400066: L_MIDDLE_EYEBROW
+    400068: L_MIDDLE_LOWER_EYELID
+    400070: L_MIDDLE_UPPER_EYELID
+    400072: L_OUTER_EYEBROW
+    400074: L_OUTER_LOWER_EYELID
+    400076: L_OUTER_UPPER_EYELID
+    400078: L_SHOULDER
+    400080: L_Shoulder
+    400082: L_Upper_eyelid
+    400084: L_Upper_Eyelid1
+    400086: L_Upper_Eyelid2
+    400088: L_Upper_Eyelid3
+    400090: L_UPPER_LIP
+    400092: L_Upper_Lip
+    400094: L_UPPER_LIP_CORNER
+    400096: L_Upper_Lip_Corner
+    400098: LOWER_LIP
+    400100: Lower_lip
+    400102: Lower_Lip_Middle
+    400104: NECK
+    400106: Neck
+    400108: Neck 1
+    400110: Neck_Base
+    400112: NOSE
+    400114: Nose
+    400116: Nose 1
+    400118: Ponytail
+    400120: Ponytail2
+    400122: Ponytail2 1
+    400124: Ponytail3
+    400126: Ponytail4
+    400128: PONYTAIL_BASE
+    400130: PONYTAIL_TIP
+    400132: pPlane1
+    400134: R__UpperLip_Corner
+    400136: R_COLLAR
+    400138: R_Collar
+    400140: R_EYE
+    400142: R_Eye
+    400144: R_Eye 1
+    400146: R_Eyebrow
+    400148: R_Eyebrow1
+    400150: R_Eyebrow2
+    400152: R_Eyebrow3
+    400154: R_INNER_EYEBROW
+    400156: R_INNER_LOWER_EYELID
+    400158: R_INNER_LOWER_EYELID1
+    400160: R_Lower_eyelid
+    400162: R_Lower_Eyelid1
+    400164: R_Lower_Eyelid2
+    400166: R_Lower_Eyelid3
+    400168: R_Lower_Lip
+    400170: R_Lower_Lip_Corner
+    400172: R_LOWER_LIP_CORNER1
+    400174: R_MIDDLE_EYEBROW
+    400176: R_MIDDLE_LOWER_EYELID
+    400178: R_MIDDLE_UPPER_EYELID
+    400180: R_OUTER_EYEBROW
+    400182: R_OUTER_LOWER_EYELID
+    400184: R_OUTER_UPPER_EYELID
+    400186: R_SHOULDER
+    400188: R_Shoulder
+    400190: R_Upper_eyelid
+    400192: R_Upper_Eyelid1
+    400194: R_Upper_Eyelid2
+    400196: R_Upper_Eyelid3
+    400198: R_UPPER_LIP
+    400200: R_Upper_Lip
+    400202: R_UPPER_LIP_CORNER
+    400204: //RootNode
+    400206: UPPER_LIP
+    400208: Upper_lip
+    400210: Upper_Lip_Middle
+    2300000: Example1
+    3300000: Example1
+    4300000: Example1
+    4300002: Ponytail
+    4300004: Hair
+    4300006: L_Eyebrow
+    4300008: R_Eyebrow
+    4300010: L_Upper_eyelid
+    4300012: R_Upper_eyelid
+    4300014: L_Lower_eyelid
+    4300016: R_Lower_eyelid
+    4300018: L_Eye
+    4300020: R_Eye
+    4300022: Nose
+    4300024: Lower_lip
+    4300026: Upper_lip
+    4300028: Head
+    4300030: Clothes
+    4300032: Neck
+    4300034: Inside_mouth
+    4300036: Eye_white
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Clothes
+    13700002: Eye_white 1
+    13700004: Hair
+    13700006: Head 1
+    13700008: Inside_mouth
+    13700010: L_Eye 1
+    13700012: L_Eyebrow
+    13700014: L_Lower_eyelid
+    13700016: L_Upper_eyelid
+    13700018: Lower_lip
+    13700020: Neck 1
+    13700022: Nose 1
+    13700024: Ponytail
+    13700026: R_Eye 1
+    13700028: R_Eyebrow
+    13700030: R_Lower_eyelid
+    13700032: R_Upper_eyelid
+    13700034: Upper_lip
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Advocate_texture
+    second: {fileID: 2100000, guid: ac2051df2b8488848adef377abc0f70b, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
