@@ -20,7 +20,7 @@ public class MakeEventEffect
     {
         EventEffect theEE = ScriptableObject.CreateInstance<EventEffect>();
 
-        AssetDatabase.CreateAsset(theEE, "Assets/Resources/VictoryConditions/NewEE.asset");
+        AssetDatabase.CreateAsset(theEE, "Assets/Resources/Events/NewEE.asset");
         AssetDatabase.SaveAssets();
 
         Selection.activeObject = theEE;
