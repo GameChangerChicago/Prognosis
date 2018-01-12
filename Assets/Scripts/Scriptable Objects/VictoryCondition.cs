@@ -8,6 +8,7 @@ using UnityEditor;
 public class VictoryCondition : ScriptableObject
 {
     public VictoryType MyVictoryType;
+    public VictoryCondition NextVC;
     public List<Stats> StatsToTrack;
     public List<int> GoalAmounts;
     public bool Achieved;

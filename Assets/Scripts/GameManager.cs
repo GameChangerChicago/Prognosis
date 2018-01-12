@@ -4,6 +4,7 @@ using System.Collections;
 public class GameManager : MonoBehaviour
 {
     public ProfessionalStack SelectedProfessional;
+    public VictoryCondition CurrentVC;
     public float Finance,
                  Education;
     public bool DragObjectInstantiated;

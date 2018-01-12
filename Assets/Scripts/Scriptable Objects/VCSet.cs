@@ -10,18 +10,18 @@ public class VCSet : ScriptableObject
     public List<VictoryCondition> MyVictoryConditions = new List<VictoryCondition>();
 }
 
-#if UNITY_EDITOR
-public class MakeVCSet
-{
-    [MenuItem("Assets/Create/VCSet")]
-    public static void CreateVCSet()
-    {
-        VCSet theVCSet = ScriptableObject.CreateInstance<VCSet>();
+//#if UNITY_EDITOR
+//public class MakeVCSet
+//{
+//    [MenuItem("Assets/Create/VCSet")]
+//    public static void CreateVCSet()
+//    {
+//        VCSet theVCSet = ScriptableObject.CreateInstance<VCSet>();
 
-        AssetDatabase.CreateAsset(theVCSet, "Assets/Resources/VCSets/NewVCSet.asset");
-        AssetDatabase.SaveAssets();
+//        AssetDatabase.CreateAsset(theVCSet, "Assets/Resources/VCSets/NewVCSet.asset");
+//        AssetDatabase.SaveAssets();
 
-        Selection.activeObject = theVCSet;
-    }
-}
-#endif
+//        Selection.activeObject = theVCSet;
+//    }
+//}
+//#endif
