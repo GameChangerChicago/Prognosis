@@ -89,6 +89,65 @@ ModelImporter:
     100162: R_Upper_Lip_Center
     100164: R_Upper_Lip_Corner
     100166: Upper_lip
+    100168: EYEBROWS
+    100170: HAIR
+    100172: ik_L_Hair
+    100174: ik_R_Hair
+    100176: L_COAT
+    100178: L_COLLAR
+    100180: L_EYE
+    100182: L_EYEBROW_INNER
+    100184: L_EYEBROW_MIDDLE
+    100186: L_EYEBROW_OUTER
+    100188: L_HAIR
+    100190: L_LAPEL
+    100192: L_LOWER_EYELID
+    100194: L_LOWER_EYELID_INNER
+    100196: L_LOWER_EYELID_MIDDLE
+    100198: L_LOWER_EYELID_OUTER
+    100200: L_LOWER_LIP_CENTER
+    100202: L_LOWER_LIP_CORNER
+    100204: L_NECKLACE
+    100206: L_NECKLACE_STATIONARY
+    100208: L_SHOULDER
+    100210: L_UPPER_EYELID
+    100212: L_UPPER_EYELID_INNER
+    100214: L_UPPER_EYELID_MIDDLE
+    100216: L_UPPER_EYELID_OUTER
+    100218: L_UPPER_LIP
+    100220: L_UPPER_LIP_CENTER
+    100222: L_UPPER_LIP_CORNER
+    100224: LOWER_LIP
+    100226: NECK
+    100228: NECKLACE
+    100230: NOSE
+    100232: PENDANT
+    100234: polySurface22
+    100236: R_COAT
+    100238: R_COLLAR
+    100240: R_EYE
+    100242: R_EYEBROW_INNER
+    100244: R_EYEBROW_MIDDLE
+    100246: R_EYEBROW_OUTER
+    100248: R_HAIR
+    100250: R_LAPEL
+    100252: R_LOWER_EYELID
+    100254: R_LOWER_EYELID_INNER
+    100256: R_LOWER_EYELID_MIDDLE
+    100258: R_LOWER_EYELID_OUTER
+    100260: R_LOWER_LIP_CENTER
+    100262: R_LOWER_LIP_CORNER
+    100264: R_NECKLACE
+    100266: R_NECKLACE_STATIONARY
+    100268: R_SHOULDER
+    100270: R_UPPER_EYELID
+    100272: R_UPPER_EYELID_INNER
+    100274: R_UPPER_EYELID_MIDDLE
+    100276: R_UPPER_EYELID_OUTER
+    100278: R_UPPER_LIP
+    100280: R_UPPER_LIP_CENTER
+    100282: R_UPPER_LIP_CORNER
+    100284: UPPER_LIP
     400000: //RootNode
     400002: Eye_white
     400004: Geometry
@@ -173,7 +232,68 @@ ModelImporter:
     400162: R_Upper_Lip_Center
     400164: R_Upper_Lip_Corner
     400166: Upper_lip
+    400168: EYEBROWS
+    400170: HAIR
+    400172: ik_L_Hair
+    400174: ik_R_Hair
+    400176: L_COAT
+    400178: L_COLLAR
+    400180: L_EYE
+    400182: L_EYEBROW_INNER
+    400184: L_EYEBROW_MIDDLE
+    400186: L_EYEBROW_OUTER
+    400188: L_HAIR
+    400190: L_LAPEL
+    400192: L_LOWER_EYELID
+    400194: L_LOWER_EYELID_INNER
+    400196: L_LOWER_EYELID_MIDDLE
+    400198: L_LOWER_EYELID_OUTER
+    400200: L_LOWER_LIP_CENTER
+    400202: L_LOWER_LIP_CORNER
+    400204: L_NECKLACE
+    400206: L_NECKLACE_STATIONARY
+    400208: L_SHOULDER
+    400210: L_UPPER_EYELID
+    400212: L_UPPER_EYELID_INNER
+    400214: L_UPPER_EYELID_MIDDLE
+    400216: L_UPPER_EYELID_OUTER
+    400218: L_UPPER_LIP
+    400220: L_UPPER_LIP_CENTER
+    400222: L_UPPER_LIP_CORNER
+    400224: LOWER_LIP
+    400226: NECK
+    400228: NECKLACE
+    400230: NOSE
+    400232: PENDANT
+    400234: polySurface22
+    400236: R_COAT
+    400238: R_COLLAR
+    400240: R_EYE
+    400242: R_EYEBROW_INNER
+    400244: R_EYEBROW_MIDDLE
+    400246: R_EYEBROW_OUTER
+    400248: R_HAIR
+    400250: R_LAPEL
+    400252: R_LOWER_EYELID
+    400254: R_LOWER_EYELID_INNER
+    400256: R_LOWER_EYELID_MIDDLE
+    400258: R_LOWER_EYELID_OUTER
+    400260: R_LOWER_LIP_CENTER
+    400262: R_LOWER_LIP_CORNER
+    400264: R_NECKLACE
+    400266: R_NECKLACE_STATIONARY
+    400268: R_SHOULDER
+    400270: R_UPPER_EYELID
+    400272: R_UPPER_EYELID_INNER
+    400274: R_UPPER_EYELID_MIDDLE
+    400276: R_UPPER_EYELID_OUTER
+    400278: R_UPPER_LIP
+    400280: R_UPPER_LIP_CENTER
+    400282: R_UPPER_LIP_CORNER
+    400284: UPPER_LIP
     2100000: Doctor
+    2300000: polySurface22
+    3300000: polySurface22
     4300000: polySurface1
     4300002: polySurface2
     4300004: polySurface3
@@ -194,7 +314,8 @@ ModelImporter:
     4300034: polySurface17
     4300036: polySurface18
     4300038: polySurface19
-    7400000: Take 001
+    4300040: polySurface22
+    7400000: Doctor All
     9500000: //RootNode
     13700000: polySurface1
     13700002: polySurface11
@@ -247,7 +368,35 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Doctor All
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 528
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
