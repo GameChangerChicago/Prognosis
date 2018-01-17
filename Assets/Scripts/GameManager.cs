@@ -11,7 +11,11 @@ public class GameManager : MonoBehaviour
 	public bool winning;
 	private AudioSource audioSource;
     private MessageManager _theMessageManager;
-
+    private TargetLocation _ashPark,
+                           _freemason,
+                           _philmont,
+                           _quinnSquare,
+                           _eastBeaHeights;
 
     #region World Health Rates
     public float WorldSTIRate
@@ -103,26 +107,24 @@ public class GameManager : MonoBehaviour
                 {
                     tl.UpdateValues();
 					tl._currentTurn = _currentTurn;
-
                 }
 
-                if (WorldTeenPregRate < 20)
-                {
-                    _goalTurnCount++;
+                CheckCurrentStats();
 
+      //          if (WorldTeenPregRate < 20)
+      //          {
+      //              _goalTurnCount++;
 
-                    if (_goalTurnCount > 2)
-                    {
-						winning = true;
-                        Debug.Log("YOU WIN!!!!!");
-
-                    }
-                }
-                else
-                {
-                    _goalTurnCount = 0;
-
-                }
+      //              if (_goalTurnCount > 2)
+      //              {
+						//winning = true;
+      //                  Debug.Log("YOU WIN!!!!!");
+      //              }
+      //          }
+      //          else
+      //          {
+      //              _goalTurnCount = 0;
+      //          }
 
                 if(_theMessageManager)
                 {
@@ -152,6 +154,173 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         _theMessageManager = this.GetComponent<MessageManager>();
+
+        _ashPark = GameObject.Find("WorldMap/Ash Park").GetComponent<TargetLocation>();
+        _freemason = GameObject.Find("WorldMap/Freemason").GetComponent<TargetLocation>();
+        _philmont = GameObject.Find("WorldMap/Philmont").GetComponent<TargetLocation>();
+        _quinnSquare = GameObject.Find("WorldMap/Quinn Square").GetComponent<TargetLocation>();
+        _eastBeaHeights = GameObject.Find("WorldMap/East Bea Heights").GetComponent<TargetLocation>();
+    }
+
+    
+    private void CheckCurrentStats()
+    {
+        bool[] goalsReached = new bool[CurrentVC.StatsToTrack.Count];
+        TargetLocation tl;
+
+        for (int i = 0; i < CurrentVC.StatsToTrack.Count; i++)
+        {
+            switch(CurrentVC.StatLocation[i])
+            {
+                case Locations.ASHPARK:
+                    tl = _ashPark;
+
+                    switch (CurrentVC.StatsToTrack[i])
+                    {
+                        case Stats.CRIMERATE:
+                            if (CurrentVC.GoalAmounts[i] <= tl.CrimeRate)
+                                goalsReached[i] = true;
+                            break;
+                        case Stats.STIRATE:
+                            if (CurrentVC.GoalAmounts[i] <= tl.STIRate)
+                                goalsReached[i] = true;
+                            break;
+                        case Stats.TEENPREGRATE:
+                            if (CurrentVC.GoalAmounts[i] <= tl.TeenPregRate)
+                                goalsReached[i] = true;
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+                case Locations.EASTBEAHEIGHTS:
+                    tl = _eastBeaHeights;
+
+                    switch (CurrentVC.StatsToTrack[i])
+                    {
+                        case Stats.CRIMERATE:
+                            if (CurrentVC.GoalAmounts[i] <= tl.CrimeRate)
+                                goalsReached[i] = true;
+                            break;
+                        case Stats.STIRATE:
+                            if (CurrentVC.GoalAmounts[i] <= tl.STIRate)
+                                goalsReached[i] = true;
+                            break;
+                        case Stats.TEENPREGRATE:
+                            if (CurrentVC.GoalAmounts[i] <= tl.TeenPregRate)
+                                goalsReached[i] = true;
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+                case Locations.FREEMASON:
+                    tl = _freemason;
+
+                    switch (CurrentVC.StatsToTrack[i])
+                    {
+                        case Stats.CRIMERATE:
+                            if (CurrentVC.GoalAmounts[i] <= tl.CrimeRate)
+                                goalsReached[i] = true;
+                            break;
+                        case Stats.STIRATE:
+                            if (CurrentVC.GoalAmounts[i] <= tl.STIRate)
+                                goalsReached[i] = true;
+                            break;
+                        case Stats.TEENPREGRATE:
+                            if (CurrentVC.GoalAmounts[i] <= tl.TeenPregRate)
+                                goalsReached[i] = true;
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+                case Locations.GLOBAL:
+                    switch (CurrentVC.StatsToTrack[i])
+                    {
+                        case Stats.CRIMERATE:
+                            if (CurrentVC.GoalAmounts[i] <= WorldCrimeRate)
+                                goalsReached[i] = true;
+                            break;
+                        case Stats.EDUCATION:
+                            if (CurrentVC.GoalAmounts[i] >= Education)
+                                goalsReached[i] = true;
+                            break;
+                        case Stats.FINANCE:
+                            if (CurrentVC.GoalAmounts[i] >= Finance)
+                                goalsReached[i] = true;
+                            break;
+                        case Stats.STIRATE:
+                            if (CurrentVC.GoalAmounts[i] <= WorldSTIRate)
+                                goalsReached[i] = true;
+                            break;
+                        case Stats.TEENPREGRATE:
+                            if (CurrentVC.GoalAmounts[i] <= WorldTeenPregRate)
+                                goalsReached[i] = true;
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+                case Locations.PHILMONT:
+                    tl = _philmont;
+
+                    switch (CurrentVC.StatsToTrack[i])
+                    {
+                        case Stats.CRIMERATE:
+                            if (CurrentVC.GoalAmounts[i] <= tl.CrimeRate)
+                                goalsReached[i] = true;
+                            break;
+                        case Stats.STIRATE:
+                            if (CurrentVC.GoalAmounts[i] <= tl.STIRate)
+                                goalsReached[i] = true;
+                            break;
+                        case Stats.TEENPREGRATE:
+                            if (CurrentVC.GoalAmounts[i] <= tl.TeenPregRate)
+                                goalsReached[i] = true;
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+                case Locations.QUINNSQUARE:
+                    tl = _quinnSquare;
+
+                    switch (CurrentVC.StatsToTrack[i])
+                    {
+                        case Stats.CRIMERATE:
+                            if (CurrentVC.GoalAmounts[i] <= tl.CrimeRate)
+                                goalsReached[i] = true;
+                            break;
+                        case Stats.STIRATE:
+                            if (CurrentVC.GoalAmounts[i] <= tl.STIRate)
+                                goalsReached[i] = true;
+                            break;
+                        case Stats.TEENPREGRATE:
+                            if (CurrentVC.GoalAmounts[i] <= tl.TeenPregRate)
+                                goalsReached[i] = true;
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        bool allGoalsReached = true;
+
+        for (int i = 0; i < goalsReached.Length; i++)
+        {
+            if (goalsReached[i] == false)
+                allGoalsReached = false;
+        }
+
+        if(allGoalsReached)
+        {
+            //Thing happens!
+        }
     }
 
     void Update()
