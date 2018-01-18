@@ -12,6 +12,7 @@ public class VictoryCondition : ScriptableObject
     public List<Stats> StatsToTrack;
     public List<Locations> StatLocation;
     public List<int> GoalAmounts;
+    public List<int> MaintainTimes;
     public bool Achieved;
 }
 

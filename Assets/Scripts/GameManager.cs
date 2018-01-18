@@ -166,6 +166,7 @@ public class GameManager : MonoBehaviour
     private void CheckCurrentStats()
     {
         bool[] goalsReached = new bool[CurrentVC.StatsToTrack.Count];
+        int[] turnsMaintained = new int[CurrentVC.StatsToTrack.Count];
         TargetLocation tl;
 
         for (int i = 0; i < CurrentVC.StatsToTrack.Count; i++)
@@ -178,15 +179,36 @@ public class GameManager : MonoBehaviour
                     switch (CurrentVC.StatsToTrack[i])
                     {
                         case Stats.CRIMERATE:
-                            if (CurrentVC.GoalAmounts[i] <= tl.CrimeRate)
+                            if (CurrentVC.MaintainTimes[i] > 0 && CurrentVC.GoalAmounts[i] <= tl.CrimeRate)
+                            {
+                                if (turnsMaintained[i] >= CurrentVC.MaintainTimes[i])
+                                    goalsReached[i] = true;
+                                else
+                                    turnsMaintained[i]++;
+                            }
+                            else if (CurrentVC.GoalAmounts[i] <= tl.CrimeRate)
                                 goalsReached[i] = true;
                             break;
                         case Stats.STIRATE:
-                            if (CurrentVC.GoalAmounts[i] <= tl.STIRate)
+                            if (CurrentVC.MaintainTimes[i] > 0 && CurrentVC.GoalAmounts[i] <= tl.CrimeRate)
+                            {
+                                if (turnsMaintained[i] >= CurrentVC.MaintainTimes[i])
+                                    goalsReached[i] = true;
+                                else
+                                    turnsMaintained[i]++;
+                            }
+                            else if (CurrentVC.GoalAmounts[i] <= tl.STIRate)
                                 goalsReached[i] = true;
                             break;
                         case Stats.TEENPREGRATE:
-                            if (CurrentVC.GoalAmounts[i] <= tl.TeenPregRate)
+                            if (CurrentVC.MaintainTimes[i] > 0 && CurrentVC.GoalAmounts[i] <= tl.CrimeRate)
+                            {
+                                if (turnsMaintained[i] >= CurrentVC.MaintainTimes[i])
+                                    goalsReached[i] = true;
+                                else
+                                    turnsMaintained[i]++;
+                            }
+                            else if (CurrentVC.GoalAmounts[i] <= tl.TeenPregRate)
                                 goalsReached[i] = true;
                             break;
                         default:
@@ -199,15 +221,36 @@ public class GameManager : MonoBehaviour
                     switch (CurrentVC.StatsToTrack[i])
                     {
                         case Stats.CRIMERATE:
-                            if (CurrentVC.GoalAmounts[i] <= tl.CrimeRate)
+                            if (CurrentVC.MaintainTimes[i] > 0 && CurrentVC.GoalAmounts[i] <= tl.CrimeRate)
+                            {
+                                if (turnsMaintained[i] >= CurrentVC.MaintainTimes[i])
+                                    goalsReached[i] = true;
+                                else
+                                    turnsMaintained[i]++;
+                            }
+                            else if (CurrentVC.GoalAmounts[i] <= tl.CrimeRate)
                                 goalsReached[i] = true;
                             break;
                         case Stats.STIRATE:
-                            if (CurrentVC.GoalAmounts[i] <= tl.STIRate)
+                            if (CurrentVC.MaintainTimes[i] > 0 && CurrentVC.GoalAmounts[i] <= tl.CrimeRate)
+                            {
+                                if (turnsMaintained[i] >= CurrentVC.MaintainTimes[i])
+                                    goalsReached[i] = true;
+                                else
+                                    turnsMaintained[i]++;
+                            }
+                            else if (CurrentVC.GoalAmounts[i] <= tl.STIRate)
                                 goalsReached[i] = true;
                             break;
                         case Stats.TEENPREGRATE:
-                            if (CurrentVC.GoalAmounts[i] <= tl.TeenPregRate)
+                            if (CurrentVC.MaintainTimes[i] > 0 && CurrentVC.GoalAmounts[i] <= tl.CrimeRate)
+                            {
+                                if (turnsMaintained[i] >= CurrentVC.MaintainTimes[i])
+                                    goalsReached[i] = true;
+                                else
+                                    turnsMaintained[i]++;
+                            }
+                            else if (CurrentVC.GoalAmounts[i] <= tl.TeenPregRate)
                                 goalsReached[i] = true;
                             break;
                         default:
@@ -220,15 +263,36 @@ public class GameManager : MonoBehaviour
                     switch (CurrentVC.StatsToTrack[i])
                     {
                         case Stats.CRIMERATE:
-                            if (CurrentVC.GoalAmounts[i] <= tl.CrimeRate)
+                            if (CurrentVC.MaintainTimes[i] > 0 && CurrentVC.GoalAmounts[i] <= tl.CrimeRate)
+                            {
+                                if (turnsMaintained[i] >= CurrentVC.MaintainTimes[i])
+                                    goalsReached[i] = true;
+                                else
+                                    turnsMaintained[i]++;
+                            }
+                            else if (CurrentVC.GoalAmounts[i] <= tl.CrimeRate)
                                 goalsReached[i] = true;
                             break;
                         case Stats.STIRATE:
-                            if (CurrentVC.GoalAmounts[i] <= tl.STIRate)
+                            if (CurrentVC.MaintainTimes[i] > 0 && CurrentVC.GoalAmounts[i] <= tl.CrimeRate)
+                            {
+                                if (turnsMaintained[i] >= CurrentVC.MaintainTimes[i])
+                                    goalsReached[i] = true;
+                                else
+                                    turnsMaintained[i]++;
+                            }
+                            else if (CurrentVC.GoalAmounts[i] <= tl.STIRate)
                                 goalsReached[i] = true;
                             break;
                         case Stats.TEENPREGRATE:
-                            if (CurrentVC.GoalAmounts[i] <= tl.TeenPregRate)
+                            if (CurrentVC.MaintainTimes[i] > 0 && CurrentVC.GoalAmounts[i] <= tl.CrimeRate)
+                            {
+                                if (turnsMaintained[i] >= CurrentVC.MaintainTimes[i])
+                                    goalsReached[i] = true;
+                                else
+                                    turnsMaintained[i]++;
+                            }
+                            else if (CurrentVC.GoalAmounts[i] <= tl.TeenPregRate)
                                 goalsReached[i] = true;
                             break;
                         default:
@@ -268,15 +332,36 @@ public class GameManager : MonoBehaviour
                     switch (CurrentVC.StatsToTrack[i])
                     {
                         case Stats.CRIMERATE:
-                            if (CurrentVC.GoalAmounts[i] <= tl.CrimeRate)
+                            if (CurrentVC.MaintainTimes[i] > 0 && CurrentVC.GoalAmounts[i] <= tl.CrimeRate)
+                            {
+                                if (turnsMaintained[i] >= CurrentVC.MaintainTimes[i])
+                                    goalsReached[i] = true;
+                                else
+                                    turnsMaintained[i]++;
+                            }
+                            else if (CurrentVC.GoalAmounts[i] <= tl.CrimeRate)
                                 goalsReached[i] = true;
                             break;
                         case Stats.STIRATE:
-                            if (CurrentVC.GoalAmounts[i] <= tl.STIRate)
+                            if (CurrentVC.MaintainTimes[i] > 0 && CurrentVC.GoalAmounts[i] <= tl.CrimeRate)
+                            {
+                                if (turnsMaintained[i] >= CurrentVC.MaintainTimes[i])
+                                    goalsReached[i] = true;
+                                else
+                                    turnsMaintained[i]++;
+                            }
+                            else if (CurrentVC.GoalAmounts[i] <= tl.STIRate)
                                 goalsReached[i] = true;
                             break;
                         case Stats.TEENPREGRATE:
-                            if (CurrentVC.GoalAmounts[i] <= tl.TeenPregRate)
+                            if (CurrentVC.MaintainTimes[i] > 0 && CurrentVC.GoalAmounts[i] <= tl.CrimeRate)
+                            {
+                                if (turnsMaintained[i] >= CurrentVC.MaintainTimes[i])
+                                    goalsReached[i] = true;
+                                else
+                                    turnsMaintained[i]++;
+                            }
+                            else if (CurrentVC.GoalAmounts[i] <= tl.TeenPregRate)
                                 goalsReached[i] = true;
                             break;
                         default:
@@ -289,15 +374,36 @@ public class GameManager : MonoBehaviour
                     switch (CurrentVC.StatsToTrack[i])
                     {
                         case Stats.CRIMERATE:
-                            if (CurrentVC.GoalAmounts[i] <= tl.CrimeRate)
+                            if (CurrentVC.MaintainTimes[i] > 0 && CurrentVC.GoalAmounts[i] <= tl.CrimeRate)
+                            {
+                                if (turnsMaintained[i] >= CurrentVC.MaintainTimes[i])
+                                    goalsReached[i] = true;
+                                else
+                                    turnsMaintained[i]++;
+                            }
+                            else if (CurrentVC.GoalAmounts[i] <= tl.CrimeRate)
                                 goalsReached[i] = true;
                             break;
                         case Stats.STIRATE:
-                            if (CurrentVC.GoalAmounts[i] <= tl.STIRate)
+                            if (CurrentVC.MaintainTimes[i] > 0 && CurrentVC.GoalAmounts[i] <= tl.CrimeRate)
+                            {
+                                if (turnsMaintained[i] >= CurrentVC.MaintainTimes[i])
+                                    goalsReached[i] = true;
+                                else
+                                    turnsMaintained[i]++;
+                            }
+                            else if (CurrentVC.GoalAmounts[i] <= tl.STIRate)
                                 goalsReached[i] = true;
                             break;
                         case Stats.TEENPREGRATE:
-                            if (CurrentVC.GoalAmounts[i] <= tl.TeenPregRate)
+                            if (CurrentVC.MaintainTimes[i] > 0 && CurrentVC.GoalAmounts[i] <= tl.CrimeRate)
+                            {
+                                if (turnsMaintained[i] >= CurrentVC.MaintainTimes[i])
+                                    goalsReached[i] = true;
+                                else
+                                    turnsMaintained[i]++;
+                            }
+                            else if (CurrentVC.GoalAmounts[i] <= tl.TeenPregRate)
                                 goalsReached[i] = true;
                             break;
                         default:
