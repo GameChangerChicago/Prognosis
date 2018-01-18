@@ -8,8 +8,8 @@ public class GameManager : MonoBehaviour
     public float Finance,
                  Education;
     public bool DragObjectInstantiated;
-	public bool winning;
-	private AudioSource audioSource;
+    public bool winning;
+    private AudioSource audioSource;
     private MessageManager _theMessageManager;
     private TargetLocation _ashPark,
                            _freemason,
@@ -103,34 +103,34 @@ public class GameManager : MonoBehaviour
         {
             if (_currentTurn != value && value != 0)
             {
-				foreach (TargetLocation tl in FindObjectsOfType<TargetLocation>())
+                foreach (TargetLocation tl in FindObjectsOfType<TargetLocation>())
                 {
                     tl.UpdateValues();
-					tl._currentTurn = _currentTurn;
+                    tl._currentTurn = _currentTurn;
                 }
 
                 CheckCurrentStats();
 
-      //          if (WorldTeenPregRate < 20)
-      //          {
-      //              _goalTurnCount++;
+                //          if (WorldTeenPregRate < 20)
+                //          {
+                //              _goalTurnCount++;
 
-      //              if (_goalTurnCount > 2)
-      //              {
-						//winning = true;
-      //                  Debug.Log("YOU WIN!!!!!");
-      //              }
-      //          }
-      //          else
-      //          {
-      //              _goalTurnCount = 0;
-      //          }
+                //              if (_goalTurnCount > 2)
+                //              {
+                //winning = true;
+                //                  Debug.Log("YOU WIN!!!!!");
+                //              }
+                //          }
+                //          else
+                //          {
+                //              _goalTurnCount = 0;
+                //          }
 
-                if(_theMessageManager)
+                if (_theMessageManager)
                 {
                     //This whole bit is going to have to be hardcoded to a certain degree.
                     //We could make a random version of this but for now I believe we'll want this to be a tailored experience
-                    switch(value)
+                    switch (value)
                     {
                         case 1:
                             _theMessageManager.ShowMessage(Resources.Load<EventInfo>("Events/Event1"));
@@ -155,14 +155,14 @@ public class GameManager : MonoBehaviour
     {
         _theMessageManager = this.GetComponent<MessageManager>();
 
-        _ashPark = GameObject.Find("WorldMap/Ash Park").GetComponent<TargetLocation>();
-        _freemason = GameObject.Find("WorldMap/Freemason").GetComponent<TargetLocation>();
-        _philmont = GameObject.Find("WorldMap/Philmont").GetComponent<TargetLocation>();
-        _quinnSquare = GameObject.Find("WorldMap/Quinn Square").GetComponent<TargetLocation>();
-        _eastBeaHeights = GameObject.Find("WorldMap/East Bea Heights").GetComponent<TargetLocation>();
+        _ashPark = GameObject.Find("World Map/Ash Park").GetComponent<TargetLocation>();
+        _freemason = GameObject.Find("World Map/Freemason").GetComponent<TargetLocation>();
+        _philmont = GameObject.Find("World Map/Philmont").GetComponent<TargetLocation>();
+        _quinnSquare = GameObject.Find("World Map/Quinn Square").GetComponent<TargetLocation>();
+        _eastBeaHeights = GameObject.Find("World Map/East Bea Heights").GetComponent<TargetLocation>();
     }
 
-    
+
     private void CheckCurrentStats()
     {
         bool[] goalsReached = new bool[CurrentVC.StatsToTrack.Count];
@@ -170,7 +170,7 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < CurrentVC.StatsToTrack.Count; i++)
         {
-            switch(CurrentVC.StatLocation[i])
+            switch (CurrentVC.StatLocation[i])
             {
                 case Locations.ASHPARK:
                     tl = _ashPark;
@@ -317,16 +317,20 @@ public class GameManager : MonoBehaviour
                 allGoalsReached = false;
         }
 
-        if(allGoalsReached)
+        if (allGoalsReached)
         {
-            //Thing happens!
+            Debug.Log("Thing happens!");
+
+            if (CurrentVC.NextVC != null)
+                CurrentVC = CurrentVC.NextVC;
         }
     }
 
+
     void Update()
     {
-		//Debug.Log (_currentTurn);
-		//Debug.Log ("Goal Turn Count: "+ _goalTurnCount);
-		//Debug.Log ("World Teen Preg: " + WorldTeenPregRate);
+        //Debug.Log (_currentTurn);
+        //Debug.Log ("Goal Turn Count: "+ _goalTurnCount);
+        //Debug.Log ("World Teen Preg: " + WorldTeenPregRate);
     }
 }

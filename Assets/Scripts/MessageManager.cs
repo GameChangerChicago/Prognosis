@@ -22,11 +22,11 @@ public class MessageManager : MonoBehaviour
         _messageText = MessageBox.transform.Find("Title/MessageText").GetComponent<Text>();
         MessageBox.SetActive(false);
         _theGameManager = FindObjectOfType<GameManager>().GetComponent<GameManager>();
-        _ashPark = GameObject.Find("WorldMap/Ash Park").GetComponent<TargetLocation>();
-        _freemason = GameObject.Find("WorldMap/Freemason").GetComponent<TargetLocation>();
-        _philmont = GameObject.Find("WorldMap/Philmont").GetComponent<TargetLocation>();
-        _quinnSquare = GameObject.Find("WorldMap/Quinn Square").GetComponent<TargetLocation>();
-        _eastBeaHeights = GameObject.Find("WorldMap/East Bea Heights").GetComponent<TargetLocation>();
+        _ashPark = GameObject.Find("World Map/Ash Park").GetComponent<TargetLocation>();
+        _freemason = GameObject.Find("World Map/Freemason").GetComponent<TargetLocation>();
+        _philmont = GameObject.Find("World Map/Philmont").GetComponent<TargetLocation>();
+        _quinnSquare = GameObject.Find("World Map/Quinn Square").GetComponent<TargetLocation>();
+        _eastBeaHeights = GameObject.Find("World Map/East Bea Heights").GetComponent<TargetLocation>();
     }
 
     public void ShowMessage(EventInfo messageEvent)
