@@ -212,7 +212,6 @@ public class TargetLocation : MonoBehaviour
         {
             if (ProSlots[i].CurrentProfesional != null)
             {
-                Debug.Log(ProSlots[i].CurrentProfesional.MyProfessionalType);
                 switch (ProSlots[i].CurrentProfesional.MyProfessionalType)
                 {
                     case ProfessionalType.Doctor:

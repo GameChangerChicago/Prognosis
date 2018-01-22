@@ -21,12 +21,6 @@ public enum Locations
     GLOBAL
 };
 
-public enum VictoryType
-{
-    MAINTAIN,
-    ACHIEVE
-};
-
 public enum Stats
 {
     STIRATE,
