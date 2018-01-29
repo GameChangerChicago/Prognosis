@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -12,6 +14,7 @@ public class GameManager : MonoBehaviour
     public bool winning;
     private AudioSource audioSource;
     private MessageManager _theMessageManager;
+    private Text _goalText;
     private TargetLocation _ashPark,
                            _freemason,
                            _philmont,
@@ -171,6 +174,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         _theMessageManager = this.GetComponent<MessageManager>();
+        _goalText = GameObject.Find("Canvas/GoalText").GetComponent<Text>();
+        UpdateGoalDisplay();
 
         _ashPark = GameObject.Find("World Map/Ash Park").GetComponent<TargetLocation>();
         _freemason = GameObject.Find("World Map/Freemason").GetComponent<TargetLocation>();
@@ -488,6 +493,62 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void UpdateGoalDisplay()
+    {
+        string goalText = "";
+
+        for (int i = 0; i < CurrentVC.GoalAmounts.Count; i++)
+        {
+            if (i > 0)
+                goalText += "\n\n";
+
+            if (CurrentVC.MaintainTimes[i] > 0)
+                goalText += "Keep ";
+            else
+                goalText += "Get ";
+
+            goalText += CurrentVC.StatLocation[i].ToString() + " " + CurrentVC.StatsToTrack[i];
+
+            if (CurrentVC.MaintainTimes[i] > 0)
+                goalText += " at.";
+            else
+                goalText += " to ";
+
+            goalText += DataConverter(CurrentVC.StatsToTrack[i], CurrentVC.GoalAmounts[i]);
+
+            if (CurrentVC.MaintainTimes[i] > 0)
+                goalText += " for " + CurrentVC.MaintainTimes[i] + " month(s).";
+        }
+
+        _goalText.text = goalText;
+    }
+
+    private float DataConverter(Stats statType, float statValue)
+    {
+        float convertedData = 0;
+
+        switch (statType)
+        {
+            case Stats.CRIMERATE:
+                convertedData = statValue * 5;
+                break;
+            case Stats.EDUCATION:
+                convertedData = (statValue * 0.45f) + 50;
+                break;
+            case Stats.FINANCE:
+                double d = Math.Round(statValue * 2826403.94, 2);
+                convertedData = (float)d;
+                break;
+            case Stats.STIRATE:
+                convertedData = statValue;
+                break;
+            case Stats.TEENPREGRATE:
+                convertedData = statValue * 8;
+                break;
+        }
+
+        return convertedData;
+    }
 
     void Update()
     {
