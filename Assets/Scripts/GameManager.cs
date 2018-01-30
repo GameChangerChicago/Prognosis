@@ -507,17 +507,72 @@ public class GameManager : MonoBehaviour
             else
                 goalText += "Get ";
 
-            goalText += CurrentVC.StatLocation[i].ToString() + " " + CurrentVC.StatsToTrack[i];
+            switch(CurrentVC.StatLocation[i])
+            {
+                case Locations.ASHPARK:
+                    goalText += "Ash Park ";
+                    break;
+                case Locations.EASTBEAHEIGHTS:
+                    goalText += "East Bea Heights ";
+                    break;
+                case Locations.FREEMASON:
+                    goalText += "Freemason ";
+                    break;
+                case Locations.PHILMONT:
+                    goalText += "Philmont ";
+                    break;
+                case Locations.QUINNSQUARE:
+                    goalText += "Quinn Square ";
+                    break;
+                case Locations.GLOBAL:
+                    goalText += "the city ";
+                    break;
+                default:
+                    break;
+            }
+
+            switch (CurrentVC.StatsToTrack[i])
+            {
+                case Stats.CRIMERATE:
+                    goalText += "crime rate ";
+                    break;
+                case Stats.EDUCATION:
+                    goalText += "graduation rate ";
+                    break;
+                case Stats.FINANCE:
+                    goalText += "budget ";
+                    break;
+                case Stats.STIRATE:
+                    goalText += "STI rate ";
+                    break;
+                case Stats.TEENPREGRATE:
+                    goalText += "teen pregnancy rate ";
+                    break;
+            }
 
             if (CurrentVC.MaintainTimes[i] > 0)
-                goalText += " at.";
+            {
+                if (CurrentVC.StatsToTrack[i] == Stats.EDUCATION || CurrentVC.StatsToTrack[i] == Stats.FINANCE)
+                    goalText += "at or above ";
+                else
+                    goalText += "at or below ";
+            }
             else
-                goalText += " to ";
+            {
+                if (CurrentVC.StatsToTrack[i] == Stats.EDUCATION || CurrentVC.StatsToTrack[i] == Stats.FINANCE)
+                    goalText += "up to ";
+                else
+                    goalText += "down to ";
+            }
 
             goalText += DataConverter(CurrentVC.StatsToTrack[i], CurrentVC.GoalAmounts[i]);
 
-            if (CurrentVC.MaintainTimes[i] > 0)
-                goalText += " for " + CurrentVC.MaintainTimes[i] + " month(s).";
+            if (CurrentVC.MaintainTimes[i] > 0 && CurrentVC.MaintainTimes[i] < 2)
+                goalText += " for " + CurrentVC.MaintainTimes[i] + " month.";
+            else if(CurrentVC.MaintainTimes[i] > 1)
+                goalText += " for " + CurrentVC.MaintainTimes[i] + " months.";
+            else
+                goalText += ".";
         }
 
         _goalText.text = goalText;
