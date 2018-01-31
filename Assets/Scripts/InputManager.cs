@@ -36,6 +36,82 @@ public class InputManager : MonoBehaviour
         }
     }
 
+    private void MouseOverHandler()
+    {
+        if (_currentMousedOverClickables.ContainsKey("PausePlay") || _currentMousedOverClickables.ContainsKey("FastForward") || _currentMousedOverClickables.ContainsKey("OpenGoalWindow"))
+        {
+            if (_currentMousedOverClickables.ContainsKey("PausePlay"))
+            {
+                _currentMousedOverClickables["PausePlay"].transform.parent.GetComponent<TimerController>().ButtonHighlightToggle(true);
+            }
+
+            if (_currentMousedOverClickables.ContainsKey("FastForward"))
+            {
+                _currentMousedOverClickables["FastForward"].transform.parent.GetComponent<TimerController>().ButtonHighlightToggle(true);
+            }
+
+            if (_currentMousedOverClickables.ContainsKey("OpenGoalWindow"))
+            {
+                _currentMousedOverClickables["OpenGoalWindow"].transform.parent.GetComponent<TimerController>().ButtonHighlightToggle(true);
+            }
+        }
+        else if (_currentMousedOverClickables.ContainsKey("Professional") || _currentMousedOverClickables.ContainsKey("upArrow") || _currentMousedOverClickables.ContainsKey("downArrow"))
+        {
+            if (_currentMousedOverClickables.ContainsKey("upArrow"))
+            {
+                _currentMousedOverClickables["upArrow"].transform.parent.GetComponent<ProfessionalsMenu>().MoveUp();
+            }
+            else if (_currentMousedOverClickables.ContainsKey("downArrow"))
+            {
+                _currentMousedOverClickables["downArrow"].transform.parent.GetComponent<ProfessionalsMenu>().MoveDown();
+            }
+        }
+        else if (_currentMousedOverClickables.ContainsKey("ProfessionalSlot") || _currentMousedOverClickables.ContainsKey("LockRecalButton"))
+        {
+        }
+        else if (_currentMousedOverClickables.ContainsKey("Ash Park") ||
+            _currentMousedOverClickables.ContainsKey("Freemason") ||
+            _currentMousedOverClickables.ContainsKey("Philmont") ||
+            _currentMousedOverClickables.ContainsKey("Quinn Square") ||
+            _currentMousedOverClickables.ContainsKey("East Bea Heights"))
+        {
+        }
+    }
+
+    private void MouseOffHandler()
+    {
+        if (_currentMousedOverClickables.ContainsKey("PausePlay") || _currentMousedOverClickables.ContainsKey("FastForward") || _currentMousedOverClickables.ContainsKey("OpenGoalWindow"))
+        {
+            if (_currentMousedOverClickables.ContainsKey("PausePlay"))
+            {
+                _currentMousedOverClickables["PausePlay"].transform.parent.GetComponent<TimerController>().ButtonHighlightToggle(false);
+            }
+
+            if (_currentMousedOverClickables.ContainsKey("FastForward"))
+            {
+                _currentMousedOverClickables["FastForward"].transform.parent.GetComponent<TimerController>().ButtonHighlightToggle(false);
+            }
+
+            if (_currentMousedOverClickables.ContainsKey("OpenGoalWindow"))
+            {
+                _currentMousedOverClickables["OpenGoalWindow"].transform.parent.GetComponent<TimerController>().ButtonHighlightToggle(false);
+            }
+        }
+        else if (_currentMousedOverClickables.ContainsKey("Professional") || _currentMousedOverClickables.ContainsKey("upArrow") || _currentMousedOverClickables.ContainsKey("downArrow"))
+        {
+        }
+        else if (_currentMousedOverClickables.ContainsKey("ProfessionalSlot") || _currentMousedOverClickables.ContainsKey("LockRecalButton"))
+        {
+        }
+        else if (_currentMousedOverClickables.ContainsKey("Ash Park") ||
+            _currentMousedOverClickables.ContainsKey("Freemason") ||
+            _currentMousedOverClickables.ContainsKey("Philmont") ||
+            _currentMousedOverClickables.ContainsKey("Quinn Square") ||
+            _currentMousedOverClickables.ContainsKey("East Bea Heights"))
+        {
+        }
+    }
+
     private void MouseDownHandler()
     {
         if (_currentMousedOverClickables.ContainsKey("Professional") || _currentMousedOverClickables.ContainsKey("upArrow") || _currentMousedOverClickables.ContainsKey("downArrow"))
@@ -49,7 +125,7 @@ public class InputManager : MonoBehaviour
 
     private void MouseUpHandler()
     {
-        if (_currentMousedOverClickables.ContainsKey("PausePlay") || _currentMousedOverClickables.ContainsKey("FastForward"))
+        if (_currentMousedOverClickables.ContainsKey("PausePlay") || _currentMousedOverClickables.ContainsKey("FastForward") || _currentMousedOverClickables.ContainsKey("OpenGoalWindow"))
         {
             if (_currentMousedOverClickables.ContainsKey("PausePlay"))
             {
@@ -59,6 +135,11 @@ public class InputManager : MonoBehaviour
             if (_currentMousedOverClickables.ContainsKey("FastForward"))
             {
                 _currentMousedOverClickables["FastForward"].transform.parent.GetComponent<TimerController>().SkipToNextDay();
+            }
+
+            if(_currentMousedOverClickables.ContainsKey("OpenGoalWindow"))
+            {
+                //the thing
             }
         }
         else if (_currentMousedOverClickables.ContainsKey("Professional") || _currentMousedOverClickables.ContainsKey("upArrow") || _currentMousedOverClickables.ContainsKey("downArrow"))
