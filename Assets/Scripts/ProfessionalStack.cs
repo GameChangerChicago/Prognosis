@@ -74,6 +74,11 @@ public class ProfessionalStack : MonoBehaviour
         }
     }
 
+    public void ButtonHightlightToggle(bool on)
+    {
+
+    }
+
     public void TakeProfessional()
     {
         if (ProfessionalCount > 0)

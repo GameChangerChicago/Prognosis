@@ -56,6 +56,11 @@ public class ProfessionalSlot : MonoBehaviour
         }
     }
 
+    public void ButtonHighlightToggle(bool on)
+    {
+
+    }
+
     public void RemoveProfessional()
     {
         if (_hasAProfessional && !_myTargetLocation.Locked)

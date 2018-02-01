@@ -59,22 +59,47 @@ public class InputManager : MonoBehaviour
         {
             if (_currentMousedOverClickables.ContainsKey("upArrow"))
             {
-                _currentMousedOverClickables["upArrow"].transform.parent.GetComponent<ProfessionalsMenu>().MoveUp();
+                _currentMousedOverClickables["upArrow"].transform.parent.GetComponent<ProfessionalsMenu>().UpButtonHighlightToggle(true);
             }
             else if (_currentMousedOverClickables.ContainsKey("downArrow"))
             {
-                _currentMousedOverClickables["downArrow"].transform.parent.GetComponent<ProfessionalsMenu>().MoveDown();
+                _currentMousedOverClickables["downArrow"].transform.parent.GetComponent<ProfessionalsMenu>().DownButtonHighlightToggle(true);
+            }
+            else if (_currentMousedOverClickables.ContainsKey("Professional"))
+            {
+                _currentMousedOverClickables["Professional"].GetComponent<ProfessionalStack>().ButtonHightlightToggle(true);
             }
         }
-        else if (_currentMousedOverClickables.ContainsKey("ProfessionalSlot") || _currentMousedOverClickables.ContainsKey("LockRecalButton"))
+        else if (_currentMousedOverClickables.ContainsKey("ProfessionalSlot") || _currentMousedOverClickables.ContainsKey("LockRecalButton")) //I'll remove lock recal button
         {
+            _currentMousedOverClickables["ProfessionalSlot"].transform.parent.GetComponent<ProfessionalSlot>().ButtonHighlightToggle(true);
         }
         else if (_currentMousedOverClickables.ContainsKey("Ash Park") ||
-            _currentMousedOverClickables.ContainsKey("Freemason") ||
-            _currentMousedOverClickables.ContainsKey("Philmont") ||
-            _currentMousedOverClickables.ContainsKey("Quinn Square") ||
-            _currentMousedOverClickables.ContainsKey("East Bea Heights"))
+                 _currentMousedOverClickables.ContainsKey("Freemason") ||
+                 _currentMousedOverClickables.ContainsKey("Philmont") ||
+                 _currentMousedOverClickables.ContainsKey("Quinn Square") ||
+                 _currentMousedOverClickables.ContainsKey("East Bea Heights"))
         {
+            if (_currentMousedOverClickables.ContainsKey("Ash Park"))
+            {
+                _currentMousedOverClickables["Ash Park"].GetComponent<TargetLocation>().ButtonHighlightToggle(true);
+            }
+            else if (_currentMousedOverClickables.ContainsKey("Freemason"))
+            {
+                _currentMousedOverClickables["Freemason"].GetComponent<TargetLocation>().ButtonHighlightToggle(true);
+            }
+            else if (_currentMousedOverClickables.ContainsKey("Philmont"))
+            {
+                _currentMousedOverClickables["Philmont"].GetComponent<TargetLocation>().ButtonHighlightToggle(true);
+            }
+            else if (_currentMousedOverClickables.ContainsKey("Quinn Square"))
+            {
+                _currentMousedOverClickables["Quinn Square"].GetComponent<TargetLocation>().ButtonHighlightToggle(true);
+            }
+            else if (_currentMousedOverClickables.ContainsKey("East Bea Heights"))
+            {
+                _currentMousedOverClickables["East Bea Heights"].GetComponent<TargetLocation>().ButtonHighlightToggle(true);
+            }
         }
     }
 
