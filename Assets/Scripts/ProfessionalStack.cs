@@ -8,8 +8,8 @@ public class ProfessionalStack : MonoBehaviour
     public GameObject DragObject,
                       ButtonMask;
     public ProfessionalType MyProfessionalType;
-    public int ProfessionalCount;
     public Text CountText;
+    public int ProfessionalCount;
 
     private ProfessionalsMenu _professionalMenu;
     private GameObject _dragObject;
@@ -72,11 +72,6 @@ public class ProfessionalStack : MonoBehaviour
 
             _professionalCount = ProfessionalCount;
         }
-    }
-
-    public void ButtonHightlightToggle(bool on)
-    {
-
     }
 
     public void TakeProfessional()

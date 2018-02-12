@@ -66,9 +66,4 @@ public class TimerController : MonoBehaviour
         _gameManager.CurrentTurn++;
         Timer = 0;
     }
-
-    public void ButtonHighlightToggle(bool on)
-    {
-
-    }
 }

@@ -144,11 +144,6 @@ public class TargetLocation : MonoBehaviour
             recallButtonRenderer.GetComponent<SpriteRenderer>().color = Color.white;
     }
 
-    public void ButtonHighlightToggle(bool on)
-    {
-
-    }
-
     void OnMouseOver()
     {
         spriteHighlight.SetActive(true);

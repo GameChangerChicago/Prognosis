@@ -12,6 +12,7 @@ public class VictoryCondition : ScriptableObject
     public List<Locations> StatLocation;
     public List<int> GoalAmounts;
     public List<int> MaintainTimes;
+    public int GoalIndex;
 }
 
 #if UNITY_EDITOR

@@ -286,18 +286,6 @@ public class ProfessionalsMenu : MonoBehaviour
         }
     }
 
-#region Highlight Methods
-    public void UpButtonHighlightToggle(bool on)
-    {
-
-    }
-
-    public void DownButtonHighlightToggle(bool on)
-    {
-
-    }
-#endregion
-
     public void PlaceAProfessional(string targetLoc, ProfessionalType profType)
     {
         switch(profType)
