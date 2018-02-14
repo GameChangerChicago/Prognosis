@@ -45,16 +45,6 @@ public class TimerController : MonoBehaviour
         }
     }
 
-    private void OnMouseEnter()
-    {
-        Debug.Log("SUP!");
-    }
-
-    private void OnMouseExit()
-    {
-        Debug.Log("BI!");
-    }
-
     public void ToggglePauseTimer()
     {
         if (TimerActive)
