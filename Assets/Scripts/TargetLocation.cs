@@ -97,7 +97,7 @@ public class TargetLocation : MonoBehaviour
         }
         else if (healthAverage > 0.5f)
         {
-            CurrentColor = new Color(1 - ((1 - healthAverage) * 2), 1, 0);
+            CurrentColor = new Color((1 - healthAverage) * 2, 1, 0);
         }
 
         spriteRenderer.color = CurrentColor;
