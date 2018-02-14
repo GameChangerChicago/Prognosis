@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PrognosisButton : MonoBehaviour
 {
+    public GameObject ButtonHighlight;
     private InputManager _theInputManager;
 
     private void Start()
@@ -14,10 +15,20 @@ public class PrognosisButton : MonoBehaviour
     private void OnMouseEnter()
     {
         _theInputManager.ClickableMousedEnter(this.gameObject);
+
+        if(ButtonHighlight)
+        {
+            ButtonHighlight.SetActive(true);
+        }
     }
 
     private void OnMouseExit()
     {
         _theInputManager.ClickableMousedExit(this.gameObject);
+
+        if (ButtonHighlight)
+        {
+            ButtonHighlight.SetActive(false);
+        }
     }
 }
