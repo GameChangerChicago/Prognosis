@@ -48,7 +48,11 @@ public class MouseOverTool : MonoBehaviour
 
     private void ShowTool()
     {
-        if (DataSource is GameManager)
+        if(DataSource)
+        {
+
+        }
+        else if (DataSource is GameManager)
         {
             if (BarType == "STI")
                 MouseOverObject.transform.GetChild(0).GetComponent<Text>().text = (DataSource as GameManager).WorldSTIRate.ToString() + " per\n1000";
