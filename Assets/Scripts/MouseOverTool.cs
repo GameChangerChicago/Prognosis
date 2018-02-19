@@ -26,23 +26,18 @@ public class MouseOverTool : MonoBehaviour
             }
         }
 
-        if (mouseOverCols.Count > 0 && !_overlapping)
+        if (mouseOverCols.Count > 0)
         {
             if (mouseOverCols[0].GetComponent<MouseOverTool>() == this)
             {
-                _lastCollider = mouseOverCols[0];
-                _overlapping = true;
                 ShowTool();
             }
-        }
-        else if(_overlapping && mouseOverCols.Count < 1)
-        {
-            if (_lastCollider.GetComponent<MouseOverTool>() == this)
-            {
-                _lastCollider = null;
-                _overlapping = false;
+            else
                 HideTool();
-            }
+        }
+        else
+        {
+            HideTool();
         }
     }
 
