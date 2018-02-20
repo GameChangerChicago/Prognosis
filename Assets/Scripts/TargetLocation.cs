@@ -175,7 +175,7 @@ public class TargetLocation : MonoBehaviour
               CrimeRateChange = 0,
               FinanceChange = 0,
               EducationChange = 0,
-              FinancialModifier = 0,
+              //FinancialModifier = 0,
               EducationModifier = 0;
         int STIChangeCount = 0,
             TeenPregChangeCount = 0,
@@ -184,16 +184,16 @@ public class TargetLocation : MonoBehaviour
             EducationChangeCount = 0;
 
         //Calculation of Financial Modifier
-        if (_gameManager.Finance < 10)
-            FinancialModifier = -10;
-        else if (_gameManager.Finance < 40)
-            FinancialModifier = -5;
-        else if (_gameManager.Finance < 80)
-            FinancialModifier = 0;
-        else if (_gameManager.Finance < 99)
-            FinancialModifier = 5;
-        else
-            FinancialModifier = 10;
+        //if (_gameManager.Finance < 10)
+        //    FinancialModifier = -10;
+        //else if (_gameManager.Finance < 40)
+        //    FinancialModifier = -5;
+        //else if (_gameManager.Finance < 80)
+        //    FinancialModifier = 0;
+        //else if (_gameManager.Finance < 99)
+        //    FinancialModifier = 5;
+        //else
+        //    FinancialModifier = 10;
 
         //Calculation of Education Modifier
         if (_gameManager.Education < 10)
@@ -215,31 +215,31 @@ public class TargetLocation : MonoBehaviour
                 switch (ProSlots[i].CurrentProfesional.MyProfessionalType)
                 {
                     case ProfessionalType.Doctor:
-                        STIChange -= 20 + FinancialModifier;
+                        STIChange -= 20;// + FinancialModifier;
                         FinanceChange -= 5;
                         STIChangeCount++;
                         break;
                     case ProfessionalType.Nurse:
-                        TeenPregChange -= 10 + FinancialModifier;
-                        STIChange -= 10 + FinancialModifier;
+                        TeenPregChange -= 10;// + FinancialModifier;
+                        STIChange -= 10;// + FinancialModifier;
                         STIChangeCount++;
                         TeenPregChangeCount++;
                         break;
                     case ProfessionalType.CommOrg:
-                        CrimeRateChange -= 10 + FinancialModifier;
+                        CrimeRateChange -= 10;// + FinancialModifier;
                         FinanceChange -= 5;
-                        EducationChange += 5 + FinancialModifier;
+                        EducationChange += 5;// + FinancialModifier;
                         CrimeRateChangeCount++;
                         EducationChangeCount++;
                         break;
                     case ProfessionalType.Politician:
                         AmbientBoost += 5;
-                        FinanceChange += 5 + FinancialModifier;
+                        FinanceChange += 5;// + FinancialModifier;
                         FinanceChangeCount++;
                         break;
                     case ProfessionalType.SocialWorker:
                         HealthBoost += 5;
-                        EducationChange += 5 + FinancialModifier;
+                        EducationChange += 5;// + FinancialModifier;
                         EducationChangeCount++;
                         break;
                 }
