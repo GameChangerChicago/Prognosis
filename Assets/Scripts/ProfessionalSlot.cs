@@ -45,16 +45,18 @@ public class ProfessionalSlot : MonoBehaviour
 
         if (_mousedOverWithAProfessional && Input.GetKeyUp(KeyCode.Mouse0))
         {
-            _hasAProfessional = true;
-            _mousedOverWithAProfessional = false;
-            _gameManager.SelectedProfessional.ProfessionalCount--;
-            if (_gameManager.SelectedProfessional.ProfessionalCount == 0)
-                _gameManager.SelectedProfessional.ButtonMask.SetActive(true);
+            if (_theGSB.FinanceBarChange(_myTargetLocation, _gameManager.SelectedProfessional.MyProfessionalType, true))
+            {
+                _hasAProfessional = true;
+                _mousedOverWithAProfessional = false;
+                _gameManager.SelectedProfessional.ProfessionalCount--;
+                if (_gameManager.SelectedProfessional.ProfessionalCount == 0)
+                    _gameManager.SelectedProfessional.ButtonMask.SetActive(true);
 
-            _myTargetLocation.TheProfMenu.PlaceAProfessional(_myTargetLocation.name, _gameManager.SelectedProfessional.MyProfessionalType);
-            CurrentProfesional = _gameManager.SelectedProfessional;
-            PortraitRenderer.sprite = _gameManager.SelectedProfessional.SlotPortrait;
-            _theGSB.FinanceBarChange(_myTargetLocation, CurrentProfesional.MyProfessionalType, true);
+                _myTargetLocation.TheProfMenu.PlaceAProfessional(_myTargetLocation.name, _gameManager.SelectedProfessional.MyProfessionalType);
+                CurrentProfesional = _gameManager.SelectedProfessional;
+                PortraitRenderer.sprite = _gameManager.SelectedProfessional.SlotPortrait;
+            }
         }
     }
 

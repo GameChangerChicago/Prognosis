@@ -75,10 +75,12 @@ public class GlobalStatsBar : MonoBehaviour {
             UpdateFinance();
     }
 
-    public void FinanceBarChange(TargetLocation tl, ProfessionalType profType, bool addingProf)
+    public bool FinanceBarChange(TargetLocation tl, ProfessionalType profType, bool addingProf)
     {
         if (addingProf)
         {
+            float lastFinance = potentialFinance;
+
             if (profType == ProfessionalType.Politician)
             {
                 int polCount = 0;
@@ -103,6 +105,12 @@ public class GlobalStatsBar : MonoBehaviour {
                     potentialFinance -= 6;
                 else
                     potentialFinance -= 3;
+
+                if(potentialFinance < 0)
+                {
+                    potentialFinance = lastFinance;
+                    return false;
+                }
             }
         }
         else
@@ -144,6 +152,8 @@ public class GlobalStatsBar : MonoBehaviour {
             financeBarFront.fillAmount = potentialFinance / 100;
             financeBarBack.fillAmount = gameManager.Finance / 100;
         }
+
+        return true;
     }
 
     public void SetFinance()
