@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
                  Education;
     public bool DragObjectInstantiated;
     public bool winning;
+    private GlobalStatsBar theGSB;
     private AudioSource audioSource;
     private MessageManager _theMessageManager;
     private Text _goalText;
@@ -113,6 +114,9 @@ public class GameManager : MonoBehaviour
                     tl._currentTurn = _currentTurn;
                 }
 
+                ClearProfs();
+                theGSB.SetFinance();
+
                 CheckCurrentStats();
 
                 //          if (WorldTeenPregRate < 20)
@@ -175,6 +179,7 @@ public class GameManager : MonoBehaviour
     {
         _theMessageManager = this.GetComponent<MessageManager>();
         _goalText = GameObject.Find("Canvas/GoalText").GetComponent<Text>();
+        theGSB = this.GetComponent<GlobalStatsBar>();
         UpdateGoalDisplay();
 
         _ashPark = GameObject.Find("World Map/Ash Park").GetComponent<TargetLocation>();
@@ -603,6 +608,30 @@ public class GameManager : MonoBehaviour
         }
 
         return convertedData;
+    }
+
+    private void ClearProfs()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            _ashPark.ProSlots[i].RemoveProfessional();
+        }
+        for (int i = 0; i < 3; i++)
+        {
+            _eastBeaHeights.ProSlots[i].RemoveProfessional();
+        }
+        for (int i = 0; i < 3; i++)
+        {
+            _freemason.ProSlots[i].RemoveProfessional();
+        }
+        for (int i = 0; i < 3; i++)
+        {
+            _quinnSquare.ProSlots[i].RemoveProfessional();
+        }
+        for (int i = 0; i < 3; i++)
+        {
+            _philmont.ProSlots[i].RemoveProfessional();
+        }
     }
 
     void Update()

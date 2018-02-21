@@ -175,25 +175,12 @@ public class TargetLocation : MonoBehaviour
               CrimeRateChange = 0,
               FinanceChange = 0,
               EducationChange = 0,
-              //FinancialModifier = 0,
               EducationModifier = 0;
         int STIChangeCount = 0,
             TeenPregChangeCount = 0,
             CrimeRateChangeCount = 0,
-            FinanceChangeCount = 0,
+            FinanceChangeCount = -1,
             EducationChangeCount = 0;
-
-        //Calculation of Financial Modifier
-        //if (_gameManager.Finance < 10)
-        //    FinancialModifier = -10;
-        //else if (_gameManager.Finance < 40)
-        //    FinancialModifier = -5;
-        //else if (_gameManager.Finance < 80)
-        //    FinancialModifier = 0;
-        //else if (_gameManager.Finance < 99)
-        //    FinancialModifier = 5;
-        //else
-        //    FinancialModifier = 10;
 
         //Calculation of Education Modifier
         if (_gameManager.Education < 10)
@@ -215,31 +202,33 @@ public class TargetLocation : MonoBehaviour
                 switch (ProSlots[i].CurrentProfesional.MyProfessionalType)
                 {
                     case ProfessionalType.Doctor:
-                        STIChange -= 20;// + FinancialModifier;
-                        FinanceChange -= 5;
+                        STIChange -= 20;
+                        FinanceChange -= 6;
                         STIChangeCount++;
                         break;
                     case ProfessionalType.Nurse:
-                        TeenPregChange -= 10;// + FinancialModifier;
-                        STIChange -= 10;// + FinancialModifier;
+                        TeenPregChange -= 10;
+                        STIChange -= 10;
+                        FinanceChange -= 3;
                         STIChangeCount++;
                         TeenPregChangeCount++;
                         break;
                     case ProfessionalType.CommOrg:
-                        CrimeRateChange -= 10;// + FinancialModifier;
-                        FinanceChange -= 5;
-                        EducationChange += 5;// + FinancialModifier;
+                        CrimeRateChange -= 10;
+                        EducationChange += 5;
+                        FinanceChange -= 3;
                         CrimeRateChangeCount++;
                         EducationChangeCount++;
                         break;
                     case ProfessionalType.Politician:
                         AmbientBoost += 5;
-                        FinanceChange += 5;// + FinancialModifier;
+                        FinanceChange += 5;
                         FinanceChangeCount++;
                         break;
                     case ProfessionalType.SocialWorker:
                         HealthBoost += 5;
-                        EducationChange += 5;// + FinancialModifier;
+                        EducationChange += 5;
+                        FinanceChange -= 3;
                         EducationChangeCount++;
                         break;
                 }
@@ -251,7 +240,7 @@ public class TargetLocation : MonoBehaviour
         STIChange = Mathf.Clamp(STIChange, -100, 0);
         TeenPregChange = Mathf.Clamp(TeenPregChange, -100, 0);
         CrimeRateChange = Mathf.Clamp(CrimeRateChange, -100, 0);
-        FinanceChange = Mathf.Clamp(FinanceChange, 0, 100);
+        FinanceChange = Mathf.Clamp(FinanceChange, -100, 100);
         EducationChange = Mathf.Clamp(EducationChange, 0, 100);
 
         //I dont feel like explaining what this does and why. Suffice to say it's important.

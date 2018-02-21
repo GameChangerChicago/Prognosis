@@ -7,6 +7,7 @@ public class ProfessionalSlot : MonoBehaviour
     private BoxCollider2D _myBoxCollider;
 	private SpriteRenderer _mySpriteRenderer;
     private TargetLocation _myTargetLocation;
+    private GlobalStatsBar _theGSB;
     private bool _mousedOverWithAProfessional,
                  _hasAProfessional;
 
@@ -17,6 +18,7 @@ public class ProfessionalSlot : MonoBehaviour
     void Start()
     {
         _gameManager = FindObjectOfType<GameManager>();
+        _theGSB = FindObjectOfType<GlobalStatsBar>();
         _myTargetLocation = this.transform.parent.GetComponentInParent<TargetLocation>();
         _myBoxCollider = this.GetComponent<BoxCollider2D>();
 		_mySpriteRenderer = this.GetComponent<SpriteRenderer> ();
@@ -51,8 +53,8 @@ public class ProfessionalSlot : MonoBehaviour
 
             _myTargetLocation.TheProfMenu.PlaceAProfessional(_myTargetLocation.name, _gameManager.SelectedProfessional.MyProfessionalType);
             CurrentProfesional = _gameManager.SelectedProfessional;
-			//_myTargetLocation.ProSlots.Add(this);
             PortraitRenderer.sprite = _gameManager.SelectedProfessional.SlotPortrait;
+            _theGSB.FinanceBarChange(_myTargetLocation, CurrentProfesional.MyProfessionalType, true);
         }
     }
 
@@ -65,9 +67,11 @@ public class ProfessionalSlot : MonoBehaviour
 
             CurrentProfesional.ProfessionalCount++;
             _myTargetLocation.TheProfMenu.RetrieveProfessional(_myTargetLocation.name, CurrentProfesional.MyProfessionalType);
-            //	_myTargetLocation.ProSlots.Remove(this);
+            ProfessionalType removedProfType = CurrentProfesional.MyProfessionalType;
+            CurrentProfesional = null;
             _hasAProfessional = false;
             PortraitRenderer.sprite = null;
+            _theGSB.FinanceBarChange(_myTargetLocation, removedProfType, false);
         }
     }
 }
