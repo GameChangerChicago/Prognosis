@@ -90,10 +90,10 @@ public class InputManager : MonoBehaviour
             }
         }
         else if (_currentMousedOverClickables.ContainsKey("Ash Park") ||
-            _currentMousedOverClickables.ContainsKey("Freemason") ||
-            _currentMousedOverClickables.ContainsKey("Philmont") ||
-            _currentMousedOverClickables.ContainsKey("Quinn Square") ||
-            _currentMousedOverClickables.ContainsKey("East Bea Heights"))
+                 _currentMousedOverClickables.ContainsKey("Freemason") ||
+                 _currentMousedOverClickables.ContainsKey("Philmont") ||
+                 _currentMousedOverClickables.ContainsKey("Quinn Square") ||
+                 _currentMousedOverClickables.ContainsKey("East Bea Heights"))
         {
             if(_currentMousedOverClickables.ContainsKey("Ash Park"))
             {

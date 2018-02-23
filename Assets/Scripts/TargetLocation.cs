@@ -61,6 +61,7 @@ public class TargetLocation : MonoBehaviour
 
 	private Color defaultColor;
 	public Color CurrentColor;
+    public SpriteRenderer HealthyGlow;
 
     void Start()
     {
@@ -101,6 +102,11 @@ public class TargetLocation : MonoBehaviour
         }
 
         spriteRenderer.color = CurrentColor;
+
+        if (healthAverage < 0.4f)
+            HealthyGlow.enabled = true;
+        else
+            HealthyGlow.enabled = false;
     }
 
     public void SendMHU()
