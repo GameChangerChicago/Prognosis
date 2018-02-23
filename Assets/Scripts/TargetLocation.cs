@@ -103,7 +103,7 @@ public class TargetLocation : MonoBehaviour
 
         spriteRenderer.color = CurrentColor;
 
-        if (healthAverage < 0.4f)
+        if (healthAverage > 0.6f)
             HealthyGlow.enabled = true;
         else
             HealthyGlow.enabled = false;
