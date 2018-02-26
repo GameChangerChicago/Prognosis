@@ -75,6 +75,7 @@ public class TargetLocation : MonoBehaviour
 		audioSource.clip = Resources.Load(name) as AudioClip;
 		audioSource.Play();
         UpdateColor(1 - ((STIRate + TeenPregRate + CrimeRate) / 300));
+        UpdateGlow();
     }
 
     void Update()
@@ -102,8 +103,11 @@ public class TargetLocation : MonoBehaviour
         }
 
         spriteRenderer.color = CurrentColor;
+    }
 
-        if (healthAverage > 0.6f)
+    private void UpdateGlow()
+    {
+        if (STIRate < 40 && TeenPregRate < 40 && CrimeRate < 40)
             HealthyGlow.enabled = true;
         else
             HealthyGlow.enabled = false;
@@ -199,7 +203,7 @@ public class TargetLocation : MonoBehaviour
             EducationModifier = -10;
         else
             EducationModifier = -20;
-        
+
         //Professional calculations
         for (int i = 0; i < ProSlots.Length; i++)
         {
@@ -282,5 +286,6 @@ public class TargetLocation : MonoBehaviour
         _gameManager.Education = Mathf.Clamp(_gameManager.Education, 0, 100);
 
         UpdateColor(overallHealthRate);
+        UpdateGlow();
     }
 }
