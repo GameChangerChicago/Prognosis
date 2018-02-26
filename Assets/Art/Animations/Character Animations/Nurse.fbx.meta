@@ -202,7 +202,12 @@ ModelImporter:
     13700032: polySurface28
     13700034: polySurface29
     13700036: polySurface30
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Community_Organizer
+    second: {fileID: 2100000, guid: ecd74d6afc4574ac2885a67a9fd75325, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

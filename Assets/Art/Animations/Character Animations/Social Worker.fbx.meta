@@ -178,7 +178,12 @@ ModelImporter:
     13700030: R_Lower_eyelid
     13700032: R_Upper_eyelid
     13700034: Upper_lip
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Advocate_texture
+    second: {fileID: 2100000, guid: dc543015ae45743bdb66546556206fb9, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

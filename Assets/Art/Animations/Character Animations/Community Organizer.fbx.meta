@@ -173,7 +173,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Community_Organizer
-    second: {fileID: 2100000, guid: 2618808b1da7b42299308c8ffb0cf9b9, type: 3}
+    second: {fileID: 2100000, guid: 0f9623607aae4470ebeb8f14c81c3e65, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
