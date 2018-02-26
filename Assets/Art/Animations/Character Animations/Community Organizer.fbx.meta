@@ -1,0 +1,250 @@
+fileFormatVersion: 2
+guid: 2618808b1da7b42299308c8ffb0cf9b9
+timeCreated: 1519665449
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Body
+    100002: Body_base
+    100004: //RootNode
+    100006: HEAD
+    100008: Head1
+    100010: L_Collar
+    100012: L_Eye
+    100014: L_Eyebrow1
+    100016: L_Eyebrow2
+    100018: L_Eyebrow3
+    100020: L_Lapel
+    100022: L_Lower_Eyelid_Inner
+    100024: L_Lower_Eyelid_Middle
+    100026: L_Lower_Eyelid_Outer
+    100028: L_Lower_Lip
+    100030: L_Lower_Lip_Corner
+    100032: L_Shoulder
+    100034: L_Upper_Eyelid_Inner
+    100036: L_Upper_Eyelid_Middle
+    100038: L_Upper_Eyelid_Outer
+    100040: L_Upper_Lip
+    100042: L_Upper_Lip_Center
+    100044: L_Upper_Lip_Corner
+    100046: Lower_Lip
+    100048: Neck1
+    100050: Neck_Base
+    100052: Nose1
+    100054: polySurface11
+    100056: polySurface13
+    100058: polySurface14
+    100060: polySurface15
+    100062: polySurface16
+    100064: polySurface17
+    100066: polySurface18
+    100068: polySurface19
+    100070: polySurface20
+    100072: polySurface21
+    100074: polySurface22
+    100076: polySurface23
+    100078: polySurface24
+    100080: polySurface25
+    100082: polySurface26
+    100084: polySurface27
+    100086: pPlane1
+    100088: R_Collar
+    100090: R_Eye
+    100092: R_Eyebrow1
+    100094: R_Eyebrow2
+    100096: R_Eyebrow3
+    100098: R_Lapel
+    100100: R_Lower_Eyelid_Inner
+    100102: R_Lower_Eyelid_Middle
+    100104: R_Lower_Eyelid_Outer
+    100106: R_Lower_Lip
+    100108: R_Lower_Lip_Corner
+    100110: R_Shoulder
+    100112: R_Upper_Eyelid_Inner
+    100114: R_Upper_Eyelid_Middle
+    100116: R_Upper_Eyelid_Outer
+    100118: R_Upper_Lip
+    100120: R_Upper_Lip_Center
+    100122: R_Upper_Lip_Corner
+    100124: Static1
+    100126: Upper_lip
+    400000: Body
+    400002: Body_base
+    400004: //RootNode
+    400006: HEAD
+    400008: Head1
+    400010: L_Collar
+    400012: L_Eye
+    400014: L_Eyebrow1
+    400016: L_Eyebrow2
+    400018: L_Eyebrow3
+    400020: L_Lapel
+    400022: L_Lower_Eyelid_Inner
+    400024: L_Lower_Eyelid_Middle
+    400026: L_Lower_Eyelid_Outer
+    400028: L_Lower_Lip
+    400030: L_Lower_Lip_Corner
+    400032: L_Shoulder
+    400034: L_Upper_Eyelid_Inner
+    400036: L_Upper_Eyelid_Middle
+    400038: L_Upper_Eyelid_Outer
+    400040: L_Upper_Lip
+    400042: L_Upper_Lip_Center
+    400044: L_Upper_Lip_Corner
+    400046: Lower_Lip
+    400048: Neck1
+    400050: Neck_Base
+    400052: Nose1
+    400054: polySurface11
+    400056: polySurface13
+    400058: polySurface14
+    400060: polySurface15
+    400062: polySurface16
+    400064: polySurface17
+    400066: polySurface18
+    400068: polySurface19
+    400070: polySurface20
+    400072: polySurface21
+    400074: polySurface22
+    400076: polySurface23
+    400078: polySurface24
+    400080: polySurface25
+    400082: polySurface26
+    400084: polySurface27
+    400086: pPlane1
+    400088: R_Collar
+    400090: R_Eye
+    400092: R_Eyebrow1
+    400094: R_Eyebrow2
+    400096: R_Eyebrow3
+    400098: R_Lapel
+    400100: R_Lower_Eyelid_Inner
+    400102: R_Lower_Eyelid_Middle
+    400104: R_Lower_Eyelid_Outer
+    400106: R_Lower_Lip
+    400108: R_Lower_Lip_Corner
+    400110: R_Shoulder
+    400112: R_Upper_Eyelid_Inner
+    400114: R_Upper_Eyelid_Middle
+    400116: R_Upper_Eyelid_Outer
+    400118: R_Upper_Lip
+    400120: R_Upper_Lip_Center
+    400122: R_Upper_Lip_Corner
+    400124: Static1
+    400126: Upper_lip
+    2100000: Community_Organizer
+    4300000: polySurface11
+    4300002: polySurface13
+    4300004: polySurface14
+    4300006: polySurface15
+    4300008: polySurface16
+    4300010: polySurface17
+    4300012: polySurface18
+    4300014: polySurface19
+    4300016: polySurface20
+    4300018: polySurface21
+    4300020: polySurface22
+    4300022: polySurface23
+    4300024: polySurface24
+    4300026: polySurface25
+    4300028: polySurface26
+    4300030: polySurface27
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: polySurface11
+    13700002: polySurface13
+    13700004: polySurface14
+    13700006: polySurface15
+    13700008: polySurface16
+    13700010: polySurface17
+    13700012: polySurface18
+    13700014: polySurface19
+    13700016: polySurface20
+    13700018: polySurface21
+    13700020: polySurface22
+    13700022: polySurface23
+    13700024: polySurface24
+    13700026: polySurface25
+    13700028: polySurface26
+    13700030: polySurface27
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
