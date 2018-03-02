@@ -1,0 +1,173 @@
+fileFormatVersion: 2
+guid: 6ac648418bb0e4dcd8c469018b04302b
+timeCreated: 1520015191
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Bottom
+    100002: Geometry
+    100004: Head1
+    100006: L_Ankle
+    100008: L_Elbow
+    100010: L_Foot
+    100012: L_Hand
+    100014: L_Hip
+    100016: L_Knee
+    100018: L_Shoulder
+    100020: L_Wrist
+    100022: Middle
+    100024: Neck
+    100026: Neck_base
+    100028: //RootNode
+    100030: polySurface1
+    100032: polySurface2
+    100034: polySurface3
+    100036: polySurface4
+    100038: polySurface6
+    100040: polySurface7
+    100042: polySurface8
+    100044: polySurface9
+    100046: R_Ankle
+    100048: R_Elbow
+    100050: R_Foot
+    100052: R_Hand
+    100054: R_Hip
+    100056: R_Knee
+    100058: R_Shoulder
+    100060: R_Wrist
+    400000: Bottom
+    400002: Geometry
+    400004: Head1
+    400006: L_Ankle
+    400008: L_Elbow
+    400010: L_Foot
+    400012: L_Hand
+    400014: L_Hip
+    400016: L_Knee
+    400018: L_Shoulder
+    400020: L_Wrist
+    400022: Middle
+    400024: Neck
+    400026: Neck_base
+    400028: //RootNode
+    400030: polySurface1
+    400032: polySurface2
+    400034: polySurface3
+    400036: polySurface4
+    400038: polySurface6
+    400040: polySurface7
+    400042: polySurface8
+    400044: polySurface9
+    400046: R_Ankle
+    400048: R_Elbow
+    400050: R_Foot
+    400052: R_Hand
+    400054: R_Hip
+    400056: R_Knee
+    400058: R_Shoulder
+    400060: R_Wrist
+    2100000: Nurse_mini
+    4300000: polySurface1
+    4300002: polySurface2
+    4300004: polySurface3
+    4300006: polySurface4
+    4300008: polySurface6
+    4300010: polySurface7
+    4300012: polySurface8
+    4300014: polySurface9
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: polySurface1
+    13700002: polySurface2
+    13700004: polySurface3
+    13700006: polySurface4
+    13700008: polySurface6
+    13700010: polySurface7
+    13700012: polySurface8
+    13700014: polySurface9
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Nurse_mini
+    second: {fileID: 2100000, guid: 47430dfe10fd347e6a6e89e90806169e, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
