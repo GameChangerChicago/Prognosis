@@ -26,6 +26,78 @@ public class InputManager : MonoBehaviour
         {
             _currentMousedOverClickables.Add(clickableObj.name, clickableObj);
         }
+
+        //Top UI Level
+        if(_currentMousedOverClickables.ContainsKey("PausePlay") || _currentMousedOverClickables.ContainsKey("FastForward") || _currentMousedOverClickables.ContainsKey("GoalButton"))
+        {
+            if (_currentMousedOverClickables.ContainsKey("PausePlay"))
+            {
+                //_currentMousedOverClickables["PausePlay"].transform.parent.GetComponent<TimerController>().TurnOn
+            }
+
+            if (_currentMousedOverClickables.ContainsKey("FastForward"))
+            {
+                //_currentMousedOverClickables["FastForward"].transform.parent.GetComponent<TimerController>().TurnOn
+            }
+
+            if (_currentMousedOverClickables.ContainsKey("GoalButton"))
+            {
+                //_currentMousedOverClickables["GoalButton"].GetComponent<GoalMenuController>().TurnOn
+            }
+        }//Professional Menu
+        else if (_currentMousedOverClickables.ContainsKey("Professional") || _currentMousedOverClickables.ContainsKey("upArrow") || _currentMousedOverClickables.ContainsKey("downArrow"))
+        {
+            if (_currentMousedOverClickables.ContainsKey("upArrow"))
+            {
+                //_currentMousedOverClickables["upArrow"].transform.parent.GetComponent<ProfessionalsMenu>().TurnOn
+            }
+            else if (_currentMousedOverClickables.ContainsKey("downArrow"))
+            {
+                //_currentMousedOverClickables["downArrow"].transform.parent.GetComponent<ProfessionalsMenu>().TurnOn
+            }
+            else if (_currentMousedOverClickables.ContainsKey("Professional"))
+            {
+                //TurnOn
+            }
+        }//Location Menus
+        else if (_currentMousedOverClickables.ContainsKey("ProfessionalSlot") || _currentMousedOverClickables.ContainsKey("LockRecalButton"))
+        {
+            if (_currentMousedOverClickables.ContainsKey("ProfessionalSlot"))
+            {
+                //_currentMousedOverClickables["ProfessionalSlot"].GetComponent<ProfessionalSlot>().TurnOn
+            }
+            else if (_currentMousedOverClickables.ContainsKey("LockRecalButton"))
+            {
+                //_currentMousedOverClickables["LockRacalButton"].transform.parent.parent.GetComponent<TargetLocation>().TurnOn
+            }
+        }//Locations
+        else if (_currentMousedOverClickables.ContainsKey("Ash Park") ||
+                 _currentMousedOverClickables.ContainsKey("Freemason") ||
+                 _currentMousedOverClickables.ContainsKey("Philmont") ||
+                 _currentMousedOverClickables.ContainsKey("Quinn Square") ||
+                 _currentMousedOverClickables.ContainsKey("East Bea Heights"))
+        {
+            if (_currentMousedOverClickables.ContainsKey("Ash Park"))
+            {
+                //_currentMousedOverClickables["Ash Park"].GetComponent<TargetLocation>().TurnOn
+            }
+            else if (_currentMousedOverClickables.ContainsKey("Freemason"))
+            {
+                //_currentMousedOverClickables["Freemason"].GetComponent<TargetLocation>().TurnOn
+            }
+            else if (_currentMousedOverClickables.ContainsKey("Philmont"))
+            {
+                //_currentMousedOverClickables["Philmont"].GetComponent<TargetLocation>().TurnOn
+            }
+            else if (_currentMousedOverClickables.ContainsKey("Quinn Square"))
+            {
+                //_currentMousedOverClickables["Quinn Square"].GetComponent<TargetLocation>().TurnOn
+            }
+            else if (_currentMousedOverClickables.ContainsKey("East Bea Heights"))
+            {
+                //_currentMousedOverClickables["East Bea Heights"].GetComponent<TargetLocation>().TurnOn
+            }
+        }
     }
 
     public void ClickableMousedExit(GameObject clickableObj)
@@ -63,7 +135,6 @@ public class InputManager : MonoBehaviour
 
             if(_currentMousedOverClickables.ContainsKey("GoalButton"))
             {
-                Debug.Log("????");
                 _currentMousedOverClickables["GoalButton"].GetComponent<GoalMenuController>().ShowGoalInfo();
             }
         }

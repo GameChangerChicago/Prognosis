@@ -30,6 +30,9 @@ public class ProfessionalsMenu : MonoBehaviour
     }
     protected bool active;
 
+    public GameObject HighlightButtonUp,
+                      HighlightButtonDown;
+
     private Text DocLoc1, DocLoc2, DocLoc3, DocLoc4, DocLoc5,
                  NurseLoc1, NurseLoc2, NurseLoc3, NurseLoc4, NurseLoc5,
                  COLoc1, COLoc2, COLoc3, COLoc4, COLoc5,
@@ -284,6 +287,26 @@ public class ProfessionalsMenu : MonoBehaviour
         {
             Debug.Log("No go");
         }
+    }
+
+    public void HighlightUpArrowOn()
+    {
+        HighlightButtonUp.SetActive(true);
+    }
+
+    public void HighlightUpArrowOff()
+    {
+        HighlightButtonUp.SetActive(false);
+    }
+
+    public void HighlightDownArrowOn()
+    {
+        HighlightButtonDown.SetActive(true);
+    }
+
+    public void HighlightDownArrowOff()
+    {
+        HighlightButtonDown.SetActive(false);
     }
 
     public void PlaceAProfessional(string targetLoc, ProfessionalType profType)

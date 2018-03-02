@@ -37,13 +37,22 @@ public class GoalMenuController : MonoBehaviour
         GoalCanvas.SetActive(false);
     }
 
-    private void OnMouseOver()
+    public void HighlightOn()
     {
         HighlightSprite.SetActive(true);
     }
 
-    private void OnMouseExit()
+    public void HighlightOff()
     {
         HighlightSprite.SetActive(false);
     }
+
+    //private void OnMouseOver()
+    //{
+
+    //}
+
+    //private void OnMouseExit()
+    //{
+    //}
 }

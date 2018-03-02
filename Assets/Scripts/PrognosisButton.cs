@@ -16,7 +16,7 @@ public class PrognosisButton : MonoBehaviour
     {
         _theInputManager.ClickableMousedEnter(this.gameObject);
 
-        if(ButtonHighlight)
+        if (ButtonHighlight)
         {
             ButtonHighlight.SetActive(true);
         }
