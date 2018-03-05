@@ -12,12 +12,14 @@ public class ProfessionalSlot : MonoBehaviour
                  _hasAProfessional;
 
     public ProfessionalStack CurrentProfesional;
+    public OnHover OnHoverTool;
     public SpriteRenderer BorderRenderer,
                           PortraitRenderer;
 
     void Start()
     {
         _gameManager = FindObjectOfType<GameManager>();
+        OnHoverTool = this.GetComponent<OnHover>();
         _theGSB = FindObjectOfType<GlobalStatsBar>();
         _myTargetLocation = this.transform.parent.GetComponentInParent<TargetLocation>();
         _myBoxCollider = this.GetComponent<BoxCollider2D>();

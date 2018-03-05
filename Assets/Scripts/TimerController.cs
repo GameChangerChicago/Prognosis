@@ -68,12 +68,22 @@ public class TimerController : MonoBehaviour
         Timer = 0;
     }
     
-    public void TryHighlightOn()
+    public void HighlightPausePlayOn()
     {
         ButtonHighlight.SetActive(true);
     }
 
-    public void TryHighlightOff()
+    public void HighlightFastForwardOn()
+    {
+        ButtonHighlight.SetActive(true);
+    }
+
+    public void HighlightPausePlayOff()
+    {
+        ButtonHighlight.SetActive(false);
+    }
+
+    public void HighlightFastForwardOff()
     {
         ButtonHighlight.SetActive(false);
     }

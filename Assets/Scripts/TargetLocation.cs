@@ -153,13 +153,14 @@ public class TargetLocation : MonoBehaviour
         if (_currentTurn != _gameManager.CurrentTurn)
             recallButtonRenderer.GetComponent<SpriteRenderer>().color = Color.white;
     }
+    
 
-    void OnMouseOver()
+    public void HighlightOn()
     {
         spriteHighlight.SetActive(true);
     }
 
-    void OnMouseExit()
+    public void HighlightOff()
     {
         spriteHighlight.SetActive(false);
     }

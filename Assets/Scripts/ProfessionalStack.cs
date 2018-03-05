@@ -10,6 +10,7 @@ public class ProfessionalStack : MonoBehaviour
     public ProfessionalType MyProfessionalType;
     public Text CountText;
     public int ProfessionalCount;
+    public OnHover OnHoverTool;
 
     private ProfessionalsMenu _professionalMenu;
     private GameObject _dragObject;
@@ -43,7 +44,7 @@ public class ProfessionalStack : MonoBehaviour
         _gameManager = FindObjectOfType<GameManager>();
         _professionalMenu = GetComponentInParent<ProfessionalsMenu>();
         _professionalCount = ProfessionalCount;
-		//scrollRect = FindObjectOfType<Canvas> ().GetComponent<ScrollRect> ();
+		//scrollRect = FindObjectOfType<Canvas>().GetComponent<ScrollRect> ();
     }
 
     void Update()

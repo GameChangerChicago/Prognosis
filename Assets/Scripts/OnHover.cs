@@ -19,13 +19,13 @@ public class OnHover : MonoBehaviour
     {
 
     }
-    //Make this public and also the other vvv
-    void OnMouseOver()
+
+    public void HighlightOn()
     {
         sprite.color = color;
     }
 
-    void OnMouseExit()
+    public void HighlightOff()
     {
         sprite.color = defaultColor;
     }
