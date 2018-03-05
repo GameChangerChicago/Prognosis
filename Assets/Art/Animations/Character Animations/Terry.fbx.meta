@@ -1,0 +1,311 @@
+fileFormatVersion: 2
+guid: 2df16fd7938b84b54888688426477e08
+timeCreated: 1520278662
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Body
+    100002: Body_base
+    100004: Eye_white
+    100006: HEAD
+    100008: Head1
+    100010: joint11
+    100012: joint12
+    100014: joint8
+    100016: joint9
+    100018: L_Collar
+    100020: L_Eye
+    100022: L_Eyebrow1
+    100024: L_Eyebrow2
+    100026: L_Eyebrow3
+    100028: L_Lower_Eyelid_Inner
+    100030: L_Lower_Eyelid_Middle
+    100032: L_Lower_Eyelid_Outer
+    100034: L_Lower_Lip
+    100036: L_Lower_Lip_Corner
+    100038: L_Mustache
+    100040: L_Shoulder
+    100042: L_Upper_Eyelid_Inner
+    100044: L_Upper_Eyelid_Middle
+    100046: L_Upper_Eyelid_Outer
+    100048: L_Upper_Lip
+    100050: L_Upper_Lip_Center
+    100052: L_Upper_Lip_Corner
+    100054: Lower_Lip
+    100056: Mustache1
+    100058: Neck1
+    100060: Neck_Base
+    100062: Nose1
+    100064: polySurface11
+    100066: polySurface12
+    100068: polySurface13
+    100070: polySurface14
+    100072: polySurface15
+    100074: polySurface16
+    100076: polySurface18
+    100078: polySurface19
+    100080: polySurface20
+    100082: polySurface21
+    100084: polySurface22
+    100086: polySurface23
+    100088: polySurface24
+    100090: polySurface25
+    100092: polySurface26
+    100094: polySurface27
+    100096: polySurface28
+    100098: polySurface29
+    100100: polySurface30
+    100102: pPlane1
+    100104: pPlane2
+    100106: R_Collar
+    100108: R_Eye
+    100110: R_Eyebrow1
+    100112: R_Eyebrow2
+    100114: R_Eyebrow3
+    100116: R_Lower_Eyelid_Inner
+    100118: R_Lower_Eyelid_Middle
+    100120: R_Lower_Eyelid_Outer
+    100122: R_Lower_Lip
+    100124: R_Lower_Lip_Corner
+    100126: R_Mustache
+    100128: R_Shoulder
+    100130: R_Upper_Eyelid_Inner
+    100132: R_Upper_Eyelid_Middle
+    100134: R_Upper_Eyelid_Outer
+    100136: R_Upper_Lip
+    100138: R_Upper_Lip_Center
+    100140: R_Upper_Lip_Corner
+    100142: Teeth
+    100144: //RootNode
+    100146: Upper_lip
+    400000: Body
+    400002: Body_base
+    400004: Eye_white
+    400006: HEAD
+    400008: Head1
+    400010: joint11
+    400012: joint12
+    400014: joint8
+    400016: joint9
+    400018: L_Collar
+    400020: L_Eye
+    400022: L_Eyebrow1
+    400024: L_Eyebrow2
+    400026: L_Eyebrow3
+    400028: L_Lower_Eyelid_Inner
+    400030: L_Lower_Eyelid_Middle
+    400032: L_Lower_Eyelid_Outer
+    400034: L_Lower_Lip
+    400036: L_Lower_Lip_Corner
+    400038: L_Mustache
+    400040: L_Shoulder
+    400042: L_Upper_Eyelid_Inner
+    400044: L_Upper_Eyelid_Middle
+    400046: L_Upper_Eyelid_Outer
+    400048: L_Upper_Lip
+    400050: L_Upper_Lip_Center
+    400052: L_Upper_Lip_Corner
+    400054: Lower_Lip
+    400056: Mustache1
+    400058: Neck1
+    400060: Neck_Base
+    400062: Nose1
+    400064: polySurface11
+    400066: polySurface12
+    400068: polySurface13
+    400070: polySurface14
+    400072: polySurface15
+    400074: polySurface16
+    400076: polySurface18
+    400078: polySurface19
+    400080: polySurface20
+    400082: polySurface21
+    400084: polySurface22
+    400086: polySurface23
+    400088: polySurface24
+    400090: polySurface25
+    400092: polySurface26
+    400094: polySurface27
+    400096: polySurface28
+    400098: polySurface29
+    400100: polySurface30
+    400102: pPlane1
+    400104: pPlane2
+    400106: R_Collar
+    400108: R_Eye
+    400110: R_Eyebrow1
+    400112: R_Eyebrow2
+    400114: R_Eyebrow3
+    400116: R_Lower_Eyelid_Inner
+    400118: R_Lower_Eyelid_Middle
+    400120: R_Lower_Eyelid_Outer
+    400122: R_Lower_Lip
+    400124: R_Lower_Lip_Corner
+    400126: R_Mustache
+    400128: R_Shoulder
+    400130: R_Upper_Eyelid_Inner
+    400132: R_Upper_Eyelid_Middle
+    400134: R_Upper_Eyelid_Outer
+    400136: R_Upper_Lip
+    400138: R_Upper_Lip_Center
+    400140: R_Upper_Lip_Corner
+    400142: Teeth
+    400144: //RootNode
+    400146: Upper_lip
+    2100000: Terry
+    2100002: Terry1
+    4300000: polySurface23
+    4300002: polySurface24
+    4300004: polySurface25
+    4300006: polySurface26
+    4300008: polySurface29
+    4300010: polySurface30
+    4300012: polySurface13
+    4300014: polySurface14
+    4300016: polySurface27
+    4300018: polySurface28
+    4300020: polySurface16
+    4300022: polySurface18
+    4300024: polySurface19
+    4300026: polySurface20
+    4300028: polySurface21
+    4300030: polySurface22
+    4300032: pPlane2
+    7400000: Terry All
+    9500000: //RootNode
+    13700000: polySurface13
+    13700002: polySurface14
+    13700004: polySurface16
+    13700006: polySurface18
+    13700008: polySurface19
+    13700010: polySurface20
+    13700012: polySurface21
+    13700014: polySurface22
+    13700016: polySurface23
+    13700018: polySurface24
+    13700020: polySurface25
+    13700022: polySurface26
+    13700024: polySurface27
+    13700026: polySurface28
+    13700028: polySurface29
+    13700030: polySurface30
+    13700032: pPlane2
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Terry
+    second: {fileID: 2100000, guid: 336546dba0cac480aa3095aba2c4ce2b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Terry1
+    second: {fileID: 2100000, guid: 78a284486027845f8a194f4a71fcc326, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Terry All
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 550
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
