@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class MeshRendererOverride : MonoBehaviour
 {
+    public string LayerName;
+    public int SortingOrder;
+
     private void Start()
     {
         foreach (Renderer r in GetComponentsInChildren<SkinnedMeshRenderer>())
         {
-            r.sortingLayerName = "Default";
-            r.sortingOrder = 13;
+            r.sortingLayerName = LayerName;
+            r.sortingOrder = SortingOrder;
         }
     }
 }
