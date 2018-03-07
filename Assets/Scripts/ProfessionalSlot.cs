@@ -47,7 +47,7 @@ public class ProfessionalSlot : MonoBehaviour
 
         if (_mousedOverWithAProfessional && Input.GetKeyUp(KeyCode.Mouse0))
         {
-            if (_theGSB.FinanceBarChange(_myTargetLocation, _gameManager.SelectedProfessional.MyProfessionalType, true))
+            if (_theGSB.BudgetBarChange(_myTargetLocation, _gameManager.SelectedProfessional.MyProfessionalType, true))
             {
                 _hasAProfessional = true;
                 _mousedOverWithAProfessional = false;
@@ -75,7 +75,7 @@ public class ProfessionalSlot : MonoBehaviour
             CurrentProfesional = null;
             _hasAProfessional = false;
             PortraitRenderer.sprite = null;
-            _theGSB.FinanceBarChange(_myTargetLocation, removedProfType, false);
+            _theGSB.BudgetBarChange(_myTargetLocation, removedProfType, false);
         }
     }
 }

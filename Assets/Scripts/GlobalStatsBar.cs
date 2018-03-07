@@ -4,12 +4,12 @@ using System.Collections;
 
 public class GlobalStatsBar : MonoBehaviour {
 
-	public Image worldTeenPregRate, worldSTIRate, worldCrimeRate, financeBarBack, financeBarFront, educationBar;
+	public Image WorldTeenPregRate, WorldSTIRate, WorldCrimeRate, BudgetBarBack, BudgetBarFront, EducationBar;
 	private GameManager gameManager;
 	private float changeOverTime = 15.0f,
-                  potentialFinance;
+                  potentialBudget;
 	private TimerController timer;
-    private bool[] _financeBarsUpdated = new bool[2];
+    private bool[] _budgetBarsUpdated = new bool[2];
 
 
     // Use this for initialization
@@ -17,69 +17,69 @@ public class GlobalStatsBar : MonoBehaviour {
     {
         gameManager = this.gameObject.GetComponent<GameManager>();
         timer = FindObjectOfType<TimerController>();
-        worldSTIRate.fillAmount = (gameManager.WorldSTIRate + 10) / 100f;
-        worldTeenPregRate.fillAmount = (gameManager.WorldTeenPregRate + 10) / 100f;
-        worldCrimeRate.fillAmount = (gameManager.WorldCrimeRate + 10) / 100f;
-        financeBarBack.fillAmount = gameManager.Finance / 100f;
-        financeBarFront.fillAmount = gameManager.Finance / 100f;
-        educationBar.fillAmount = gameManager.Education / 100f;
-        potentialFinance = gameManager.Finance;
+        WorldSTIRate.fillAmount = (gameManager.WorldSTIRate + 10) / 100f;
+        WorldTeenPregRate.fillAmount = (gameManager.WorldTeenPregRate + 10) / 100f;
+        WorldCrimeRate.fillAmount = (gameManager.WorldCrimeRate + 10) / 100f;
+        BudgetBarBack.fillAmount = gameManager.Budget / 100f;
+        BudgetBarFront.fillAmount = gameManager.Budget / 100f;
+        EducationBar.fillAmount = gameManager.Education / 100f;
+        potentialBudget = gameManager.Budget;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (worldSTIRate.fillAmount < (gameManager.WorldSTIRate / 100f) - 0.01f)
+        if (WorldSTIRate.fillAmount < (gameManager.WorldSTIRate / 100f) - 0.01f)
         {
-            worldSTIRate.fillAmount += changeOverTime / timer.TimeLimit * Time.deltaTime;
-            UpdateColor(worldSTIRate.fillAmount, Stats.STIRATE);
+            WorldSTIRate.fillAmount += changeOverTime / timer.TimeLimit * Time.deltaTime;
+            UpdateColor(WorldSTIRate.fillAmount, Stats.STIRATE);
         }
-        else if (worldSTIRate.fillAmount > (gameManager.WorldSTIRate / 100f) + 0.01f)
+        else if (WorldSTIRate.fillAmount > (gameManager.WorldSTIRate / 100f) + 0.01f)
         {
-            worldSTIRate.fillAmount -= changeOverTime / timer.TimeLimit * Time.deltaTime;
-            UpdateColor(worldSTIRate.fillAmount, Stats.STIRATE);
-        }
-
-        if (worldCrimeRate.fillAmount < (gameManager.WorldCrimeRate / 100f) - 0.01f)
-        {
-            worldCrimeRate.fillAmount += changeOverTime / timer.TimeLimit * Time.deltaTime;
-            UpdateColor(worldCrimeRate.fillAmount, Stats.CRIMERATE);
-        }
-        else if (worldCrimeRate.fillAmount > (gameManager.WorldCrimeRate / 100f) + 0.01f)
-        {
-            worldCrimeRate.fillAmount -= changeOverTime / timer.TimeLimit * Time.deltaTime;
-            UpdateColor(worldCrimeRate.fillAmount, Stats.CRIMERATE);
+            WorldSTIRate.fillAmount -= changeOverTime / timer.TimeLimit * Time.deltaTime;
+            UpdateColor(WorldSTIRate.fillAmount, Stats.STIRATE);
         }
 
-        if (worldTeenPregRate.fillAmount < (gameManager.WorldTeenPregRate / 100f) - 0.01f)
+        if (WorldCrimeRate.fillAmount < (gameManager.WorldCrimeRate / 100f) - 0.01f)
         {
-            worldTeenPregRate.fillAmount += changeOverTime / timer.TimeLimit * Time.deltaTime;
-            UpdateColor(worldTeenPregRate.fillAmount, Stats.TEENPREGRATE);
+            WorldCrimeRate.fillAmount += changeOverTime / timer.TimeLimit * Time.deltaTime;
+            UpdateColor(WorldCrimeRate.fillAmount, Stats.CRIMERATE);
         }
-        else if (worldTeenPregRate.fillAmount > (gameManager.WorldTeenPregRate / 100f) + 0.01f)
+        else if (WorldCrimeRate.fillAmount > (gameManager.WorldCrimeRate / 100f) + 0.01f)
         {
-            worldTeenPregRate.fillAmount -= changeOverTime / timer.TimeLimit * Time.deltaTime;
-            UpdateColor(worldTeenPregRate.fillAmount, Stats.TEENPREGRATE);
-        }
-
-        if (educationBar.fillAmount < (gameManager.Education / 100f) - 0.01f)
-        {
-            educationBar.fillAmount += changeOverTime / timer.TimeLimit * Time.deltaTime;
-        }
-        if (educationBar.fillAmount > (gameManager.Education / 100f) + 0.01f)
-        {
-            educationBar.fillAmount -= changeOverTime / timer.TimeLimit * Time.deltaTime;
+            WorldCrimeRate.fillAmount -= changeOverTime / timer.TimeLimit * Time.deltaTime;
+            UpdateColor(WorldCrimeRate.fillAmount, Stats.CRIMERATE);
         }
 
-        if (!_financeBarsUpdated[0] || !_financeBarsUpdated[1])
-            UpdateFinance();
+        if (WorldTeenPregRate.fillAmount < (gameManager.WorldTeenPregRate / 100f) - 0.01f)
+        {
+            WorldTeenPregRate.fillAmount += changeOverTime / timer.TimeLimit * Time.deltaTime;
+            UpdateColor(WorldTeenPregRate.fillAmount, Stats.TEENPREGRATE);
+        }
+        else if (WorldTeenPregRate.fillAmount > (gameManager.WorldTeenPregRate / 100f) + 0.01f)
+        {
+            WorldTeenPregRate.fillAmount -= changeOverTime / timer.TimeLimit * Time.deltaTime;
+            UpdateColor(WorldTeenPregRate.fillAmount, Stats.TEENPREGRATE);
+        }
+
+        if (EducationBar.fillAmount < (gameManager.Education / 100f) - 0.01f)
+        {
+            EducationBar.fillAmount += changeOverTime / timer.TimeLimit * Time.deltaTime;
+        }
+        if (EducationBar.fillAmount > (gameManager.Education / 100f) + 0.01f)
+        {
+            EducationBar.fillAmount -= changeOverTime / timer.TimeLimit * Time.deltaTime;
+        }
+
+        if (!_budgetBarsUpdated[0] || !_budgetBarsUpdated[1])
+            UpdateBudget();
     }
 
-    public bool FinanceBarChange(TargetLocation tl, ProfessionalType profType, bool addingProf)
+    public bool BudgetBarChange(TargetLocation tl, ProfessionalType profType, bool addingProf)
     {
         if (addingProf)
         {
-            float lastFinance = potentialFinance;
+            float lastBudget = potentialBudget;
 
             if (profType == ProfessionalType.Politician)
             {
@@ -93,22 +93,22 @@ public class GlobalStatsBar : MonoBehaviour {
                 }
 
                 if (polCount == 0)
-                    potentialFinance += 5;
+                    potentialBudget += 5;
                 else if (polCount == 1)
-                    potentialFinance += 15;
+                    potentialBudget += 15;
                 else if (polCount == 2)
-                    potentialFinance += 30;
+                    potentialBudget += 30;
             }
             else
             {
                 if (profType == ProfessionalType.Doctor)
-                    potentialFinance -= 6;
+                    potentialBudget -= 6;
                 else
-                    potentialFinance -= 3;
+                    potentialBudget -= 3;
 
-                if(potentialFinance < 0)
+                if(potentialBudget < 0)
                 {
-                    potentialFinance = lastFinance;
+                    potentialBudget = lastBudget;
                     return false;
                 }
             }
@@ -127,64 +127,64 @@ public class GlobalStatsBar : MonoBehaviour {
                 }
 
                 if (polCount == 0)
-                    potentialFinance -= 5;
+                    potentialBudget -= 5;
                 else if (polCount == 1)
-                    potentialFinance -= 15;
+                    potentialBudget -= 15;
                 else if (polCount == 2)
-                    potentialFinance -= 30;
+                    potentialBudget -= 30;
             }
             else
             {
                 if (profType == ProfessionalType.Doctor)
-                    potentialFinance += 6;
+                    potentialBudget += 6;
                 else
-                    potentialFinance += 3;
+                    potentialBudget += 3;
             }
         }
 
-        if (potentialFinance > gameManager.Finance)
+        if (potentialBudget > gameManager.Budget)
         {
-            financeBarFront.fillAmount = gameManager.Finance / 100;
-            financeBarBack.fillAmount = potentialFinance / 100;
+            BudgetBarFront.fillAmount = gameManager.Budget / 100;
+            BudgetBarBack.fillAmount = potentialBudget / 100;
         }
         else
         {
-            financeBarFront.fillAmount = potentialFinance / 100;
-            financeBarBack.fillAmount = gameManager.Finance / 100;
+            BudgetBarFront.fillAmount = potentialBudget / 100;
+            BudgetBarBack.fillAmount = gameManager.Budget / 100;
         }
 
         return true;
     }
 
-    public void SetFinance()
+    public void SetBudget()
     {
-        _financeBarsUpdated[0] = false;
-        _financeBarsUpdated[1] = false;
+        _budgetBarsUpdated[0] = false;
+        _budgetBarsUpdated[1] = false;
     }
 
-    private void UpdateFinance()
+    private void UpdateBudget()
     {
-        if (financeBarBack.fillAmount < (gameManager.Finance / 100f) - 0.01f)
+        if (BudgetBarBack.fillAmount < (gameManager.Budget / 100f) - 0.01f)
         {
-            financeBarBack.fillAmount += changeOverTime / timer.TimeLimit * Time.deltaTime;
+            BudgetBarBack.fillAmount += changeOverTime / timer.TimeLimit * Time.deltaTime;
         }
-        else if (financeBarBack.fillAmount > (gameManager.Finance / 100f) + 0.01f)
+        else if (BudgetBarBack.fillAmount > (gameManager.Budget / 100f) + 0.01f)
         {
-            financeBarBack.fillAmount -= changeOverTime / timer.TimeLimit * Time.deltaTime;
+            BudgetBarBack.fillAmount -= changeOverTime / timer.TimeLimit * Time.deltaTime;
         }
         else
-            _financeBarsUpdated[0] = true;
+            _budgetBarsUpdated[0] = true;
 
-        if (financeBarFront.fillAmount < (gameManager.Finance / 100f) - 0.01f)
+        if (BudgetBarFront.fillAmount < (gameManager.Budget / 100f) - 0.01f)
         {
-            financeBarFront.fillAmount += changeOverTime / timer.TimeLimit * Time.deltaTime;
+            BudgetBarFront.fillAmount += changeOverTime / timer.TimeLimit * Time.deltaTime;
         }
-        else if (financeBarFront.fillAmount > (gameManager.Finance / 100f) + 0.01f)
+        else if (BudgetBarFront.fillAmount > (gameManager.Budget / 100f) + 0.01f)
         {
-            financeBarFront.fillAmount -= changeOverTime / timer.TimeLimit * Time.deltaTime;
+            BudgetBarFront.fillAmount -= changeOverTime / timer.TimeLimit * Time.deltaTime;
         }
         else
-            _financeBarsUpdated[1] = true;
+            _budgetBarsUpdated[1] = true;
     }
 
     private void UpdateColor(float healthAverage, Stats relevantStat)
@@ -207,13 +207,13 @@ public class GlobalStatsBar : MonoBehaviour {
         switch (relevantStat)
         {
             case Stats.CRIMERATE:
-                worldCrimeRate.color = currentColor;
+                WorldCrimeRate.color = currentColor;
                 break;
             case Stats.STIRATE:
-                worldSTIRate.color = currentColor;
+                WorldSTIRate.color = currentColor;
                 break;
             case Stats.TEENPREGRATE:
-                worldTeenPregRate.color = currentColor;
+                WorldTeenPregRate.color = currentColor;
                 break;
             default:
                 Debug.LogWarning("This Stat does not exist");

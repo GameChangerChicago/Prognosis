@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public ProfessionalStack SelectedProfessional;
     public VictoryCondition CurrentVC;
-    public float Finance,
+    public float Budget,
                  Education;
     public bool DragObjectInstantiated;
     public bool winning;
@@ -115,7 +115,7 @@ public class GameManager : MonoBehaviour
                 }
 
                 ClearProfs();
-                theGSB.SetFinance();
+                theGSB.SetBudget();
 
                 CheckCurrentStats();
 
@@ -352,15 +352,15 @@ public class GameManager : MonoBehaviour
                             else if (CurrentVC.GoalAmounts[i] >= Education)
                                 goalsReached[i] = true;
                             break;
-                        case Stats.FINANCE:
-                            if (CurrentVC.MaintainTimes[i] > 0 && CurrentVC.GoalAmounts[i] <= Finance)
+                        case Stats.BUDGET:
+                            if (CurrentVC.MaintainTimes[i] > 0 && CurrentVC.GoalAmounts[i] <= Budget)
                             {
                                 if (_turnsMaintained[i] >= CurrentVC.MaintainTimes[i])
                                     goalsReached[i] = true;
                                 else
                                     _turnsMaintained[i]++;
                             }
-                            else if (CurrentVC.GoalAmounts[i] >= Finance)
+                            else if (CurrentVC.GoalAmounts[i] >= Budget)
                                 goalsReached[i] = true;
                             break;
                         case Stats.STIRATE:
@@ -544,7 +544,7 @@ public class GameManager : MonoBehaviour
                 case Stats.EDUCATION:
                     goalText += "graduation rate ";
                     break;
-                case Stats.FINANCE:
+                case Stats.BUDGET:
                     goalText += "budget ";
                     break;
                 case Stats.STIRATE:
@@ -557,14 +557,14 @@ public class GameManager : MonoBehaviour
 
             if (CurrentVC.MaintainTimes[i] > 0)
             {
-                if (CurrentVC.StatsToTrack[i] == Stats.EDUCATION || CurrentVC.StatsToTrack[i] == Stats.FINANCE)
+                if (CurrentVC.StatsToTrack[i] == Stats.EDUCATION || CurrentVC.StatsToTrack[i] == Stats.BUDGET)
                     goalText += "at or above ";
                 else
                     goalText += "at or below ";
             }
             else
             {
-                if (CurrentVC.StatsToTrack[i] == Stats.EDUCATION || CurrentVC.StatsToTrack[i] == Stats.FINANCE)
+                if (CurrentVC.StatsToTrack[i] == Stats.EDUCATION || CurrentVC.StatsToTrack[i] == Stats.BUDGET)
                     goalText += "up to ";
                 else
                     goalText += "down to ";
@@ -595,7 +595,7 @@ public class GameManager : MonoBehaviour
             case Stats.EDUCATION:
                 convertedData = (statValue * 0.45f) + 50;
                 break;
-            case Stats.FINANCE:
+            case Stats.BUDGET:
                 double d = Math.Round(statValue * 2826403.94, 2);
                 convertedData = (float)d;
                 break;

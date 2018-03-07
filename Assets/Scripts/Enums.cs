@@ -26,6 +26,6 @@ public enum Stats
     STIRATE,
     TEENPREGRATE,
     CRIMERATE,
-    FINANCE,
+    BUDGET,
     EDUCATION
 };

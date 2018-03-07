@@ -55,8 +55,8 @@ public class MessageManager : MonoBehaviour
                             case Stats.TEENPREGRATE:
                                 _theGameManager.WorldTeenPregRate += EE.StatChange[i];
                                 break;
-                            case Stats.FINANCE:
-                                _theGameManager.Finance += EE.StatChange[i];
+                            case Stats.BUDGET:
+                                _theGameManager.Budget += EE.StatChange[i];
                                 break;
                             case Stats.EDUCATION:
                                 _theGameManager.Education += EE.StatChange[i];

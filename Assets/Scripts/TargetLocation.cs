@@ -184,13 +184,13 @@ public class TargetLocation : MonoBehaviour
               STIChange = 0,
               TeenPregChange = 0,
               CrimeRateChange = 0,
-              FinanceChange = 0,
+              BudgetChange = 0,
               EducationChange = 0,
               EducationModifier = 0;
         int STIChangeCount = 0,
             TeenPregChangeCount = 0,
             CrimeRateChangeCount = 0,
-            FinanceChangeCount = -1,
+            BudgetChangeCount = -1,
             EducationChangeCount = 0;
 
         //Calculation of Education Modifier
@@ -214,32 +214,32 @@ public class TargetLocation : MonoBehaviour
                 {
                     case ProfessionalType.Doctor:
                         STIChange -= 20;
-                        FinanceChange -= 6;
+                        BudgetChange -= 6;
                         STIChangeCount++;
                         break;
                     case ProfessionalType.Nurse:
                         TeenPregChange -= 10;
                         STIChange -= 10;
-                        FinanceChange -= 3;
+                        BudgetChange -= 3;
                         STIChangeCount++;
                         TeenPregChangeCount++;
                         break;
                     case ProfessionalType.CommOrg:
                         CrimeRateChange -= 10;
                         EducationChange += 5;
-                        FinanceChange -= 3;
+                        BudgetChange -= 3;
                         CrimeRateChangeCount++;
                         EducationChangeCount++;
                         break;
                     case ProfessionalType.Politician:
                         AmbientBoost += 5;
-                        FinanceChange += 5;
-                        FinanceChangeCount++;
+                        BudgetChange += 5;
+                        BudgetChangeCount++;
                         break;
                     case ProfessionalType.SocialWorker:
                         HealthBoost += 5;
                         EducationChange += 5;
-                        FinanceChange -= 3;
+                        BudgetChange -= 3;
                         EducationChangeCount++;
                         break;
                 }
@@ -251,12 +251,12 @@ public class TargetLocation : MonoBehaviour
         STIChange = Mathf.Clamp(STIChange, -100, 0);
         TeenPregChange = Mathf.Clamp(TeenPregChange, -100, 0);
         CrimeRateChange = Mathf.Clamp(CrimeRateChange, -100, 0);
-        FinanceChange = Mathf.Clamp(FinanceChange, -100, 100);
+        BudgetChange = Mathf.Clamp(BudgetChange, -100, 100);
         EducationChange = Mathf.Clamp(EducationChange, 0, 100);
 
         //I dont feel like explaining what this does and why. Suffice to say it's important.
         //EDIT: It must be possible, somehow, to get either of these values over 2 so this keeps it at 2 since that should be the max
-        Mathf.Clamp(FinanceChangeCount, 0, 2);
+        Mathf.Clamp(BudgetChangeCount, 0, 2);
         Mathf.Clamp(EducationChangeCount, 0, 2);
 
         //This debug log is useful for finding any problems with the professional effects
@@ -267,10 +267,10 @@ public class TargetLocation : MonoBehaviour
         TeenPregRate += TeenPregChange - (HealthBoost * TeenPregChangeCount);
         CrimeRate += CrimeRateChange - (HealthBoost * CrimeRateChangeCount);
         _gameManager.Education += EducationChange + (AmbientBoost * EducationChangeCount);
-        if (FinanceChangeCount != 1)
-            _gameManager.Finance += FinanceChange + (AmbientBoost * FinanceChangeCount);
+        if (BudgetChangeCount != 1)
+            _gameManager.Budget += BudgetChange + (AmbientBoost * BudgetChangeCount);
         else
-            _gameManager.Finance += FinanceChange;
+            _gameManager.Budget += BudgetChange;
 
         //Apply per turn effects
         STIRate += Mathf.Clamp(STIEffectPerTurn + EducationModifier, 0, 100);
@@ -283,7 +283,7 @@ public class TargetLocation : MonoBehaviour
         STIRate = Mathf.Clamp(STIRate, 0, 100);
         TeenPregRate = Mathf.Clamp(TeenPregRate, 0, 100);
         CrimeRate = Mathf.Clamp(CrimeRate, 0, 100);
-        _gameManager.Finance = Mathf.Clamp(_gameManager.Finance, 0, 100);
+        _gameManager.Budget = Mathf.Clamp(_gameManager.Budget, 0, 100);
         _gameManager.Education = Mathf.Clamp(_gameManager.Education, 0, 100);
 
         UpdateColor(overallHealthRate);

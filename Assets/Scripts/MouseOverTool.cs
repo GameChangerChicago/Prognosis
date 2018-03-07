@@ -55,8 +55,8 @@ public class MouseOverTool : MonoBehaviour
                 MouseOverObject.transform.GetChild(0).GetComponent<Text>().text = ((DataSource as GameManager).WorldTeenPregRate * 8).ToString() + " per\n100,000";
             else if (BarType == "Crime")
                 MouseOverObject.transform.GetChild(0).GetComponent<Text>().text = ((DataSource as GameManager).WorldCrimeRate * 5).ToString() + " per\n100,000";
-            else if (BarType == "Finance")
-                MouseOverObject.transform.GetChild(0).GetComponent<Text>().text = (DataSource as GameManager).Finance.ToString();//"$" + Math.Round((DataSource as GameManager).Finance * 2826403.94, 2).ToString("N0");
+            else if (BarType == "Budget")
+                MouseOverObject.transform.GetChild(0).GetComponent<Text>().text = (DataSource as GameManager).Budget.ToString();
             else if (BarType == "Education")
                 MouseOverObject.transform.GetChild(0).GetComponent<Text>().text = Mathf.Round(((DataSource as GameManager).Education * 0.45f) + 50).ToString() + "% Grad Rate";
         }
