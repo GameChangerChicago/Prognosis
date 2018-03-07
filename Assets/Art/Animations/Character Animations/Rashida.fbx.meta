@@ -1,0 +1,305 @@
+fileFormatVersion: 2
+guid: beae2c94af5604d7e9a34372a0631e15
+timeCreated: 1520444270
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Back_Hijab
+    100002: Body
+    100004: Body_base
+    100006: Eye_white
+    100008: Geometry
+    100010: HEAD
+    100012: Head1
+    100014: Hijab_Front
+    100016: joint10
+    100018: joint11
+    100020: joint12
+    100022: joint14
+    100024: joint15
+    100026: joint16
+    100028: joint17
+    100030: joint19
+    100032: joint8
+    100034: joint9
+    100036: L_Back_Hijab
+    100038: L_Eye
+    100040: L_Eyebrow1
+    100042: L_Eyebrow2
+    100044: L_Eyebrow3
+    100046: L_Hijab_Front
+    100048: L_Lower_Eyelid_Inner
+    100050: L_Lower_Eyelid_Middle
+    100052: L_Lower_Eyelid_Outer
+    100054: L_Lower_Lip
+    100056: L_Lower_Lip_Corner
+    100058: L_Shoulder
+    100060: L_Upper_Eyelid_Inner
+    100062: L_Upper_Eyelid_Middle
+    100064: L_Upper_Eyelid_Outer
+    100066: L_Upper_Lip
+    100068: L_Upper_Lip_Center
+    100070: L_Upper_Lip_Corner
+    100072: Lower_Lip
+    100074: Nose1
+    100076: polySurface11
+    100078: polySurface12
+    100080: polySurface14
+    100082: polySurface15
+    100084: polySurface16
+    100086: polySurface17
+    100088: polySurface18
+    100090: polySurface19
+    100092: polySurface20
+    100094: polySurface21
+    100096: polySurface22
+    100098: polySurface23
+    100100: polySurface24
+    100102: polySurface25
+    100104: polySurface26
+    100106: polySurface27
+    100108: R_Back_Hijab
+    100110: R_Eye
+    100112: R_Eyebrow1
+    100114: R_Eyebrow2
+    100116: R_Eyebrow3
+    100118: R_Hijab_Front
+    100120: R_Lower_Eyelid_Inner
+    100122: R_Lower_Eyelid_Middle
+    100124: R_Lower_Eyelid_Outer
+    100126: R_Lower_Lip
+    100128: R_Lower_Lip_Corner
+    100130: R_Shoulder
+    100132: R_Upper_Eyelid_Inner
+    100134: R_Upper_Eyelid_Middle
+    100136: R_Upper_Eyelid_Outer
+    100138: R_Upper_Lip
+    100140: R_Upper_Lip_Center
+    100142: R_Upper_Lip_Corner
+    100144: //RootNode
+    100146: Static_Back_Hijab
+    100148: Upper_lip
+    400000: Back_Hijab
+    400002: Body
+    400004: Body_base
+    400006: Eye_white
+    400008: Geometry
+    400010: HEAD
+    400012: Head1
+    400014: Hijab_Front
+    400016: joint10
+    400018: joint11
+    400020: joint12
+    400022: joint14
+    400024: joint15
+    400026: joint16
+    400028: joint17
+    400030: joint19
+    400032: joint8
+    400034: joint9
+    400036: L_Back_Hijab
+    400038: L_Eye
+    400040: L_Eyebrow1
+    400042: L_Eyebrow2
+    400044: L_Eyebrow3
+    400046: L_Hijab_Front
+    400048: L_Lower_Eyelid_Inner
+    400050: L_Lower_Eyelid_Middle
+    400052: L_Lower_Eyelid_Outer
+    400054: L_Lower_Lip
+    400056: L_Lower_Lip_Corner
+    400058: L_Shoulder
+    400060: L_Upper_Eyelid_Inner
+    400062: L_Upper_Eyelid_Middle
+    400064: L_Upper_Eyelid_Outer
+    400066: L_Upper_Lip
+    400068: L_Upper_Lip_Center
+    400070: L_Upper_Lip_Corner
+    400072: Lower_Lip
+    400074: Nose1
+    400076: polySurface11
+    400078: polySurface12
+    400080: polySurface14
+    400082: polySurface15
+    400084: polySurface16
+    400086: polySurface17
+    400088: polySurface18
+    400090: polySurface19
+    400092: polySurface20
+    400094: polySurface21
+    400096: polySurface22
+    400098: polySurface23
+    400100: polySurface24
+    400102: polySurface25
+    400104: polySurface26
+    400106: polySurface27
+    400108: R_Back_Hijab
+    400110: R_Eye
+    400112: R_Eyebrow1
+    400114: R_Eyebrow2
+    400116: R_Eyebrow3
+    400118: R_Hijab_Front
+    400120: R_Lower_Eyelid_Inner
+    400122: R_Lower_Eyelid_Middle
+    400124: R_Lower_Eyelid_Outer
+    400126: R_Lower_Lip
+    400128: R_Lower_Lip_Corner
+    400130: R_Shoulder
+    400132: R_Upper_Eyelid_Inner
+    400134: R_Upper_Eyelid_Middle
+    400136: R_Upper_Eyelid_Outer
+    400138: R_Upper_Lip
+    400140: R_Upper_Lip_Center
+    400142: R_Upper_Lip_Corner
+    400144: //RootNode
+    400146: Static_Back_Hijab
+    400148: Upper_lip
+    2100000: Rashida
+    4300000: polySurface11
+    4300002: polySurface12
+    4300004: polySurface14
+    4300006: polySurface15
+    4300008: polySurface16
+    4300010: polySurface17
+    4300012: polySurface18
+    4300014: polySurface19
+    4300016: polySurface20
+    4300018: polySurface21
+    4300020: polySurface22
+    4300022: polySurface23
+    4300024: polySurface24
+    4300026: polySurface25
+    4300028: polySurface26
+    4300030: polySurface27
+    7400000: Rashida All
+    9500000: //RootNode
+    13700000: polySurface11
+    13700002: polySurface12
+    13700004: polySurface14
+    13700006: polySurface15
+    13700008: polySurface16
+    13700010: polySurface17
+    13700012: polySurface18
+    13700014: polySurface19
+    13700016: polySurface20
+    13700018: polySurface21
+    13700020: polySurface22
+    13700022: polySurface23
+    13700024: polySurface24
+    13700026: polySurface25
+    13700028: polySurface26
+    13700030: polySurface27
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rashida
+    second: {fileID: 2100000, guid: 1b3e0827474654050a0adb8f14e02593, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Rashida All
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 400
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
