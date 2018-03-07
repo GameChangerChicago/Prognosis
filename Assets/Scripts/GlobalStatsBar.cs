@@ -92,11 +92,11 @@ public class GlobalStatsBar : MonoBehaviour {
                             polCount++;
                 }
 
-                if (polCount == 1)
+                if (polCount == 0)
                     potentialFinance += 5;
-                else if (polCount == 2)
+                else if (polCount == 1)
                     potentialFinance += 15;
-                else if (polCount == 3)
+                else if (polCount == 2)
                     potentialFinance += 30;
             }
             else
