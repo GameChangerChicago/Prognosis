@@ -138,7 +138,13 @@ public class GameManager : MonoBehaviour
                 {
                     //This whole bit is going to have to be hardcoded to a certain degree.
                     //We could make a random version of this but for now I believe we'll want this to be a tailored experience
-                    int rand = UnityEngine.Random.Range(1, 11);
+                    int rand;
+                    do
+                    {
+                        rand = UnityEngine.Random.Range(1, 11);
+                    } while (rand == _lastEvent);
+
+                    _lastEvent = rand;
                     _theMessageManager.ShowMessage(Resources.Load<EventInfo>("Events/Event" + rand));
                 }
             }
@@ -148,7 +154,8 @@ public class GameManager : MonoBehaviour
     private int _currentTurn;
 
     private int[] _turnsMaintained;
-    private int _goalTurnCount;
+    private int _goalTurnCount,
+                _lastEvent;
 
     private void Start()
     {
