@@ -20,7 +20,7 @@ public class MakeEventInfo
     {
         EventInfo theEI = ScriptableObject.CreateInstance<EventInfo>();
 
-        AssetDatabase.CreateAsset(theEI, "Assets/Resources/VictoryConditions/NewEventInfo.asset");
+        AssetDatabase.CreateAsset(theEI, "Assets/Resources/Events/NewEventInfo.asset");
         AssetDatabase.SaveAssets();
 
         Selection.activeObject = theEI;

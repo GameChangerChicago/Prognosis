@@ -47,13 +47,25 @@ public class MessageManager : MonoBehaviour
                         switch (EE.StatToChange[i])
                         {
                             case Stats.CRIMERATE:
-                                _theGameManager.WorldCrimeRate += EE.StatChange[i];
+                                _ashPark.CrimeRate += EE.StatChange[i];
+                                _eastBeaHeights.CrimeRate += EE.StatChange[i];
+                                _freemason.CrimeRate += EE.StatChange[i];
+                                _philmont.CrimeRate += EE.StatChange[i];
+                                _quinnSquare.CrimeRate += EE.StatChange[i];
                                 break;
                             case Stats.STIRATE:
-                                _theGameManager.WorldSTIRate += EE.StatChange[i];
+                                _ashPark.STIRate += EE.StatChange[i];
+                                _eastBeaHeights.STIRate += EE.StatChange[i];
+                                _freemason.STIRate += EE.StatChange[i];
+                                _philmont.STIRate += EE.StatChange[i];
+                                _quinnSquare.STIRate += EE.StatChange[i];
                                 break;
                             case Stats.TEENPREGRATE:
-                                _theGameManager.WorldTeenPregRate += EE.StatChange[i];
+                                _ashPark.TeenPregRate += EE.StatChange[i];
+                                _eastBeaHeights.TeenPregRate += EE.StatChange[i];
+                                _freemason.TeenPregRate += EE.StatChange[i];
+                                _philmont.TeenPregRate += EE.StatChange[i];
+                                _quinnSquare.TeenPregRate += EE.StatChange[i];
                                 break;
                             case Stats.BUDGET:
                                 _theGameManager.Budget += EE.StatChange[i];
