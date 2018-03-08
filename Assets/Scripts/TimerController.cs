@@ -6,7 +6,8 @@ public class TimerController : MonoBehaviour
 {
     public BoxCollider2D FastForward,
                          PausePlay;
-    public GameObject ButtonHighlight;
+    public GameObject PPButtonHighlight,
+                      FFButtonHighlight;
     public float Timer,
                  TimeLimit;
     public bool TimerActive;
@@ -70,21 +71,21 @@ public class TimerController : MonoBehaviour
     
     public void HighlightPausePlayOn()
     {
-        ButtonHighlight.SetActive(true);
+        PPButtonHighlight.SetActive(true);
     }
 
     public void HighlightFastForwardOn()
     {
-        ButtonHighlight.SetActive(true);
+        FFButtonHighlight.SetActive(true);
     }
 
     public void HighlightPausePlayOff()
     {
-        ButtonHighlight.SetActive(false);
+        PPButtonHighlight.SetActive(false);
     }
 
     public void HighlightFastForwardOff()
     {
-        ButtonHighlight.SetActive(false);
+        FFButtonHighlight.SetActive(false);
     }
 }

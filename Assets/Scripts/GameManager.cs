@@ -138,33 +138,8 @@ public class GameManager : MonoBehaviour
                 {
                     //This whole bit is going to have to be hardcoded to a certain degree.
                     //We could make a random version of this but for now I believe we'll want this to be a tailored experience
-                    switch (value)
-                    {
-                        case 1:
-                            _theMessageManager.ShowMessage(Resources.Load<EventInfo>("Events/Event1"));
-                            break;
-                        case 2:
-                            _theMessageManager.ShowMessage(Resources.Load<EventInfo>("Events/Event1"));
-                            break;
-                        case 3:
-                            _theMessageManager.ShowMessage(Resources.Load<EventInfo>("Events/Event1"));
-                            break;
-                        case 4:
-                            _theMessageManager.ShowMessage(Resources.Load<EventInfo>("Events/Event1"));
-                            break;
-                        case 5:
-                            _theMessageManager.ShowMessage(Resources.Load<EventInfo>("Events/Event1"));
-                            break;
-                        case 6:
-                            _theMessageManager.ShowMessage(Resources.Load<EventInfo>("Events/Event1"));
-                            break;
-                        case 7:
-                            _theMessageManager.ShowMessage(Resources.Load<EventInfo>("Events/Event1"));
-                            break;
-                        default:
-                            Debug.LogWarning("That isn't a valid month value to be changing to.");
-                            break;
-                    }
+                    int rand = UnityEngine.Random.Range(1, 11);
+                    _theMessageManager.ShowMessage(Resources.Load<EventInfo>("Events/Event" + rand));
                 }
             }
             _currentTurn = value;
