@@ -145,6 +145,7 @@ public class GameManager : MonoBehaviour
                     } while (rand == _lastEvent);
 
                     _lastEvent = rand;
+                    rand = 12;
                     _theMessageManager.ShowMessage(Resources.Load<EventInfo>("Events/Event" + rand));
                 }
             }

@@ -34,13 +34,12 @@ public class MessageManager : MonoBehaviour
         MessageBox.SetActive(true);
         _title.text = messageEvent.EventTitle;
         _messageText.text = messageEvent.EventText;
+        Locations randLoc = Locations.RANDOM;
 
         if (messageEvent.TheEventEffect.LocationToAffect[0] == Locations.RANDOM)
         {
-            for (int i = 0; i < messageEvent.TheEventEffect.LocationToAffect.Count; i++)
-            {
-                messageEvent.TheEventEffect.LocationToAffect[i] = AddLocationInfo();
-            }
+            randLoc = RandomizeLocation();
+            AddLocationInfo(randLoc.ToString());
         }
         
         if(messageEvent.TheEventEffect != null)
@@ -165,6 +164,93 @@ public class MessageManager : MonoBehaviour
                                 break;
                         }
                         break;
+                    case Locations.RANDOM:
+                        switch(randLoc)
+                        {
+                            case Locations.ASHPARK:
+                                switch (EE.StatToChange[i])
+                                {
+                                    case Stats.CRIMERATE:
+                                        _ashPark.CrimeRate += EE.StatChange[i];
+                                        break;
+                                    case Stats.STIRATE:
+                                        _ashPark.STIRate += EE.StatChange[i];
+                                        break;
+                                    case Stats.TEENPREGRATE:
+                                        _ashPark.TeenPregRate += EE.StatChange[i];
+                                        break;
+                                    default:
+                                        break;
+                                }
+                                break;
+                            case Locations.FREEMASON:
+                                switch (EE.StatToChange[i])
+                                {
+                                    case Stats.CRIMERATE:
+                                        _freemason.CrimeRate += EE.StatChange[i];
+                                        break;
+                                    case Stats.STIRATE:
+                                        _freemason.STIRate += EE.StatChange[i];
+                                        break;
+                                    case Stats.TEENPREGRATE:
+                                        _freemason.TeenPregRate += EE.StatChange[i];
+                                        break;
+                                    default:
+                                        break;
+                                }
+                                break;
+                            case Locations.PHILMONT:
+                                switch (EE.StatToChange[i])
+                                {
+                                    case Stats.CRIMERATE:
+                                        _philmont.CrimeRate += EE.StatChange[i];
+                                        break;
+                                    case Stats.STIRATE:
+                                        _philmont.STIRate += EE.StatChange[i];
+                                        break;
+                                    case Stats.TEENPREGRATE:
+                                        _philmont.TeenPregRate += EE.StatChange[i];
+                                        break;
+                                    default:
+                                        break;
+                                }
+                                break;
+                            case Locations.QUINNSQUARE:
+                                switch (EE.StatToChange[i])
+                                {
+                                    case Stats.CRIMERATE:
+                                        _quinnSquare.CrimeRate += EE.StatChange[i];
+                                        break;
+                                    case Stats.STIRATE:
+                                        _quinnSquare.STIRate += EE.StatChange[i];
+                                        break;
+                                    case Stats.TEENPREGRATE:
+                                        _quinnSquare.TeenPregRate += EE.StatChange[i];
+                                        break;
+                                    default:
+                                        break;
+                                }
+                                break;
+                            case Locations.EASTBEAHEIGHTS:
+                                switch (EE.StatToChange[i])
+                                {
+                                    case Stats.CRIMERATE:
+                                        _eastBeaHeights.CrimeRate += EE.StatChange[i];
+                                        break;
+                                    case Stats.STIRATE:
+                                        _eastBeaHeights.STIRate += EE.StatChange[i];
+                                        break;
+                                    case Stats.TEENPREGRATE:
+                                        _eastBeaHeights.TeenPregRate += EE.StatChange[i];
+                                        break;
+                                    default:
+                                        break;
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
                     default:
                         break;
                 }
@@ -172,38 +258,59 @@ public class MessageManager : MonoBehaviour
         }
     }
 
-    private Locations AddLocationInfo()
+    private Locations RandomizeLocation()
     {
-        Locations newLoc = Locations.RANDOM;
-        string newMessage = "",
-               locName = "";
+        Locations newLoc = Locations.ASHPARK;
 
         int rand = Random.Range(0, 5);
-
         if (rand == 0)
         {
-            locName = "Ash Park";
             newLoc = Locations.ASHPARK;
         }
         else if (rand == 1)
         {
-            locName = "Freemason";
             newLoc = Locations.FREEMASON;
         }
         else if (rand == 2)
         {
-            locName = "Philmont";
             newLoc = Locations.PHILMONT;
         }
         else if (rand == 3)
         {
-            locName = "Quinn Square";
             newLoc = Locations.QUINNSQUARE;
         }
         else if (rand == 4)
         {
-            locName = "East Bea Heights";
             newLoc = Locations.EASTBEAHEIGHTS;
+        }
+
+        return newLoc;
+    }
+
+    private void AddLocationInfo(string location)
+    {
+        string newMessage = "",
+               locName = "";
+        
+        switch (location)
+        {
+            case "ASHPARK":
+                locName = "Ash Park";
+                break;
+            case "FREEMASON":
+                locName = "Freemason";
+                break;
+            case "PHILMONT":
+                locName = "Philmont";
+                break;
+            case "QUINNSQUARE":
+                locName = "Quinn Square";
+                break;
+            case "EASTBEAHEIGHTS":
+                locName = "East Bea Heights";
+                break;
+            default:
+                break;
         }
 
         for (int i = 0; i < _messageText.text.Length; i++)
@@ -215,7 +322,6 @@ public class MessageManager : MonoBehaviour
         }
 
         _messageText.text = newMessage;
-        return newLoc;
     }
 
     public void HideMessage()
