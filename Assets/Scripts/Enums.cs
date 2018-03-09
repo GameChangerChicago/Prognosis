@@ -18,7 +18,8 @@ public enum Locations
     PHILMONT,
     QUINNSQUARE,
     EASTBEAHEIGHTS,
-    GLOBAL
+    GLOBAL,
+    RANDOM
 };
 
 public enum Stats

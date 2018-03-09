@@ -34,6 +34,14 @@ public class MessageManager : MonoBehaviour
         MessageBox.SetActive(true);
         _title.text = messageEvent.EventTitle;
         _messageText.text = messageEvent.EventText;
+
+        if (messageEvent.TheEventEffect.LocationToAffect[0] == Locations.RANDOM)
+        {
+            for (int i = 0; i < messageEvent.TheEventEffect.LocationToAffect.Count; i++)
+            {
+                messageEvent.TheEventEffect.LocationToAffect[i] = AddLocationInfo();
+            }
+        }
         
         if(messageEvent.TheEventEffect != null)
         {
@@ -162,6 +170,52 @@ public class MessageManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    private Locations AddLocationInfo()
+    {
+        Locations newLoc = Locations.RANDOM;
+        string newMessage = "",
+               locName = "";
+
+        int rand = Random.Range(0, 5);
+
+        if (rand == 0)
+        {
+            locName = "Ash Park";
+            newLoc = Locations.ASHPARK;
+        }
+        else if (rand == 1)
+        {
+            locName = "Freemason";
+            newLoc = Locations.FREEMASON;
+        }
+        else if (rand == 2)
+        {
+            locName = "Philmont";
+            newLoc = Locations.PHILMONT;
+        }
+        else if (rand == 3)
+        {
+            locName = "Quinn Square";
+            newLoc = Locations.QUINNSQUARE;
+        }
+        else if (rand == 4)
+        {
+            locName = "East Bea Heights";
+            newLoc = Locations.EASTBEAHEIGHTS;
+        }
+
+        for (int i = 0; i < _messageText.text.Length; i++)
+        {
+            if (_messageText.text[i] != '*')
+                newMessage += _messageText.text[i];
+            else
+                newMessage += locName;
+        }
+
+        _messageText.text = newMessage;
+        return newLoc;
     }
 
     public void HideMessage()
