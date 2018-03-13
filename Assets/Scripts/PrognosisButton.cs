@@ -7,30 +7,50 @@ public class PrognosisButton : MonoBehaviour
     public GameObject ButtonHighlight;
     public MonoBehaviour ButtonScript;
     private InputManager _theInputManager;
+    private Collider2D _theCollider;
+    private bool _mousedOn;
 
     private void Start()
     {
         _theInputManager = FindObjectOfType<InputManager>();
+        _theCollider = this.GetComponent<Collider2D>();
     }
 
-    private void OnMouseEnter()
+    private void Update()
     {
-        _theInputManager.ClickableMousedEnter(this);
-
-        if (ButtonHighlight)
+        if(!_mousedOn && _theCollider.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)))
         {
-            ButtonHighlight.SetActive(true);
+            _theInputManager.ClickableMousedEnter(this);
+            _mousedOn = true;
+        }
+        else if(_mousedOn && !_theCollider.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)))
+        {
+            _theInputManager.ClickableMousedExit(this);
+            _mousedOn = false;
         }
     }
 
-    private void OnMouseExit()
-    {
-        _theInputManager.ClickableMousedExit(this);
+    //private void OnMouseEnter()
+    //{
+    //    if (!DoubleChecker())
+    //    {
+    //    }
+    //}
 
-        if (ButtonHighlight)
-        {
-            ButtonHighlight.SetActive(false);
-        }
+    //private void OnMouseExit()
+    //{
+    //    if (DoubleChecker())
+    //    {
+            
+    //    }
+    //}
+
+    private bool DoubleChecker()
+    {
+        if (_theCollider.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)))
+            return false;
+        else
+            return true;
     }
 
     public void HighlightButton()

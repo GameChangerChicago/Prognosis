@@ -26,6 +26,9 @@ public class InputManager : MonoBehaviour
 
         if(!_currentMousedOverClickables.ContainsValue(progButton))
         {
+            if (_currentMousedOverClickables.ContainsKey(progButton.name))
+                _currentMousedOverClickables.Remove(progButton.name);
+
             _currentMousedOverClickables.Add(progButton.name, progButton);
         }
 
