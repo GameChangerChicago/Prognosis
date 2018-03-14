@@ -46,13 +46,4 @@ public class GoalMenuController : MonoBehaviour
     {
         HighlightSprite.SetActive(false);
     }
-
-    //private void OnMouseOver()
-    //{
-
-    //}
-
-    //private void OnMouseExit()
-    //{
-    //}
 }

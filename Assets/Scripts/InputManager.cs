@@ -38,21 +38,19 @@ public class InputManager : MonoBehaviour
             if (_currentMousedOverClickables.ContainsKey("PausePlay"))
             {
                 newButton = "PausePlay";
-                _currentMousedOverClickables["PausePlay"].HighlightButton();//.transform.parent.GetComponent<TimerController>().HighlightOn();
+                _currentMousedOverClickables["PausePlay"].HighlightButton();
             }
 
             if (_currentMousedOverClickables.ContainsKey("FastForward"))
             {
                 newButton = "FastForward";
                 _currentMousedOverClickables["FastForward"].HighlightButton();
-                //_currentMousedOverClickables["FastForward"].transform.parent.GetComponent<TimerController>().TurnOn
             }
 
             if (_currentMousedOverClickables.ContainsKey("GoalButton"))
             {
                 newButton = "GoalButton";
                 _currentMousedOverClickables["GoalButton"].HighlightButton();
-                //_currentMousedOverClickables["GoalButton"].GetComponent<GoalMenuController>().TurnOn
             }
         }//Professional Menu
         else if (_currentMousedOverClickables.ContainsKey("Professional") || _currentMousedOverClickables.ContainsKey("upArrow") || _currentMousedOverClickables.ContainsKey("downArrow"))
@@ -61,19 +59,16 @@ public class InputManager : MonoBehaviour
             {
                 newButton = "upArrow";
                 _currentMousedOverClickables["upArrow"].HighlightButton();
-                //_currentMousedOverClickables["upArrow"].transform.parent.GetComponent<ProfessionalsMenu>().TurnOn
             }
             else if (_currentMousedOverClickables.ContainsKey("downArrow"))
             {
                 newButton = "downArrow";
                 _currentMousedOverClickables["downArrow"].HighlightButton();
-                //_currentMousedOverClickables["downArrow"].transform.parent.GetComponent<ProfessionalsMenu>().TurnOn
             }
             else if (_currentMousedOverClickables.ContainsKey("Professional"))
             {
                 newButton = "Professional";
                 _currentMousedOverClickables["Professional"].HighlightButton();
-                //ProfessionalStack.OnHoverTool.TurnOn
             }
         }//Location Menus
         else if (_currentMousedOverClickables.ContainsKey("ProfessionalSlot") || _currentMousedOverClickables.ContainsKey("LockRecalButton"))
@@ -82,7 +77,6 @@ public class InputManager : MonoBehaviour
             {
                 newButton = "ProfessionalSlot";
                 _currentMousedOverClickables["ProfessionalSlot"].HighlightButton();
-                //_currentMousedOverClickables["ProfessionalSlot"].GetComponent<ProfessionalSlot>().OnHoverTool.TurnOn
             }
         }//Locations
         else if (_currentMousedOverClickables.ContainsKey("Ash Park") ||
@@ -95,31 +89,26 @@ public class InputManager : MonoBehaviour
             {
                 newButton = "Ash Park";
                 _currentMousedOverClickables["Ash Park"].HighlightButton();
-                //_currentMousedOverClickables["Ash Park"].GetComponent<TargetLocation>().TurnOn
             }
             else if (_currentMousedOverClickables.ContainsKey("Freemason"))
             {
                 newButton = "Freemason";
                 _currentMousedOverClickables["Freemason"].HighlightButton();
-                //_currentMousedOverClickables["Freemason"].GetComponent<TargetLocation>().TurnOn
             }
             else if (_currentMousedOverClickables.ContainsKey("Philmont"))
             {
                 newButton = "Philmont";
                 _currentMousedOverClickables["Philmont"].HighlightButton();
-                //_currentMousedOverClickables["Philmont"].GetComponent<TargetLocation>().TurnOn
             }
             else if (_currentMousedOverClickables.ContainsKey("Quinn Square"))
             {
                 newButton = "Quinn Square";
                 _currentMousedOverClickables["Quinn Square"].HighlightButton();
-                //_currentMousedOverClickables["Quinn Square"].GetComponent<TargetLocation>().TurnOn
             }
             else if (_currentMousedOverClickables.ContainsKey("East Bea Heights"))
             {
                 newButton = "East Bea Heights";
                 _currentMousedOverClickables["East Bea Heights"].HighlightButton();
-                //_currentMousedOverClickables["East Bea Heights"].GetComponent<TargetLocation>().TurnOn
             }
         }
 
@@ -154,52 +143,49 @@ public class InputManager : MonoBehaviour
         {
             if (_currentMousedOverClickables.ContainsKey("Professional"))
             {
-                _currentMousedOverClickables["Professional"].ButtonAction();//.GetComponent<ProfessionalStack>().TakeProfessional();
+                _currentMousedOverClickables["Professional"].ButtonAction();
             }
         }
     }
 
     private void MouseUpHandler()
     {
+        //Top UI Level
         if (_currentMousedOverClickables.ContainsKey("PausePlay") || _currentMousedOverClickables.ContainsKey("FastForward") || _currentMousedOverClickables.ContainsKey("GoalButton"))
         {
             if (_currentMousedOverClickables.ContainsKey("PausePlay"))
             {
-                _currentMousedOverClickables["PausePlay"].ButtonAction();//.transform.parent.GetComponent<TimerController>().ToggglePauseTimer();
+                _currentMousedOverClickables["PausePlay"].ButtonAction();
             }
 
             if (_currentMousedOverClickables.ContainsKey("FastForward"))
             {
-                _currentMousedOverClickables["FastForward"].ButtonAction();//.transform.parent.GetComponent<TimerController>().SkipToNextDay();
+                _currentMousedOverClickables["FastForward"].ButtonAction();
             }
 
             if(_currentMousedOverClickables.ContainsKey("GoalButton"))
             {
-                _currentMousedOverClickables["GoalButton"].ButtonAction();//.GetComponent<GoalMenuController>().ShowGoalInfo();
+                _currentMousedOverClickables["GoalButton"].ButtonAction();
             }
-        }
+        }//Professional Menu
         else if (_currentMousedOverClickables.ContainsKey("Professional") || _currentMousedOverClickables.ContainsKey("upArrow") || _currentMousedOverClickables.ContainsKey("downArrow"))
         {
             if (_currentMousedOverClickables.ContainsKey("upArrow"))
             {
-                _currentMousedOverClickables["upArrow"].ButtonAction();//.transform.parent.GetComponent<ProfessionalsMenu>().MoveUp();
+                _currentMousedOverClickables["upArrow"].ButtonAction();
             }
             else if (_currentMousedOverClickables.ContainsKey("downArrow"))
             {
-                _currentMousedOverClickables["downArrow"].ButtonAction();//.transform.parent.GetComponent<ProfessionalsMenu>().MoveDown();
+                _currentMousedOverClickables["downArrow"].ButtonAction();
             }
-        }
+        }//Location Menus
         else if (_currentMousedOverClickables.ContainsKey("ProfessionalSlot") || _currentMousedOverClickables.ContainsKey("LockRecalButton"))
         {
             if(_currentMousedOverClickables.ContainsKey("ProfessionalSlot"))
             {
-                _currentMousedOverClickables["ProfessionalSlot"].ButtonAction();//.GetComponent<ProfessionalSlot>().RemoveProfessional();
+                _currentMousedOverClickables["ProfessionalSlot"].ButtonAction();
             }
-            //else if(_currentMousedOverClickables.ContainsKey("LockRecalButton"))
-            //{
-            //    _currentMousedOverClickables["LockRacalButton"].ButtonAction();//.transform.parent.parent.GetComponent<TargetLocation>().SendMHU();
-            //}
-        }
+        }//Locations
         else if (_currentMousedOverClickables.ContainsKey("Ash Park") ||
                  _currentMousedOverClickables.ContainsKey("Freemason") ||
                  _currentMousedOverClickables.ContainsKey("Philmont") ||
@@ -208,23 +194,23 @@ public class InputManager : MonoBehaviour
         {
             if(_currentMousedOverClickables.ContainsKey("Ash Park"))
             {
-                _currentMousedOverClickables["Ash Park"].ButtonAction();//.GetComponent<TargetLocation>().Activate();
+                _currentMousedOverClickables["Ash Park"].ButtonAction();
             }
             else if (_currentMousedOverClickables.ContainsKey("Freemason"))
             {
-                _currentMousedOverClickables["Freemason"].ButtonAction();//.GetComponent<TargetLocation>().Activate();
+                _currentMousedOverClickables["Freemason"].ButtonAction();
             }
             else if (_currentMousedOverClickables.ContainsKey("Philmont"))
             {
-                _currentMousedOverClickables["Philmont"].ButtonAction();//.GetComponent<TargetLocation>().Activate();
+                _currentMousedOverClickables["Philmont"].ButtonAction();
             }
             else if (_currentMousedOverClickables.ContainsKey("Quinn Square"))
             {
-                _currentMousedOverClickables["Quinn Square"].ButtonAction();//.GetComponent<TargetLocation>().Activate();
+                _currentMousedOverClickables["Quinn Square"].ButtonAction();
             }
             else if (_currentMousedOverClickables.ContainsKey("East Bea Heights"))
             {
-                _currentMousedOverClickables["East Bea Heights"].ButtonAction();//.GetComponent<TargetLocation>().Activate();
+                _currentMousedOverClickables["East Bea Heights"].ButtonAction();
             }
         }
     }
