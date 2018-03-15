@@ -7,8 +7,9 @@ public class GoalMenuController : MonoBehaviour
 {
     public GameObject HighlightSprite,
                       GoalCanvas;
-    public ScrollRect MyScrollRect;
+    public SpriteRenderer CloseButtonSprite;
     public List<RectTransform> GoalTexts;
+    public int GoalIndex;
 
     private GameManager _theGameManager;
 
@@ -21,7 +22,9 @@ public class GoalMenuController : MonoBehaviour
     {
         GoalCanvas.SetActive(true);
 
-        MyScrollRect.content = GoalTexts[_theGameManager.CurrentVC.GoalIndex];
+        //GoalTexts[_theGameManager.CurrentVC.GoalIndex - 1].gameObject.SetActive(false);
+        //GoalTexts[_theGameManager.CurrentVC.GoalIndex].gameObject.SetActive(true);
+        //MyScrollRect.content = GoalTexts[_theGameManager.CurrentVC.GoalIndex];
 
         foreach(RectTransform rt in GoalTexts)
         {
@@ -37,13 +40,23 @@ public class GoalMenuController : MonoBehaviour
         GoalCanvas.SetActive(false);
     }
 
-    public void HighlightOn()
+    public void HighlightGoalOn()
     {
         HighlightSprite.SetActive(true);
     }
 
-    public void HighlightOff()
+    public void HighlightGoalOff()
     {
         HighlightSprite.SetActive(false);
+    }
+
+    public void HighlightCloseOn()
+    {
+        CloseButtonSprite.color = new Color(CloseButtonSprite.color.r + 0.31f, CloseButtonSprite.color.g + 0.31f, CloseButtonSprite.color.b + 0.31f);
+    }
+
+    public void HighlightCloseOff()
+    {
+        CloseButtonSprite.color = new Color(CloseButtonSprite.color.r - 0.31f, CloseButtonSprite.color.g - 0.31f, CloseButtonSprite.color.b - 0.31f);
     }
 }

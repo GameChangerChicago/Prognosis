@@ -30,29 +30,6 @@ public class PrognosisButton : MonoBehaviour
         }
     }
 
-    //private void OnMouseEnter()
-    //{
-    //    if (!DoubleChecker())
-    //    {
-    //    }
-    //}
-
-    //private void OnMouseExit()
-    //{
-    //    if (DoubleChecker())
-    //    {
-            
-    //    }
-    //}
-
-    private bool DoubleChecker()
-    {
-        if (_theCollider.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)))
-            return false;
-        else
-            return true;
-    }
-
     public void HighlightButton()
     {
         if (this.ButtonScript.GetType() == typeof(TimerController))
@@ -64,7 +41,14 @@ public class PrognosisButton : MonoBehaviour
         }
         else if(this.ButtonScript.GetType() == typeof(GoalMenuController))
         {
-            (ButtonScript as GoalMenuController).HighlightOn();
+            if (this.name == "GoalButton")
+                (ButtonScript as GoalMenuController).HighlightGoalOn();
+            else if (this.name == "Close Button")
+                (ButtonScript as GoalMenuController).HighlightCloseOn();
+        }
+        else if (this.ButtonScript.GetType() == typeof(MessageManager))
+        {
+            (ButtonScript as MessageManager).HighlightOn();
         }
         else if(this.ButtonScript.GetType() == typeof(ProfessionalStack))
         {
@@ -98,7 +82,14 @@ public class PrognosisButton : MonoBehaviour
         }
         else if (this.ButtonScript.GetType() == typeof(GoalMenuController))
         {
-            (ButtonScript as GoalMenuController).HighlightOff();
+            if (this.name == "GoalButton")
+                (ButtonScript as GoalMenuController).HighlightGoalOff();
+            else if (this.name == "Close Button")
+                (ButtonScript as GoalMenuController).HighlightCloseOff();
+        }
+        else if(this.ButtonScript.GetType() == typeof(MessageManager))
+        {
+            (ButtonScript as MessageManager).HighlightOff();
         }
         else if (this.ButtonScript.GetType() == typeof(ProfessionalStack))
         {
@@ -132,7 +123,20 @@ public class PrognosisButton : MonoBehaviour
         }
         else if (this.ButtonScript.GetType() == typeof(GoalMenuController))
         {
-            (ButtonScript as GoalMenuController).ShowGoalInfo();
+            if (this.name == "GoalButton")
+                (ButtonScript as GoalMenuController).ShowGoalInfo();
+            else if (this.name == "Close Button")
+            {
+                (ButtonScript as GoalMenuController).HideGoalInfo();
+                _theInputManager.ClickableMousedExit(this);
+                _mousedOn = false;
+            }
+        }
+        else if (this.ButtonScript.GetType() == typeof(MessageManager))
+        {
+            (ButtonScript as MessageManager).HideMessage();
+            _theInputManager.ClickableMousedExit(this);
+            _mousedOn = false;
         }
         else if (this.ButtonScript.GetType() == typeof(ProfessionalStack))
         {

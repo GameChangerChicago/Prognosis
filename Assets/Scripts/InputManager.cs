@@ -33,7 +33,10 @@ public class InputManager : MonoBehaviour
         }
 
         //Top UI Level
-        if(_currentMousedOverClickables.ContainsKey("PausePlay") || _currentMousedOverClickables.ContainsKey("FastForward") || _currentMousedOverClickables.ContainsKey("GoalButton"))
+        if(_currentMousedOverClickables.ContainsKey("PausePlay") ||
+           _currentMousedOverClickables.ContainsKey("FastForward") ||
+           _currentMousedOverClickables.ContainsKey("GoalButton") ||
+           _currentMousedOverClickables.ContainsKey("Close Button"))
         {
             if (_currentMousedOverClickables.ContainsKey("PausePlay"))
             {
@@ -51,6 +54,12 @@ public class InputManager : MonoBehaviour
             {
                 newButton = "GoalButton";
                 _currentMousedOverClickables["GoalButton"].HighlightButton();
+            }
+
+            if(_currentMousedOverClickables.ContainsKey("Close Button"))
+            {
+                newButton = "Close Button";
+                _currentMousedOverClickables["Close Button"].HighlightButton();
             }
         }//Professional Menu
         else if (_currentMousedOverClickables.ContainsKey("Professional") || _currentMousedOverClickables.ContainsKey("upArrow") || _currentMousedOverClickables.ContainsKey("downArrow"))
@@ -151,7 +160,10 @@ public class InputManager : MonoBehaviour
     private void MouseUpHandler()
     {
         //Top UI Level
-        if (_currentMousedOverClickables.ContainsKey("PausePlay") || _currentMousedOverClickables.ContainsKey("FastForward") || _currentMousedOverClickables.ContainsKey("GoalButton"))
+        if (_currentMousedOverClickables.ContainsKey("PausePlay") ||
+           _currentMousedOverClickables.ContainsKey("FastForward") ||
+           _currentMousedOverClickables.ContainsKey("GoalButton") ||
+           _currentMousedOverClickables.ContainsKey("Close Button"))
         {
             if (_currentMousedOverClickables.ContainsKey("PausePlay"))
             {
@@ -166,6 +178,11 @@ public class InputManager : MonoBehaviour
             if(_currentMousedOverClickables.ContainsKey("GoalButton"))
             {
                 _currentMousedOverClickables["GoalButton"].ButtonAction();
+            }
+
+            if(_currentMousedOverClickables.ContainsKey("Close Button"))
+            {
+                _currentMousedOverClickables["Close Button"].ButtonAction();
             }
         }//Professional Menu
         else if (_currentMousedOverClickables.ContainsKey("Professional") || _currentMousedOverClickables.ContainsKey("upArrow") || _currentMousedOverClickables.ContainsKey("downArrow"))

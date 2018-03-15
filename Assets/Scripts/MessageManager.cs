@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class MessageManager : MonoBehaviour
 {
     public GameObject MessageBox;
+    public SpriteRenderer CloseButtonSprite;
 
     private GameManager _theGameManager;
     private TargetLocation _ashPark,
@@ -322,6 +323,16 @@ public class MessageManager : MonoBehaviour
         }
 
         _messageText.text = newMessage;
+    }
+
+    public void HighlightOn()
+    {
+        CloseButtonSprite.color = new Color(CloseButtonSprite.color.r + 0.31f, CloseButtonSprite.color.g + 0.31f, CloseButtonSprite.color.b + 0.31f);
+    }
+
+    public void HighlightOff()
+    {
+        CloseButtonSprite.color = new Color(CloseButtonSprite.color.r - 0.31f, CloseButtonSprite.color.g - 0.31f, CloseButtonSprite.color.b - 0.31f);
     }
 
     public void HideMessage()

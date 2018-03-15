@@ -119,21 +119,6 @@ public class GameManager : MonoBehaviour
 
                 CheckCurrentStats();
 
-                //          if (WorldTeenPregRate < 20)
-                //          {
-                //              _goalTurnCount++;
-
-                //              if (_goalTurnCount > 2)
-                //              {
-                //winning = true;
-                //                  Debug.Log("YOU WIN!!!!!");
-                //              }
-                //          }
-                //          else
-                //          {
-                //              _goalTurnCount = 0;
-                //          }
-
                 if (_theMessageManager)
                 {
                     //This whole bit is going to have to be hardcoded to a certain degree.
@@ -145,7 +130,6 @@ public class GameManager : MonoBehaviour
                     } while (rand == _lastEvent);
 
                     _lastEvent = rand;
-                    rand = 12;
                     _theMessageManager.ShowMessage(Resources.Load<EventInfo>("Events/Event" + rand));
                 }
             }
