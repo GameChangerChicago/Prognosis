@@ -126,7 +126,7 @@ public class GameManager : MonoBehaviour
                     int rand;
                     do
                     {
-                        rand = UnityEngine.Random.Range(1, 11);
+                        rand = UnityEngine.Random.Range(1, 17);
                     } while (rand == _lastEvent);
 
                     _lastEvent = rand;
