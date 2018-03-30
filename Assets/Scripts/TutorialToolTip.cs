@@ -4,8 +4,22 @@ using UnityEngine;
 
 public class TutorialToolTip : MonoBehaviour
 {
-    public GameObject ParentObject;
     public TutorialToolTip NextTTT;
 
-    //Close Method
+    private TutorialToolTipManager _theTTTManager;
+
+    private void Start()
+    {
+        _theTTTManager = FindObjectOfType<TutorialToolTipManager>();
+    }
+
+    public void CloseToolTip()
+    {
+        if (NextTTT)
+        {
+            _theTTTManager.ShowPopUp(NextTTT.name, 1);
+        }
+
+        GameObject.Destroy(this.gameObject);
+    }
 }
