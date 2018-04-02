@@ -19,6 +19,7 @@ public class TutorialToolTipManager : MonoBehaviour
             case "CheckProfInfo":
                 break;
             default:
+                Debug.Log("This tool tip doesn't exist... yet?");
                 break;
         }
     }
