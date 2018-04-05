@@ -13,6 +13,16 @@ public class TutorialToolTip : MonoBehaviour
         _theTTTManager = FindObjectOfType<TutorialToolTipManager>();
     }
 
+    private void OnEnable()
+    {
+        EventManager.StartListening("Close", CloseToolTip);
+    }
+
+    private void OnDisable()
+    {
+        EventManager.StopListening("Close", CloseToolTip);
+    }
+
     public void CloseToolTip()
     {
         if (NextTTT)
@@ -20,6 +30,7 @@ public class TutorialToolTip : MonoBehaviour
             _theTTTManager.ShowPopUp(NextTTT.name, 1);
         }
 
+        EventManager.StopListening("Close", CloseToolTip);
         GameObject.Destroy(this.gameObject);
     }
 }
