@@ -174,6 +174,11 @@ public class TargetLocation : MonoBehaviour
             tl.Active = false;
             //tl.spriteHighlight.SetActive (false);
         }
+
+        if(FindObjectOfType<TutorialToolTip>().tag == "LocationToolTip")
+        {
+            EventManager.TriggerEvent("Close");
+        }
     }
 
     public void UpdateValues()

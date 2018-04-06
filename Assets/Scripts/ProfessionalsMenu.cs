@@ -269,6 +269,11 @@ public class ProfessionalsMenu : MonoBehaviour
         {
             Debug.Log("No go");
         }
+
+        if (FindObjectOfType<TutorialToolTip>().tag == "CheckProf")
+        {
+            EventManager.TriggerEvent("Close");
+        }
     }
 
     public void MoveDown()
