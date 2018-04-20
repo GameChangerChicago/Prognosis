@@ -8,6 +8,11 @@ public class TutorialToolTipManager : MonoBehaviour
     public TutorialToolTip CurrentToolTip;
 
     //Instantiation Logic
+    private void Start()
+    {
+        //if GameManager.DoTutorial
+        ShowPopUp("TryLocation", 1);
+    }
 
     //Make this an event listener
     private void CloseTTTHandler()
@@ -41,6 +46,24 @@ public class TutorialToolTipManager : MonoBehaviour
                 CurrentToolTip.transform.parent = InstantiationPoints[0].transform;
                 break;
             case "CheckProfInfo":
+                CurrentToolTip = Instantiate(CurrentToolTip, InstantiationPoints[1].transform.position, Quaternion.identity);
+                CurrentToolTip.transform.parent = InstantiationPoints[1].transform;
+                break;
+            case "TryProfessional":
+                CurrentToolTip = Instantiate(CurrentToolTip, InstantiationPoints[2].transform.position, Quaternion.identity);
+                CurrentToolTip.transform.parent = InstantiationPoints[2].transform;
+                break;
+            case "PointOutFinance":
+                CurrentToolTip = Instantiate(CurrentToolTip, InstantiationPoints[3].transform.position, Quaternion.identity);
+                CurrentToolTip.transform.parent = InstantiationPoints[3].transform;
+                break;
+            case "PointOutTime":
+                CurrentToolTip = Instantiate(CurrentToolTip, InstantiationPoints[4].transform.position, Quaternion.identity);
+                CurrentToolTip.transform.parent = InstantiationPoints[4].transform;
+                break;
+            case "EventHappens":
+                CurrentToolTip = Instantiate(CurrentToolTip, InstantiationPoints[5].transform.position, Quaternion.identity);
+                CurrentToolTip.transform.parent = InstantiationPoints[5].transform;
                 break;
             default:
                 break;

@@ -270,7 +270,7 @@ public class ProfessionalsMenu : MonoBehaviour
             Debug.Log("No go");
         }
 
-        if (FindObjectOfType<TutorialToolTip>().tag == "CheckProf")
+        if (FindObjectOfType<TutorialToolTip>().name == "CheckProfInfo(Clone)")
         {
             EventManager.TriggerEvent("Close");
         }
