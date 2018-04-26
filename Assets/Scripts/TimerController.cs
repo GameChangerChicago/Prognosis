@@ -11,10 +11,12 @@ public class TimerController : MonoBehaviour
     public float Timer,
                  TimeLimit;
     public bool TimerActive;
+    private bool warningGiven = false;
 	public Image clockRenderer;
 	public Text  timerText;
 
     private GameManager _gameManager;
+    private AudioManager _audioManager;
     public SpriteRenderer _pauseRenderer, playRenderer;
 	private int countDownTimer;
 
@@ -22,6 +24,7 @@ public class TimerController : MonoBehaviour
     void Start()
     {
         _gameManager = FindObjectOfType<GameManager>();
+        _audioManager = AudioManager.instance;
 		//playRenderer.enabled = false;
        // _pauseRenderer = PausePlay.GetComponentInChildren<SpriteRenderer>();
 		//playRenderer = PausePlay.GetComponentInChildren<SpriteRenderer> ();
@@ -40,10 +43,18 @@ public class TimerController : MonoBehaviour
 			timerText.text = (_gameManager.CurrentTurn + 1).ToString();
         }
 
+        //if there are less than ten seconds left & a warning hasn't been given
+        if (Timer > (TimeLimit - 10) && !warningGiven)
+        {
+            _audioManager.PlaySound("Time Warning");
+            warningGiven = true;
+        }
+
         if (Timer > TimeLimit)
         {
             _gameManager.CurrentTurn++;
             Timer = 0;
+            warningGiven = false;
         }
     }
 
@@ -67,6 +78,7 @@ public class TimerController : MonoBehaviour
     {
         _gameManager.CurrentTurn++;
         Timer = 0;
+        warningGiven = false;
     }
     
     public void HighlightPausePlayOn()

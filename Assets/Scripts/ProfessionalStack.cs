@@ -15,6 +15,7 @@ public class ProfessionalStack : MonoBehaviour
     private ProfessionalsMenu _professionalMenu;
     private GameObject _dragObject;
     private GameManager _gameManager;
+    private AudioManager _audioManager;
     private Vector2 mousePos;
     private int _professionalCount;
 	public ScrollRect scrollRect;
@@ -42,6 +43,7 @@ public class ProfessionalStack : MonoBehaviour
     void Start()
     {
         _gameManager = FindObjectOfType<GameManager>();
+        _audioManager = AudioManager.instance;
         _professionalMenu = GetComponentInParent<ProfessionalsMenu>();
         _professionalCount = ProfessionalCount;
 		//scrollRect = FindObjectOfType<Canvas>().GetComponent<ScrollRect> ();
@@ -52,7 +54,10 @@ public class ProfessionalStack : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
             if (_dragObject != null)
+            {
                 Destroy(_dragObject);
+                _audioManager.PlaySound("Professional Poof");
+            }
 
             dragObjectInstantiated = false;
 			scrollRect.enabled = true;
@@ -82,7 +87,7 @@ public class ProfessionalStack : MonoBehaviour
             _dragObject = Instantiate<GameObject>(DragObject);
             dragObjectInstantiated = true;
 
-            if (FindObjectOfType<TutorialToolTip>().name == "TryProfessional(Clone)")
+            if (FindObjectOfType<TutorialToolTip>().name == "TryProfessional")
             {
                 EventManager.TriggerEvent("Close");
             }
