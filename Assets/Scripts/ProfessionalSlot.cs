@@ -5,9 +5,9 @@ public class ProfessionalSlot : MonoBehaviour
 {
     private GameManager _gameManager;
     private BoxCollider2D _myBoxCollider;
+    private AudioManager _audioManager;
 	private SpriteRenderer _mySpriteRenderer;
     private TargetLocation _myTargetLocation;
-    private TutorialToolTipManager _TTTManager;
     private GlobalStatsBar _theGSB;
     private bool _mousedOverWithAProfessional,
                  _hasAProfessional;
@@ -20,12 +20,12 @@ public class ProfessionalSlot : MonoBehaviour
     void Start()
     {
         _gameManager = FindObjectOfType<GameManager>();
+        _audioManager = AudioManager.instance;
         OnHoverTool = this.GetComponent<OnHover>();
         _theGSB = FindObjectOfType<GlobalStatsBar>();
         _myTargetLocation = this.transform.parent.GetComponentInParent<TargetLocation>();
         _myBoxCollider = this.GetComponent<BoxCollider2D>();
 		_mySpriteRenderer = this.GetComponent<SpriteRenderer> ();
-        _TTTManager = FindObjectOfType<TutorialToolTipManager>();
 		BorderRenderer.color = _mySpriteRenderer.color;
     }
 
@@ -60,12 +60,7 @@ public class ProfessionalSlot : MonoBehaviour
                 _myTargetLocation.TheProfMenu.PlaceAProfessional(_myTargetLocation.name, _gameManager.SelectedProfessional.MyProfessionalType);
                 CurrentProfesional = _gameManager.SelectedProfessional;
                 PortraitRenderer.sprite = _gameManager.SelectedProfessional.SlotPortrait;
-
-                if(!_TTTManager.PlacedFirstProf && !FindObjectOfType<TutorialToolTip>())
-                {
-                    _TTTManager.ShowPopUp("PointOutBudget", 0.2f);
-                    _TTTManager.PlacedFirstProf = true;
-                }
+                _audioManager.PlaySound("Professional Placed");
             }
         }
     }
@@ -84,6 +79,7 @@ public class ProfessionalSlot : MonoBehaviour
             _hasAProfessional = false;
             PortraitRenderer.sprite = null;
             _theGSB.BudgetBarChange(_myTargetLocation, removedProfType, false);
+            _audioManager.PlaySound("Professional Removed");
         }
     }
 }

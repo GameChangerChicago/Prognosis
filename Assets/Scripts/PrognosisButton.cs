@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class PrognosisButton : MonoBehaviour
 {
+    public GameObject ButtonHighlight;
     public MonoBehaviour ButtonScript;
     private InputManager _theInputManager;
     private Collider2D _theCollider;
     private bool _mousedOn;
+    private AudioManager _audioManager;
 
     private void Start()
     {
         _theInputManager = FindObjectOfType<InputManager>();
         _theCollider = this.GetComponent<Collider2D>();
+        _audioManager = AudioManager.instance;
     }
 
     private void Update()
@@ -31,56 +34,70 @@ public class PrognosisButton : MonoBehaviour
 
     public void HighlightButton()
     {
-        if(this.ButtonScript.GetType() == typeof(TutorialToolTip))
-        {
-            (ButtonScript as TutorialToolTip).HighlightOn();
-        }
-        else if (this.ButtonScript.GetType() == typeof(TimerController))
+        if (this.ButtonScript.GetType() == typeof(TimerController))
         {
             if (this.name == "PausePlay")
+            {
                 (ButtonScript as TimerController).HighlightPausePlayOn();
-            else if(this.name == "FastForward")
+                _audioManager.PlaySound("Mouse Over");
+            }
+            else if (this.name == "FastForward")
+            {
                 (ButtonScript as TimerController).HighlightFastForwardOn();
+                _audioManager.PlaySound("Mouse Over");
+            }
         }
         else if(this.ButtonScript.GetType() == typeof(GoalMenuController))
         {
             if (this.name == "GoalButton")
+            {
                 (ButtonScript as GoalMenuController).HighlightGoalOn();
+                _audioManager.PlaySound("Mouse Over");
+            }
             else if (this.name == "Close Button")
+            {
                 (ButtonScript as GoalMenuController).HighlightCloseOn();
+                _audioManager.PlaySound("Mouse Over");
+            }
         }
         else if (this.ButtonScript.GetType() == typeof(MessageManager))
         {
             (ButtonScript as MessageManager).HighlightOn();
+            _audioManager.PlaySound("Mouse Over");
         }
         else if(this.ButtonScript.GetType() == typeof(ProfessionalStack))
         {
             (ButtonScript as ProfessionalStack).OnHoverTool.HighlightOn();
+            _audioManager.PlaySound("Mouse Over");
         }
         else if (this.ButtonScript.GetType() == typeof(ProfessionalsMenu))
         {
             if (this.name == "upArrow")
+            {
                 (ButtonScript as ProfessionalsMenu).HighlightUpArrowOn();
-            else if(this.name == "downArrow")
+                _audioManager.PlaySound("Mouse Over");
+            }
+            else if (this.name == "downArrow")
+            {
                 (ButtonScript as ProfessionalsMenu).HighlightDownArrowOn();
+                _audioManager.PlaySound("Mouse Over");
+            }
         }
         else if (this.ButtonScript.GetType() == typeof(ProfessionalSlot))
         {
             (ButtonScript as ProfessionalSlot).OnHoverTool.HighlightOn();
+            _audioManager.PlaySound("Mouse Over");
         }
         else if (this.ButtonScript.GetType() == typeof(TargetLocation))
         {
             (ButtonScript as TargetLocation).HighlightOn();
+            _audioManager.PlaySound("Mouse Over");
         }
     }
 
     public void UnhighlightButton()
     {
-        if (this.ButtonScript.GetType() == typeof(TutorialToolTip))
-        {
-            (ButtonScript as TutorialToolTip).HighlightOff();
-        }
-        else if (this.ButtonScript.GetType() == typeof(TimerController))
+        if (this.ButtonScript.GetType() == typeof(TimerController))
         {
             if (this.name == "PausePlay")
                 (ButtonScript as TimerController).HighlightPausePlayOff();
@@ -121,26 +138,32 @@ public class PrognosisButton : MonoBehaviour
 
     public void ButtonAction()
     {
-        if (this.ButtonScript.GetType() == typeof(TutorialToolTip))
-        {
-            (ButtonScript as TutorialToolTip).CloseToolTip();
-        }
-        else if (this.ButtonScript.GetType() == typeof(TimerController))
+        if (this.ButtonScript.GetType() == typeof(TimerController))
         {
             if (this.name == "PausePlay")
+            {
                 (ButtonScript as TimerController).ToggglePauseTimer();
+                _audioManager.PlaySound("Button Pressed");
+            }
             else if (this.name == "FastForward")
+            {
                 (ButtonScript as TimerController).SkipToNextDay();
+                _audioManager.PlaySound("Button Pressed");
+            }
         }
         else if (this.ButtonScript.GetType() == typeof(GoalMenuController))
         {
             if (this.name == "GoalButton")
+            {
                 (ButtonScript as GoalMenuController).ShowGoalInfo();
+                _audioManager.PlaySound("Button Pressed");
+            }
             else if (this.name == "Close Button")
             {
                 (ButtonScript as GoalMenuController).HideGoalInfo();
                 _theInputManager.ClickableMousedExit(this);
                 _mousedOn = false;
+                _audioManager.PlaySound("Button Pressed");
             }
         }
         else if (this.ButtonScript.GetType() == typeof(MessageManager))
@@ -148,6 +171,7 @@ public class PrognosisButton : MonoBehaviour
             (ButtonScript as MessageManager).HideMessage();
             _theInputManager.ClickableMousedExit(this);
             _mousedOn = false;
+            _audioManager.PlaySound("Button Pressed");
         }
         else if (this.ButtonScript.GetType() == typeof(ProfessionalStack))
         {
@@ -156,9 +180,15 @@ public class PrognosisButton : MonoBehaviour
         else if (this.ButtonScript.GetType() == typeof(ProfessionalsMenu))
         {
             if (this.name == "upArrow")
+            {
                 (ButtonScript as ProfessionalsMenu).MoveUp();
+                _audioManager.PlaySound("Button Pressed");
+            }
             else if (this.name == "downArrow")
+            {
                 (ButtonScript as ProfessionalsMenu).MoveDown();
+                _audioManager.PlaySound("Button Pressed");
+            }
         }
         else if (this.ButtonScript.GetType() == typeof(ProfessionalSlot))
         {
@@ -167,6 +197,7 @@ public class PrognosisButton : MonoBehaviour
         else if (this.ButtonScript.GetType() == typeof(TargetLocation))
         {
             (ButtonScript as TargetLocation).Activate();
+            _audioManager.PlaySound("Button Pressed");
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Collections;
 public class WorldAnimationMananger : MonoBehaviour {
 
 	public GameObject motionBlur;
+    private AudioManager _audioManager;
 
 	void OnAwake(){
 
@@ -12,7 +13,8 @@ public class WorldAnimationMananger : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+
+        _audioManager = AudioManager.instance;
 
 	}
 	
@@ -24,7 +26,8 @@ public class WorldAnimationMananger : MonoBehaviour {
 	private IEnumerator MotionBlur(){
 
 		motionBlur.GetComponent<Animator> ().Play("Fade In");
-		yield return new WaitForSeconds (3);
+        _audioManager.PlaySound("Scene Transition");
+        yield return new WaitForSeconds (3);
 		motionBlur.GetComponent<Animator>().Play("Fade Out");
 		yield return new WaitForSeconds (1);
 		motionBlur.SetActive (false);
