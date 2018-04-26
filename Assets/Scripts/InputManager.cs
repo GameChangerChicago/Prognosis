@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    //Dictionary for these two
-    //DUh!
     private Dictionary<string, PrognosisButton> _currentMousedOverClickables = new Dictionary<string, PrognosisButton>();
 
     private void Update()
@@ -33,10 +31,15 @@ public class InputManager : MonoBehaviour
         }
 
         //Top UI Level
-        if(_currentMousedOverClickables.ContainsKey("PausePlay") ||
-           _currentMousedOverClickables.ContainsKey("FastForward") ||
-           _currentMousedOverClickables.ContainsKey("GoalButton") ||
-           _currentMousedOverClickables.ContainsKey("Close Button"))
+        if(_currentMousedOverClickables.ContainsKey("ToolTip"))
+        {
+            newButton = "ToolTip";
+            _currentMousedOverClickables["ToolTip"].HighlightButton();
+        }
+        else if(_currentMousedOverClickables.ContainsKey("PausePlay") ||
+                _currentMousedOverClickables.ContainsKey("FastForward") ||
+                _currentMousedOverClickables.ContainsKey("GoalButton") ||
+                _currentMousedOverClickables.ContainsKey("Close Button"))
         {
             if (_currentMousedOverClickables.ContainsKey("PausePlay"))
             {
@@ -160,10 +163,14 @@ public class InputManager : MonoBehaviour
     private void MouseUpHandler()
     {
         //Top UI Level
-        if (_currentMousedOverClickables.ContainsKey("PausePlay") ||
-           _currentMousedOverClickables.ContainsKey("FastForward") ||
-           _currentMousedOverClickables.ContainsKey("GoalButton") ||
-           _currentMousedOverClickables.ContainsKey("Close Button"))
+        if (_currentMousedOverClickables.ContainsKey("ToolTip"))
+        {
+            _currentMousedOverClickables["ToolTip"].ButtonAction();
+        }
+        else if (_currentMousedOverClickables.ContainsKey("PausePlay") ||
+                _currentMousedOverClickables.ContainsKey("FastForward") ||
+                _currentMousedOverClickables.ContainsKey("GoalButton") ||
+                _currentMousedOverClickables.ContainsKey("Close Button"))
         {
             if (_currentMousedOverClickables.ContainsKey("PausePlay"))
             {

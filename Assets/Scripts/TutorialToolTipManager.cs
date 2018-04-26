@@ -6,6 +6,7 @@ public class TutorialToolTipManager : MonoBehaviour
 {
     public List<GameObject> InstantiationPoints;
     public TutorialToolTip CurrentToolTip;
+    public bool PlacedFirstProf;
 
     //Instantiation Logic
     private void Start()
@@ -53,7 +54,7 @@ public class TutorialToolTipManager : MonoBehaviour
                 CurrentToolTip = Instantiate(CurrentToolTip, InstantiationPoints[2].transform.position, Quaternion.identity);
                 CurrentToolTip.transform.parent = InstantiationPoints[2].transform;
                 break;
-            case "PointOutFinance":
+            case "PointOutBudget":
                 CurrentToolTip = Instantiate(CurrentToolTip, InstantiationPoints[3].transform.position, Quaternion.identity);
                 CurrentToolTip.transform.parent = InstantiationPoints[3].transform;
                 break;

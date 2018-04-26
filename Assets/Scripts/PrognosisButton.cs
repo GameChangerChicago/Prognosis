@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PrognosisButton : MonoBehaviour
 {
-    public GameObject ButtonHighlight;
     public MonoBehaviour ButtonScript;
     private InputManager _theInputManager;
     private Collider2D _theCollider;
@@ -32,7 +31,11 @@ public class PrognosisButton : MonoBehaviour
 
     public void HighlightButton()
     {
-        if (this.ButtonScript.GetType() == typeof(TimerController))
+        if(this.ButtonScript.GetType() == typeof(TutorialToolTip))
+        {
+            (ButtonScript as TutorialToolTip).HighlightOn();
+        }
+        else if (this.ButtonScript.GetType() == typeof(TimerController))
         {
             if (this.name == "PausePlay")
                 (ButtonScript as TimerController).HighlightPausePlayOn();
@@ -73,7 +76,11 @@ public class PrognosisButton : MonoBehaviour
 
     public void UnhighlightButton()
     {
-        if (this.ButtonScript.GetType() == typeof(TimerController))
+        if (this.ButtonScript.GetType() == typeof(TutorialToolTip))
+        {
+            (ButtonScript as TutorialToolTip).HighlightOff();
+        }
+        else if (this.ButtonScript.GetType() == typeof(TimerController))
         {
             if (this.name == "PausePlay")
                 (ButtonScript as TimerController).HighlightPausePlayOff();
@@ -114,7 +121,11 @@ public class PrognosisButton : MonoBehaviour
 
     public void ButtonAction()
     {
-        if (this.ButtonScript.GetType() == typeof(TimerController))
+        if (this.ButtonScript.GetType() == typeof(TutorialToolTip))
+        {
+            (ButtonScript as TutorialToolTip).CloseToolTip();
+        }
+        else if (this.ButtonScript.GetType() == typeof(TimerController))
         {
             if (this.name == "PausePlay")
                 (ButtonScript as TimerController).ToggglePauseTimer();

@@ -33,4 +33,14 @@ public class TutorialToolTip : MonoBehaviour
         EventManager.StopListening("Close", CloseToolTip);
         GameObject.Destroy(this.gameObject);
     }
+
+    public void HighlightOn()
+    {
+        Debug.Log("Highlighting");
+    }
+
+    public void HighlightOff()
+    {
+        Debug.Log("Not Highlighting");
+    }
 }
