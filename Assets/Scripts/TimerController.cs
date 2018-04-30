@@ -28,8 +28,6 @@ public class TimerController : MonoBehaviour
     {
         _gameManager = FindObjectOfType<GameManager>();
         _audioManager = AudioManager.instance;
-        
-        Timer = 70;
         //playRenderer.enabled = false;
         // _pauseRenderer = PausePlay.GetComponentInChildren<SpriteRenderer>();
         //playRenderer = PausePlay.GetComponentInChildren<SpriteRenderer> ();
