@@ -8,25 +8,13 @@ public class TutorialToolTipManager : MonoBehaviour
     public List<GameObject> InstantiationPoints;
     public TutorialToolTip CurrentToolTip;
     public bool PlacedFirstPro;
-    public Dictionary<string, bool> ToolTipsShown = new Dictionary<string, bool>();
 
     //Instantiation Logic
     private void Start()
     {
         //if GameManager.DoTutorial
         ShowPopUp("TryLocation", 1);
-        PopulateTTSDictionary();
         ProfMenu = FindObjectOfType<ProfessionalsMenu>();
-    }
-
-    private void PopulateTTSDictionary()
-    {
-        ToolTipsShown.Add("TryLocation", false);
-        ToolTipsShown.Add("CheckProfInfo", false);
-        ToolTipsShown.Add("TryProfessional", false);
-        ToolTipsShown.Add("PointOutBudget", false);
-        ToolTipsShown.Add("PointOutTime", false);
-        ToolTipsShown.Add("FirstEvent", false);
     }
 
     //Make this an event listener
@@ -46,17 +34,10 @@ public class TutorialToolTipManager : MonoBehaviour
 
     public void ShowPopUp(string ToolTipName, float instDelay)
     {
-        bool value;
-        ToolTipsShown.TryGetValue(ToolTipName, out value);
+        string path = "ToolTips/" + ToolTipName;
+        CurrentToolTip = Resources.Load<TutorialToolTip>(path);
 
-        if (value)
-        {
-            // if prof menu is active and we trying to instantiate 
-            string path = "ToolTips/" + ToolTipName;
-            CurrentToolTip = Resources.Load<TutorialToolTip>(path);
-
-            Invoke("TrueInstantiation", instDelay);
-        }
+        Invoke("TrueInstantiation", instDelay);
     }
 
     private void TrueInstantiation()

@@ -87,7 +87,7 @@ public class ProfessionalStack : MonoBehaviour
             _dragObject = Instantiate<GameObject>(DragObject);
             dragObjectInstantiated = true;
 
-            if (FindObjectOfType<TutorialToolTip>().name == "TryProfessional")
+            if (FindObjectOfType<TutorialToolTip>().name == "TryProfessional(Clone)")
             {
                 EventManager.TriggerEvent("Close");
             }
