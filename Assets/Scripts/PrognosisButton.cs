@@ -34,7 +34,11 @@ public class PrognosisButton : MonoBehaviour
 
     public void HighlightButton()
     {
-        if (this.ButtonScript.GetType() == typeof(TimerController))
+        if(this.ButtonScript.GetType() == typeof(TutorialToolTip))
+        {
+            (ButtonScript as TutorialToolTip).HighlightOn();
+        }
+        else if (this.ButtonScript.GetType() == typeof(TimerController))
         {
             if (this.name == "PausePlay")
             {
@@ -97,7 +101,11 @@ public class PrognosisButton : MonoBehaviour
 
     public void UnhighlightButton()
     {
-        if (this.ButtonScript.GetType() == typeof(TimerController))
+        if (this.ButtonScript.GetType() == typeof(TutorialToolTip))
+        {
+            (ButtonScript as TutorialToolTip).HighlightOff();
+        }
+        else if (this.ButtonScript.GetType() == typeof(TimerController))
         {
             if (this.name == "PausePlay")
                 (ButtonScript as TimerController).HighlightPausePlayOff();
@@ -138,7 +146,12 @@ public class PrognosisButton : MonoBehaviour
 
     public void ButtonAction()
     {
-        if (this.ButtonScript.GetType() == typeof(TimerController))
+        if (this.ButtonScript.GetType() == typeof(TutorialToolTip))
+        {
+            (ButtonScript as TutorialToolTip).CloseToolTip();
+            _audioManager.PlaySound("Button Pressed");
+        }
+        else if (this.ButtonScript.GetType() == typeof(TimerController))
         {
             if (this.name == "PausePlay")
             {

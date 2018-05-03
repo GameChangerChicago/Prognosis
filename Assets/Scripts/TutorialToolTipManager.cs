@@ -59,6 +59,7 @@ public class TutorialToolTipManager : MonoBehaviour
             case "PointOutBudget":
                 CurrentToolTip = Instantiate(CurrentToolTip, InstantiationPoints[3].transform.position, Quaternion.identity);
                 CurrentToolTip.transform.parent = InstantiationPoints[3].transform;
+                PlacedFirstPro = true;
                 break;
             case "PointOutTime":
                 CurrentToolTip = Instantiate(CurrentToolTip, InstantiationPoints[4].transform.position, Quaternion.identity);

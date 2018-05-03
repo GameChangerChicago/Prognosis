@@ -9,6 +9,7 @@ public class ProfessionalSlot : MonoBehaviour
 	private SpriteRenderer _mySpriteRenderer;
     private TargetLocation _myTargetLocation;
     private GlobalStatsBar _theGSB;
+    private TutorialToolTipManager _ttManager;
     private bool _mousedOverWithAProfessional,
                  _hasAProfessional;
 
@@ -27,6 +28,7 @@ public class ProfessionalSlot : MonoBehaviour
         _myBoxCollider = this.GetComponent<BoxCollider2D>();
 		_mySpriteRenderer = this.GetComponent<SpriteRenderer> ();
 		BorderRenderer.color = _mySpriteRenderer.color;
+        _ttManager = FindObjectOfType<TutorialToolTipManager>();
     }
 
     void Update()
@@ -56,6 +58,11 @@ public class ProfessionalSlot : MonoBehaviour
                 _gameManager.SelectedProfessional.ProfessionalCount--;
                 if (_gameManager.SelectedProfessional.ProfessionalCount == 0)
                     _gameManager.SelectedProfessional.ButtonMask.SetActive(true);
+
+                if (!_ttManager.PlacedFirstPro)
+                {
+                    _ttManager.ShowPopUp("PointOutBudget", 0.5f);
+                }
 
                 _myTargetLocation.TheProfMenu.PlaceAProfessional(_myTargetLocation.name, _gameManager.SelectedProfessional.MyProfessionalType);
                 CurrentProfesional = _gameManager.SelectedProfessional;
