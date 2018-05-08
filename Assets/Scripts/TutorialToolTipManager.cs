@@ -52,14 +52,17 @@ public class TutorialToolTipManager : MonoBehaviour
             case "CheckProfInfo":
                 CurrentToolTip = Instantiate(CurrentToolTip, InstantiationPoints[1].transform.position, Quaternion.identity);
                 CurrentToolTip.transform.parent = InstantiationPoints[1].transform;
+                CurrentToolTip.GetComponentInChildren<Canvas>().overrideSorting = true;
                 break;
             case "TryProfessional":
                 CurrentToolTip = Instantiate(CurrentToolTip, InstantiationPoints[2].transform.position, Quaternion.identity);
                 CurrentToolTip.transform.parent = InstantiationPoints[2].transform;
+                CurrentToolTip.GetComponentInChildren<Canvas>().overrideSorting = true;
                 break;
             case "PointOutBudget":
                 CurrentToolTip = Instantiate(CurrentToolTip, InstantiationPoints[3].transform.position, Quaternion.identity);
                 CurrentToolTip.transform.parent = InstantiationPoints[3].transform;
+                CurrentToolTip.GetComponentInChildren<Canvas>().overrideSorting = true;
                 PlacedFirstPro = true;
                 break;
             case "PointOutTime":
