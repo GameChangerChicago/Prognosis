@@ -47,6 +47,7 @@ public class TutorialToolTipManager : MonoBehaviour
             case "TryLocation":
                 CurrentToolTip = Instantiate(CurrentToolTip, InstantiationPoints[0].transform.position, Quaternion.identity);
                 CurrentToolTip.transform.parent = InstantiationPoints[0].transform;
+                CurrentToolTip.GetComponentInChildren<Canvas>().overrideSorting = true;
                 break;
             case "CheckProfInfo":
                 CurrentToolTip = Instantiate(CurrentToolTip, InstantiationPoints[1].transform.position, Quaternion.identity);
