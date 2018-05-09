@@ -16,6 +16,11 @@ public class InputManager : MonoBehaviour
         {
             MouseUpHandler();
         }
+
+        if(Input.GetKeyUp(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     public void ClickableMousedEnter(PrognosisButton progButton)
@@ -166,6 +171,7 @@ public class InputManager : MonoBehaviour
         if (_currentMousedOverClickables.ContainsKey("ToolTip"))
         {
             _currentMousedOverClickables["ToolTip"].ButtonAction();
+            _currentMousedOverClickables.Remove("ToolTip");
         }
         else if (_currentMousedOverClickables.ContainsKey("PausePlay") ||
                 _currentMousedOverClickables.ContainsKey("FastForward") ||

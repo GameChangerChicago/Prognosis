@@ -36,11 +36,11 @@ public class TutorialToolTip : MonoBehaviour
 
     public void HighlightOn()
     {
-        Debug.Log("Highlighting");
+        //Debug.Log("Highlighting");
     }
 
     public void HighlightOff()
     {
-        Debug.Log("Not Highlighting");
+        //Debug.Log("Not Highlighting");
     }
 }

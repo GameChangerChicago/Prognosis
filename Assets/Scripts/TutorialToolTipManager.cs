@@ -17,21 +17,6 @@ public class TutorialToolTipManager : MonoBehaviour
         ProfMenu = FindObjectOfType<ProfessionalsMenu>();
     }
 
-    //Make this an event listener
-    private void CloseTTTHandler()
-    {
-        switch(CurrentToolTip.name)
-        {
-            case "TryLocation":
-                break;
-            case "CheckProfInfo":
-                break;
-            default:
-                Debug.Log("This tool tip doesn't exist... yet?");
-                break;
-        }
-    }
-
     public void ShowPopUp(string ToolTipName, float instDelay)
     {
         string path = "ToolTips/" + ToolTipName;
@@ -47,22 +32,18 @@ public class TutorialToolTipManager : MonoBehaviour
             case "TryLocation":
                 CurrentToolTip = Instantiate(CurrentToolTip, InstantiationPoints[0].transform.position, Quaternion.identity);
                 CurrentToolTip.transform.parent = InstantiationPoints[0].transform;
-                CurrentToolTip.GetComponentInChildren<Canvas>().overrideSorting = true;
                 break;
             case "CheckProfInfo":
                 CurrentToolTip = Instantiate(CurrentToolTip, InstantiationPoints[1].transform.position, Quaternion.identity);
                 CurrentToolTip.transform.parent = InstantiationPoints[1].transform;
-                CurrentToolTip.GetComponentInChildren<Canvas>().overrideSorting = true;
                 break;
             case "TryProfessional":
                 CurrentToolTip = Instantiate(CurrentToolTip, InstantiationPoints[2].transform.position, Quaternion.identity);
                 CurrentToolTip.transform.parent = InstantiationPoints[2].transform;
-                CurrentToolTip.GetComponentInChildren<Canvas>().overrideSorting = true;
                 break;
             case "PointOutBudget":
                 CurrentToolTip = Instantiate(CurrentToolTip, InstantiationPoints[3].transform.position, Quaternion.identity);
                 CurrentToolTip.transform.parent = InstantiationPoints[3].transform;
-                CurrentToolTip.GetComponentInChildren<Canvas>().overrideSorting = true;
                 PlacedFirstPro = true;
                 break;
             case "PointOutTime":
@@ -76,5 +57,7 @@ public class TutorialToolTipManager : MonoBehaviour
             default:
                 break;
         }
+
+        CurrentToolTip.GetComponentInChildren<Canvas>().overrideSorting = true;
     }
 }
