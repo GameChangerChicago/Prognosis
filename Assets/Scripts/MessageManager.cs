@@ -9,6 +9,7 @@ public class MessageManager : MonoBehaviour
     public SpriteRenderer CloseButtonSprite;
 
     private GameManager _theGameManager;
+    private TutorialToolTipManager _theTTTMan;
     private TargetLocation _ashPark,
                            _freemason,
                            _philmont,
@@ -16,6 +17,7 @@ public class MessageManager : MonoBehaviour
                            _eastBeaHeights;
     private Text _title,
                  _messageText;
+    private bool _firstMessageDisplayed;
 
     private void Start()
     {
@@ -28,10 +30,18 @@ public class MessageManager : MonoBehaviour
         _philmont = GameObject.Find("World Map/Philmont").GetComponent<TargetLocation>();
         _quinnSquare = GameObject.Find("World Map/Quinn Square").GetComponent<TargetLocation>();
         _eastBeaHeights = GameObject.Find("World Map/East Bea Heights").GetComponent<TargetLocation>();
+        _theTTTMan = FindObjectOfType<TutorialToolTipManager>();
     }
 
     public void ShowMessage(EventInfo messageEvent)
     {
+        if (!_firstMessageDisplayed)
+        {
+            _firstMessageDisplayed = true;
+
+            _theTTTMan.ShowPopUp("EventHappens", 0.2f);
+        }
+
         MessageBox.SetActive(true);
         _title.text = messageEvent.EventTitle;
         _messageText.text = messageEvent.EventText;
@@ -338,5 +348,15 @@ public class MessageManager : MonoBehaviour
     public void HideMessage()
     {
         MessageBox.SetActive(false);
+
+        TutorialToolTip currentTTT = FindObjectOfType<TutorialToolTip>();
+
+        if (currentTTT)
+        {
+            if (currentTTT.name == "EventHappens(Clone)")
+            {
+                EventManager.TriggerEvent("Close");
+            }
+        }
     }
 }
