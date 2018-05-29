@@ -345,10 +345,11 @@ public class MessageManager : MonoBehaviour
         CloseButtonSprite.color = new Color(CloseButtonSprite.color.r - 0.31f, CloseButtonSprite.color.g - 0.31f, CloseButtonSprite.color.b - 0.31f);
     }
 
-    public void HideMessage()
+    public void CloseMessage()
     {
         MessageBox.SetActive(false);
 
+        //If this is the first event the and the Tool Tips are set to show themselves
         TutorialToolTip currentTTT = FindObjectOfType<TutorialToolTip>();
 
         if (currentTTT)
@@ -358,5 +359,8 @@ public class MessageManager : MonoBehaviour
                 EventManager.TriggerEvent("Close");
             }
         }
+
+        //If this is a non numbered event; that is, the event is in reaction to completing the game
+
     }
 }

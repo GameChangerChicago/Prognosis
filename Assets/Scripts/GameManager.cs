@@ -117,20 +117,26 @@ public class GameManager : MonoBehaviour
                 ClearProfs();
                 theGSB.SetBudget();
 
-                CheckCurrentStats();
-
-                if (_theMessageManager)
+                if (!CheckCurrentStats())
                 {
-                    //This whole bit is going to have to be hardcoded to a certain degree.
-                    //We could make a random version of this but for now I believe we'll want this to be a tailored experience
-                    int rand;
-                    do
+                    if (_theMessageManager)
                     {
-                        rand = UnityEngine.Random.Range(1, 17);
-                    } while (rand == _lastEvent);
+                        //This whole bit is going to have to be hardcoded to a certain degree.
+                        //We could make a random version of this but for now I believe we'll want this to be a tailored experience
+                        int rand;
+                        do
+                        {
+                            rand = UnityEngine.Random.Range(1, 17);
+                        } while (rand == _lastEvent);
 
-                    _lastEvent = rand;
-                    _theMessageManager.ShowMessage(Resources.Load<EventInfo>("Events/Event" + rand));
+                        _lastEvent = rand;
+                        _theMessageManager.ShowMessage(Resources.Load<EventInfo>("Events/Event" + rand));
+                    }
+                }
+                else
+                {
+                    //This is where to load special event.
+
                 }
             }
             _currentTurn = value;
@@ -158,8 +164,7 @@ public class GameManager : MonoBehaviour
         _turnsMaintained = new int[CurrentVC.StatsToTrack.Count];
     }
 
-
-    private void CheckCurrentStats()
+    private bool CheckCurrentStats()
     {
         bool[] goalsReached = new bool[CurrentVC.StatsToTrack.Count];
         TargetLocation tl;
@@ -543,7 +548,14 @@ public class GameManager : MonoBehaviour
                 _turnsMaintained = new int[CurrentVC.StatsToTrack.Count];
                 UpdateGoalDisplay();
             }
+            else
+            {
+                //Call event here
+                return true;
+            }
         }
+
+        return false;
     }
 
     private void UpdateGoalDisplay()

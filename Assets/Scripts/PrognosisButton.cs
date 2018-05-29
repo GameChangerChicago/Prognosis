@@ -181,7 +181,7 @@ public class PrognosisButton : MonoBehaviour
         }
         else if (this.ButtonScript.GetType() == typeof(MessageManager))
         {
-            (ButtonScript as MessageManager).HideMessage();
+            (ButtonScript as MessageManager).CloseMessage();
             _theInputManager.ClickableMousedExit(this);
             _mousedOn = false;
             _audioManager.PlaySound("Button Pressed");
