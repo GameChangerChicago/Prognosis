@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MessageManager : MonoBehaviour
 {
@@ -17,7 +18,8 @@ public class MessageManager : MonoBehaviour
                            _eastBeaHeights;
     private Text _title,
                  _messageText;
-    private bool _firstMessageDisplayed;
+    private bool _firstMessageDisplayed,
+                 _finalMessage;
 
     private void Start()
     {
@@ -52,8 +54,8 @@ public class MessageManager : MonoBehaviour
             randLoc = RandomizeLocation();
             AddLocationInfo(randLoc.ToString());
         }
-        
-        if(messageEvent.TheEventEffect != null)
+
+        if (messageEvent.TheEventEffect != null)
         {
             EventEffect EE = messageEvent.TheEventEffect;
 
@@ -176,7 +178,7 @@ public class MessageManager : MonoBehaviour
                         }
                         break;
                     case Locations.RANDOM:
-                        switch(randLoc)
+                        switch (randLoc)
                         {
                             case Locations.ASHPARK:
                                 switch (EE.StatToChange[i])
@@ -267,6 +269,8 @@ public class MessageManager : MonoBehaviour
                 }
             }
         }
+        else
+            _finalMessage = true;
     }
 
     private Locations RandomizeLocation()
@@ -360,7 +364,12 @@ public class MessageManager : MonoBehaviour
             }
         }
 
-        //If this is a non numbered event; that is, the event is in reaction to completing the game
+        //If this is a final event; that is, the event is in reaction to completing the game
+        if (_finalMessage)
+        {
+            SceneManager.LoadScene("MainMenu");
 
+            //Turn off tool tips
+        }
     }
 }

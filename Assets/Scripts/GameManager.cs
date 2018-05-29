@@ -136,7 +136,7 @@ public class GameManager : MonoBehaviour
                 else
                 {
                     //This is where to load special event.
-
+                    _theMessageManager.ShowMessage(Resources.Load<EventInfo>("Events/EventTerry"));
                 }
             }
             _currentTurn = value;
