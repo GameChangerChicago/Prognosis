@@ -103,6 +103,7 @@ public class TimerController : MonoBehaviour
     {
         _gameManager.CurrentTurn++;
         Timer = 0;
+        clockRenderer.color = new Color(1, 1, 1); //set to white
         _warningGiven = false;
     }
     
