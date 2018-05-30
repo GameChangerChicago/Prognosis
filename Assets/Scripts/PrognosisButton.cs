@@ -6,6 +6,7 @@ public class PrognosisButton : MonoBehaviour
 {
     public GameObject ButtonHighlight;
     public MonoBehaviour ButtonScript;
+    public int ButtonLayer;
     private InputManager _theInputManager;
     private Collider2D _theCollider;
     private bool _mousedOn;
