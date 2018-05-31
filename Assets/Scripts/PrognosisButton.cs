@@ -17,6 +17,34 @@ public class PrognosisButton : MonoBehaviour
         _theInputManager = FindObjectOfType<InputManager>();
         _theCollider = this.GetComponent<Collider2D>();
         _audioManager = AudioManager.instance;
+        AddButtonNames();
+    }
+
+    private void AddButtonNames()
+    {
+        switch (ButtonLayer)
+        {
+            case 0:
+                if (!_theInputManager.ButtonStringsLayer0.Contains(this.name))
+                    _theInputManager.ButtonStringsLayer0.Add(this.name);
+                break;
+            case 1:
+                if (!_theInputManager.ButtonStringsLayer1.Contains(this.name))
+                    _theInputManager.ButtonStringsLayer1.Add(this.name);
+                break;
+            case 2:
+                if (!_theInputManager.ButtonStringsLayer2.Contains(this.name))
+                    _theInputManager.ButtonStringsLayer2.Add(this.name);
+                break;
+            case 3:
+                if (!_theInputManager.ButtonStringsLayer3.Contains(this.name))
+                    _theInputManager.ButtonStringsLayer3.Add(this.name);
+                break;
+            case 4:
+                if (!_theInputManager.ButtonStringsLayer4.Contains(this.name))
+                    _theInputManager.ButtonStringsLayer4.Add(this.name);
+                break;
+        }
     }
 
     private void Update()
