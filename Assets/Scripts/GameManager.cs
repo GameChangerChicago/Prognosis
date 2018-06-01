@@ -136,7 +136,8 @@ public class GameManager : MonoBehaviour
                 else
                 {
                     //This is where to load special event.
-                    _theMessageManager.ShowMessage(Resources.Load<EventInfo>("Events/EventTerry"));
+                    string path = "Events/Event" + "Terry" + "End";
+                    _theMessageManager.ShowMessage(Resources.Load<EventInfo>(path));
                 }
             }
             _currentTurn = value;
@@ -550,7 +551,6 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                //Call event here
                 return true;
             }
         }
