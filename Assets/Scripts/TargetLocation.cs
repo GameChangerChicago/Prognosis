@@ -174,10 +174,14 @@ public class TargetLocation : MonoBehaviour
             tl.Active = false;
             //tl.spriteHighlight.SetActive (false);
         }
-        
-        if(FindObjectOfType<TutorialToolTip>().name == "TryLocation(Clone)")
+        TutorialToolTip currentTTT = FindObjectOfType<TutorialToolTip>();
+
+        if (currentTTT)
         {
-            EventManager.TriggerEvent("Close");
+            if (currentTTT.name == "TryLocation(Clone)")
+            {
+                EventManager.TriggerEvent("Close");
+            }
         }
     }
 

@@ -133,7 +133,7 @@ public class InputManager : MonoBehaviour
             _currentMousedOverClickables[currentButton].ButtonAction();
             _currentMousedOverClickables.Remove(currentButton);
         }
-        else
+        else if(currentButton != "Professional")
             _currentMousedOverClickables[currentButton].ButtonAction();
     }
 }

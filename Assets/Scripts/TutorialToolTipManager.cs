@@ -7,7 +7,8 @@ public class TutorialToolTipManager : MonoBehaviour
     private ProfessionalsMenu ProfMenu;
     public List<GameObject> InstantiationPoints;
     public TutorialToolTip CurrentToolTip;
-    public bool PlacedFirstPro;
+    public bool PlacedFirstPro,
+                FirstMessageShown;
 
     //Instantiation Logic
     private void Start()
@@ -53,6 +54,7 @@ public class TutorialToolTipManager : MonoBehaviour
             case "EventHappens":
                 CurrentToolTip = Instantiate(CurrentToolTip, InstantiationPoints[5].transform.position, Quaternion.identity);
                 CurrentToolTip.transform.parent = InstantiationPoints[5].transform;
+                FirstMessageShown = true;
                 break;
             default:
                 break;

@@ -18,8 +18,7 @@ public class MessageManager : MonoBehaviour
                            _eastBeaHeights;
     private Text _title,
                  _messageText;
-    private bool _firstMessageDisplayed,
-                 _finalMessage;
+    private bool _finalMessage;
 
     private void Start()
     {
@@ -37,10 +36,8 @@ public class MessageManager : MonoBehaviour
 
     public void ShowMessage(EventInfo messageEvent)
     {
-        if (!_firstMessageDisplayed)
+        if (!_theTTTMan.FirstMessageShown)
         {
-            _firstMessageDisplayed = true;
-
             _theTTTMan.ShowPopUp("EventHappens", 0.2f);
         }
 
@@ -49,14 +46,14 @@ public class MessageManager : MonoBehaviour
         _messageText.text = messageEvent.EventText;
         Locations randLoc = Locations.RANDOM;
 
-        if (messageEvent.TheEventEffect.LocationToAffect[0] == Locations.RANDOM)
-        {
-            randLoc = RandomizeLocation();
-            AddLocationInfo(randLoc.ToString());
-        }
-
         if (messageEvent.TheEventEffect != null)
         {
+            if (messageEvent.TheEventEffect.LocationToAffect[0] == Locations.RANDOM)
+            {
+                randLoc = RandomizeLocation();
+                AddLocationInfo(randLoc.ToString());
+            }
+
             EventEffect EE = messageEvent.TheEventEffect;
 
             for (int i = 0; i < EE.LocationToAffect.Count; i++)
@@ -351,8 +348,6 @@ public class MessageManager : MonoBehaviour
 
     public void CloseMessage()
     {
-        MessageBox.SetActive(false);
-
         //If this is the first event the and the Tool Tips are set to show themselves
         TutorialToolTip currentTTT = FindObjectOfType<TutorialToolTip>();
 
@@ -371,5 +366,7 @@ public class MessageManager : MonoBehaviour
 
             //Turn off tool tips
         }
+
+        MessageBox.SetActive(false);
     }
 }
