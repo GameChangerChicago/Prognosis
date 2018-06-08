@@ -63,7 +63,7 @@ public class PrognosisButton : MonoBehaviour
 
     public void HighlightButton()
     {
-        if(this.ButtonScript.GetType() == typeof(TutorialToolTip))
+        if (this.ButtonScript.GetType() == typeof(TutorialToolTip))
         {
             (ButtonScript as TutorialToolTip).HighlightOn();
         }
@@ -80,7 +80,7 @@ public class PrognosisButton : MonoBehaviour
                 _audioManager.PlaySound("Mouse Over");
             }
         }
-        else if(this.ButtonScript.GetType() == typeof(GoalMenuController))
+        else if (this.ButtonScript.GetType() == typeof(GoalMenuController))
         {
             if (this.name == "GoalButton")
             {
@@ -98,7 +98,7 @@ public class PrognosisButton : MonoBehaviour
             (ButtonScript as MessageManager).HighlightOn();
             _audioManager.PlaySound("Mouse Over");
         }
-        else if(this.ButtonScript.GetType() == typeof(ProfessionalStack))
+        else if (this.ButtonScript.GetType() == typeof(ProfessionalStack))
         {
             (ButtonScript as ProfessionalStack).OnHoverTool.HighlightOn();
             _audioManager.PlaySound("Mouse Over");

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 public class SelectPlayer : MonoBehaviour {
 
+    public bool ActiveCharacter;
 	private AnimationManager animationManager;
 	private GameObject ConfirmSelectionMenu, ConfirmSelectionMenuText;
 	private PlayerManager playerManager;
@@ -41,15 +42,17 @@ public class SelectPlayer : MonoBehaviour {
 	}
 
 	void OnMouseDown(){
+        if(ActiveCharacter)
+        {
+            audioSource.Play();
+            playerManager.SetPlayer(this.name);
+            ConfirmSelectionMenuText.GetComponent<Text>().text = "Are you sure you want to play as "
+                + this.name + "?";
 
-		audioSource.Play ();
-		playerManager.SetPlayer (this.name);
-		ConfirmSelectionMenuText.GetComponent<Text>().text =  "Are you sure you want to play as " 
-			+ this.name + "?";
-		
-		foreach (GameObject ojb in playerManager.playerCharacters)
-			ojb.GetComponent<BoxCollider2D> ().enabled = false;
+            foreach (GameObject ojb in playerManager.playerCharacters)
+                ojb.GetComponent<BoxCollider2D>().enabled = false;
 
-		ConfirmSelectionMenu.SetActive (true);
+            ConfirmSelectionMenu.SetActive(true);
+        }
 	}
 }
